@@ -157,6 +157,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Repo-specific
+data/
+chroma_db/
+
 # Spyder project settings
 .spyderproject
 .spyproject
