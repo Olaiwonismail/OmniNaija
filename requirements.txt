@@ -3,3 +3,5 @@ uvicorn[standard]
 python-dotenv
 google-genai
 langgraph
+streamlit
+requests

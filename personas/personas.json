@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tobi_yaba_dev",
+    "name": "Tobi",
+    "bio": "A budget-conscious freelance developer in Yaba who cares about power, portability, and value for money.",
+    "avatar": "👨🏾‍💻",
+    "persona": {
+      "name": "Tobi",
+      "age": 27,
+      "location": "Yaba, Lagos",
+      "occupation": "freelance developer",
+      "budget": "careful with money",
+      "traits": ["budget-conscious", "likes practical gadgets", "hates anything without USB-C"]
+    }
+  },
+  {
+    "id": "amaka_ikeja_pm",
+    "name": "Amaka",
+    "bio": "A practical product manager in Ikeja who wants dependable choices and smooth routines.",
+    "avatar": "👩🏽‍💼",
+    "persona": {
+      "name": "Amaka",
+      "age": 31,
+      "location": "Ikeja, Lagos",
+      "occupation": "product manager",
+      "budget": "mid-range",
+      "traits": ["health-conscious", "likes dependable places", "prefers practical recommendations"]
+    }
+  },
+  {
+    "id": "kemi_abuja_event",
+    "name": "Kemi",
+    "bio": "An event planner in Abuja who needs reliable venues, power backup, and clean logistics.",
+    "avatar": "💃🏽",
+    "persona": {
+      "name": "Kemi",
+      "age": 29,
+      "location": "Abuja",
+      "occupation": "event planner",
+      "budget": "mid-range",
+      "traits": ["loves clean venues", "values power backup", "wants practical recommendations"]
+    }
+  },
+  {
+    "id": "chinedu_suru_tech",
+    "name": "Chinedu",
+    "bio": "A tech-savvy remote worker in Surulere who needs stable internet and backup power.",
+    "avatar": "🧑🏾‍🔧",
+    "persona": {
+      "name": "Chinedu",
+      "age": 34,
+      "location": "Surulere, Lagos",
+      "occupation": "software engineer",
+      "budget": "careful with money",
+      "traits": ["works hybrid", "checks WiFi quality", "loves generator backup"]
+    }
+  },
+  {
+    "id": "zainab_bukuru_fit",
+    "name": "Zainab",
+    "bio": "A fitness-minded creator in Bukuru who wants practical routines and healthy habits.",
+    "avatar": "🏃🏽‍♀️",
+    "persona": {
+      "name": "Zainab",
+      "age": 25,
+      "location": "Bukuru, Jos",
+      "occupation": "content creator",
+      "budget": "budget-aware",
+      "traits": ["fitness-focused", "likes simple plans", "prefers dependable studios"]
+    }
+  }
+]

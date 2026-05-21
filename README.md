@@ -38,6 +38,20 @@ Notes:
 - For embedding model downloads, set `HF_TOKEN` (Hugging Face) to improve throughput and avoid rate limits.
 - For end-to-end recommender text generation set `GEMINI_API_KEY` in `.env` or the environment.
 
+## Streamlit App
+
+Run the UI with two tabs and the sidebar persona selector:
+
+```bash
+streamlit run ui/streamlit_app.py
+```
+
+What to expect:
+- The sidebar shows 5 pre-built Nigerian personas with a name, short bio, and avatar.
+- Selecting a persona immediately stores that persona in session state and sends it with all future API calls.
+- The first tab drives `/simulate` for review generation.
+- The second tab drives `/recommend` for multi-turn chat, keeping the same `session_id` and persona across follow-ups.
+
 ---
 
 ## Problem
