@@ -1,27 +1,60 @@
-version: "3.9"
+*   Original code: A `docker-compose.yml` file with `version: "3.9"`, services `backend` and `ui`.
+    *   Suggested edit: Changes `version` to `3.8`, renames `backend` to `api`, changes `build` structure for `api` and `ui`, changes `volumes` for `api` and `ui`, and removes environment variables/commands.
+    *   Goal: Apply the suggested edit to the original code.
 
-services:
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - LLM_PROVIDER=${LLM_PROVIDER}
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-    volumes:
-      - ./chroma_db:/app/chroma_db
-      - ./data:/app/data
-    ports:
-      - "8000:8000"
-    command: ["/bin/sh", "-c", "echo 'TODO: wire backend service' && sleep 3600"]
+    *   `version: "3.9"` $\rightarrow$ `version: '3.8'`
+    *   Service `backend`:
+        *   Rename to `api`.
+        *   `build`: `context: .`, `dockerfile: Dockerfile` $\rightarrow$ `build: ./api`.
+        *   `environment`: Remove.
+        *   `volumes`: `./chroma_db:/app/chroma_db`, `./data:/app/data` $\rightarrow$ `./chroma_db:/app/chroma_db`.
+        *   `ports`: `"8000:8000"` (keep).
+        *   `command`: Remove.
+    *   Service `ui`:
+        *   `image`: `python:3.11-slim` $\rightarrow$ remove (it's replaced by `build`).
+        *   `build`: Add `build: ./ui`.
+        *   `environment`: Remove.
+        *   `volumes`: `./ui:/app/ui` $\rightarrow$ `./chroma_db:/app/chroma_db`.
+        *   `ports`: `"8501:8501"` (keep).
+        *   `command`: Remove.
 
-  ui:
-    image: python:3.11-slim
-    environment:
-      - STREAMLIT_SERVER_PORT=8501
-    volumes:
-      - ./ui:/app/ui
-    ports:
-      - "8501:8501"
-    command: ["/bin/sh", "-c", "echo 'TODO: wire UI service' && sleep 3600"]
+    *   The suggested edit is a wholesale replacement of the content under `services`.
+    *   Let's look at the "Apply the SUGGESTED EDIT to the ORIGINAL CODE" instruction.
+    *   Usually, this means taking the delta or the final state described by the edit.
+
+    *   `version: '3.8'`
+    *   `services:`
+        *   `api:`
+            *   `build: ./api`
+            *   `ports: ["8000:8000"]`
+            *   `volumes: ["./chroma_db:/app/chroma_db"]`
+        *   `ui:`
+            *   `build: ./ui`
+            *   `ports: ["8501:8501"]`
+            *   `volumes: ["./chroma_db:/app/chroma_db"]`
+
+    *   Output ONLY code.
+    *   No explanation.
+    *   Preserve comments (none in the edit, but check original). Original has no comments.
+
+    *Wait*, let's look closely at the `api` service in the suggestion:
+    `api:`
+    `  build: ./api`
+    `  ports:`
+    `    - "8000:8000"`
+    `  volumes:`
+    `    - ./chroma_db:/app/chroma_db`
+
+    And `ui`:
+    `ui:`
+    `  build: ./ui`
+    `  ports:`
+    `    - "8501:8501"`
+    `  volumes:`
+    `    - ./chroma_db:/app/chroma_db`
+
+    The original code had `backend` service. The suggestion changes it to `api`.
+    The original code had `version: "3.9"`. The suggestion changes it to `version: '3.8'`.
+
+    Final check of the structure.
+
