@@ -14,6 +14,21 @@ PERSONAS_PATH = Path(__file__).resolve().parent.parent / "personas" / "personas.
 CHROMA_DIR = Path(__file__).resolve().parent.parent / "chroma_db"
 CHROMA_COLLECTION = "amazon_products"
 
+REVIEW_PICKER_IDS = [
+    "Electronics:B07Y11LT52",
+    "Electronics:B0C1FRBK4K",
+    "Electronics:B0BB6TYK7V",
+    "Electronics:B07S5JVP78",
+    "Home_and_Kitchen:B000BRLXUI",
+    "Home_and_Kitchen:B0917BW1RH",
+    "Home_and_Kitchen:B0B2CMJ8TQ",
+    "Home_and_Kitchen:B0BH7HRYZV",
+    "Books:0307744434",
+    "Books:B00HOV4GEO",
+    "Books:B002SXIF4A",
+    "Books:B008BU74RS",
+]
+
 
 @st.cache_data
 def load_personas() -> list[dict[str, Any]]:
@@ -24,7 +39,7 @@ def load_personas() -> list[dict[str, Any]]:
 def load_review_products(limit: int = 12) -> list[dict[str, Any]]:
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
     collection = client.get_collection(name=CHROMA_COLLECTION)
-    result = collection.get(limit=limit, include=["metadatas", "documents"])
+    result = collection.get(ids=REVIEW_PICKER_IDS[:limit], include=["metadatas", "documents"])
 
     products: list[dict[str, Any]] = []
     for idx, product_id in enumerate(result.get("ids", [])):
@@ -190,7 +205,7 @@ def render_simulator_tab(persona: dict[str, Any]) -> None:
 
     products = load_review_products()
     product_labels = [
-        f"{product['title']} | {product['category']} | {product['product_id']}"
+        f"{product['category']} | {product['title']} | {product['product_id']}"
         for product in products
     ]
     default_index = next(
@@ -200,7 +215,7 @@ def render_simulator_tab(persona: dict[str, Any]) -> None:
 
     with st.form("simulate_form", clear_on_submit=False):
         selected_label = st.selectbox("Choose a product", product_labels, index=default_index)
-        selected_product = next(product for product in products if f"{product['title']} | {product['category']} | {product['product_id']}" == selected_label)
+        selected_product = next(product for product in products if f"{product['category']} | {product['title']} | {product['product_id']}" == selected_label)
         submitted = st.form_submit_button("Generate review")
 
     if submitted:
