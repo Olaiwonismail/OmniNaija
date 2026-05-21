@@ -61,9 +61,9 @@ def run():
         print("FAIL: retrieve_locations returned non-list")
         failures += 1
 
-    if Config.GEMINI_API_KEY:
+    if Config.GROQ_API_KEY or Config.GEMINI_API_KEY:
         try:
-            print("Testing compose_response (will call Gemini)...")
+            print("Testing compose_response (will call Groq first, Gemini fallback)...")
             state["products"] = prods
             state["locations"] = locs
             text = compose_response(state, top_k_products=2)
@@ -72,7 +72,7 @@ def run():
             print("FAIL: compose_response raised:", e)
             failures += 1
     else:
-        print("Skipping compose_response test because GEMINI_API_KEY not set in env")
+        print("Skipping compose_response test because neither GROQ_API_KEY nor GEMINI_API_KEY is set in env")
 
     if failures:
         print(f"\nCompleted with {failures} failures.")

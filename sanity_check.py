@@ -1,22 +1,16 @@
-from google import genai
-
 from config import Config
+from llm import generate_text_with_fallback
 
 
 def run_sanity_check():
-    if not Config.GEMINI_API_KEY:
-        print("Error: GEMINI_API_KEY not set in environment.")
+    if not Config.GROQ_API_KEY and not Config.GEMINI_API_KEY:
+        print("Error: neither GROQ_API_KEY nor GEMINI_API_KEY is set in environment.")
         return
 
-    client = genai.Client(api_key=Config.GEMINI_API_KEY)
-
-    print(f"Calling model: {Config.GEMINI_MODEL}...")
     try:
-        response = client.models.generate_content(
-            model=Config.GEMINI_MODEL,
-            contents="Say hello in one short sentence.",
-        )
-        print("Response:", response.text)
+        response_text, provider = generate_text_with_fallback("Say hello in one short sentence.")
+        print(f"Response provider: {provider}")
+        print("Response:", response_text)
     except Exception as e:
         print(f"An error occurred: {e}")
 

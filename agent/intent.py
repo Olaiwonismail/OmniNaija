@@ -3,9 +3,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from google import genai
-
-from config import Config
+from llm import generate_text_with_fallback
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 
@@ -26,12 +24,6 @@ def load_prompt_template(name: str) -> str:
     if not path.exists():
         raise FileNotFoundError(f"Prompt template not found: {name}")
     return path.read_text(encoding="utf-8")
-
-
-def get_gemini_client() -> genai.Client:
-    if not Config.GEMINI_API_KEY:
-        raise RuntimeError("GEMINI_API_KEY is not configured")
-    return genai.Client(api_key=Config.GEMINI_API_KEY)
 
 
 def _normalize_value(value: Any) -> Any:
@@ -94,16 +86,13 @@ def classify_user_intent(
         .replace("{{cart_history}}", _stringify(cart_value))
     )
 
-    client = get_gemini_client()
-    response = client.models.generate_content(model=Config.GEMINI_MODEL, contents=prompt)
-    response_text = getattr(response, "text", "") or ""
+    response_text, _provider = generate_text_with_fallback(prompt)
 
     try:
         result = _extract_json_object(response_text)
     except ValueError:
         repair_prompt = prompt + "\n\nIMPORTANT: Return only valid JSON with intent, confidence, and bridge_category."
-        retry_response = client.models.generate_content(model=Config.GEMINI_MODEL, contents=repair_prompt)
-        retry_text = getattr(retry_response, "text", "") or ""
+        retry_text, _provider = generate_text_with_fallback(repair_prompt)
         result = _extract_json_object(retry_text)
 
     intent = str(result.get("intent", "general_browsing")).strip()

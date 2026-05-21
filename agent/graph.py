@@ -3,8 +3,7 @@ from typing import Any, Dict
 from pathlib import Path
 import json
 
-from config import Config
-from google import genai
+from llm import generate_text_with_fallback
 
 
 def understand_user(message: str, persona: Any, chat_history: Any = None, state: Dict[str, Any] | None = None) -> Dict[str, Any]:
@@ -212,10 +211,5 @@ def compose_response(state: Dict[str, Any], top_k_products: int = 3) -> str:
 	if locations and "{{retrieved_locations}}" not in template:
 		prompt += f"\n\nRetrieved locations:\n{retrieved_locations}"
 
-	if not Config.GEMINI_API_KEY:
-		raise RuntimeError("GEMINI_API_KEY is not configured in the environment")
-
-	client = genai.Client(api_key=Config.GEMINI_API_KEY)
-	response = client.models.generate_content(model=Config.GEMINI_MODEL, contents=prompt)
-	text = getattr(response, "text", "") or ""
+	text, _provider = generate_text_with_fallback(prompt)
 	return text.strip()

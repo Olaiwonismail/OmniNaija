@@ -6,11 +6,11 @@ from typing import Any
 
 import chromadb
 from fastapi import FastAPI, HTTPException
-from google import genai
 from pydantic import BaseModel, Field
 
 from config import Config
 from demo_cache import get_demo_cache_response
+from llm import generate_text_with_fallback
 from agent.graph import (
     understand_user,
     retrieve_products,
@@ -153,12 +153,6 @@ def render_review_prompt(persona: dict[str, Any], product: dict[str, Any]) -> st
     )
 
 
-def get_gemini_client() -> genai.Client:
-    if not Config.GEMINI_API_KEY:
-        raise HTTPException(status_code=500, detail="GEMINI_API_KEY is not configured")
-    return genai.Client(api_key=Config.GEMINI_API_KEY)
-
-
 def extract_json_object(text: str) -> dict[str, Any]:
     if not text:
         raise ValueError("Empty model response")
@@ -185,11 +179,7 @@ def extract_json_object(text: str) -> dict[str, Any]:
 
 
 def request_review_from_gemini(prompt: str) -> dict[str, Any]:
-    client = get_gemini_client()
-    model_name = Config.GEMINI_MODEL
-
-    response = client.models.generate_content(model=model_name, contents=prompt)
-    response_text = getattr(response, "text", "") or ""
+    response_text, _provider = generate_text_with_fallback(prompt)
 
     try:
         return extract_json_object(response_text)
@@ -198,8 +188,7 @@ def request_review_from_gemini(prompt: str) -> dict[str, Any]:
             prompt
             + "\n\nIMPORTANT: Return only a valid JSON object with keys rating and review. No markdown, no code fences."
         )
-        retry_response = client.models.generate_content(model=model_name, contents=repair_prompt)
-        retry_text = getattr(retry_response, "text", "") or ""
+        retry_text, _provider = generate_text_with_fallback(repair_prompt)
         try:
             return extract_json_object(retry_text)
         except ValueError as exc:
