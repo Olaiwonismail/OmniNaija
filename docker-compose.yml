@@ -1,60 +1,43 @@
-*   Original code: A `docker-compose.yml` file with `version: "3.9"`, services `backend` and `ui`.
-    *   Suggested edit: Changes `version` to `3.8`, renames `backend` to `api`, changes `build` structure for `api` and `ui`, changes `volumes` for `api` and `ui`, and removes environment variables/commands.
-    *   Goal: Apply the suggested edit to the original code.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    env_file:
+      - .env
+    environment:
+      HF_TOKEN: ${HF_TOKEN:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL: ${GROQ_MODEL:-llama-3.3-70b-versatile}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemma4}
+      PYTHONUNBUFFERED: '1'
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./chroma_db:/app/chroma_db
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
 
-    *   `version: "3.9"` $\rightarrow$ `version: '3.8'`
-    *   Service `backend`:
-        *   Rename to `api`.
-        *   `build`: `context: .`, `dockerfile: Dockerfile` $\rightarrow$ `build: ./api`.
-        *   `environment`: Remove.
-        *   `volumes`: `./chroma_db:/app/chroma_db`, `./data:/app/data` $\rightarrow$ `./chroma_db:/app/chroma_db`.
-        *   `ports`: `"8000:8000"` (keep).
-        *   `command`: Remove.
-    *   Service `ui`:
-        *   `image`: `python:3.11-slim` $\rightarrow$ remove (it's replaced by `build`).
-        *   `build`: Add `build: ./ui`.
-        *   `environment`: Remove.
-        *   `volumes`: `./ui:/app/ui` $\rightarrow$ `./chroma_db:/app/chroma_db`.
-        *   `ports`: `"8501:8501"` (keep).
-        *   `command`: Remove.
-
-    *   The suggested edit is a wholesale replacement of the content under `services`.
-    *   Let's look at the "Apply the SUGGESTED EDIT to the ORIGINAL CODE" instruction.
-    *   Usually, this means taking the delta or the final state described by the edit.
-
-    *   `version: '3.8'`
-    *   `services:`
-        *   `api:`
-            *   `build: ./api`
-            *   `ports: ["8000:8000"]`
-            *   `volumes: ["./chroma_db:/app/chroma_db"]`
-        *   `ui:`
-            *   `build: ./ui`
-            *   `ports: ["8501:8501"]`
-            *   `volumes: ["./chroma_db:/app/chroma_db"]`
-
-    *   Output ONLY code.
-    *   No explanation.
-    *   Preserve comments (none in the edit, but check original). Original has no comments.
-
-    *Wait*, let's look closely at the `api` service in the suggestion:
-    `api:`
-    `  build: ./api`
-    `  ports:`
-    `    - "8000:8000"`
-    `  volumes:`
-    `    - ./chroma_db:/app/chroma_db`
-
-    And `ui`:
-    `ui:`
-    `  build: ./ui`
-    `  ports:`
-    `    - "8501:8501"`
-    `  volumes:`
-    `    - ./chroma_db:/app/chroma_db`
-
-    The original code had `backend` service. The suggestion changes it to `api`.
-    The original code had `version: "3.9"`. The suggestion changes it to `version: '3.8'`.
-
-    Final check of the structure.
-
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+    env_file:
+      - .env
+    environment:
+      BACKEND_URL: http://api:8000
+      PYTHONUNBUFFERED: '1'
+    ports:
+      - '8501:8501'
+    volumes:
+      - ./chroma_db:/app/chroma_db
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
