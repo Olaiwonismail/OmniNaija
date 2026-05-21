@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from typing import Any
 
+import chromadb
 import requests
 import streamlit as st
 
@@ -10,11 +11,34 @@ import streamlit as st
 APP_TITLE = "OmniNaija Intent Graph"
 DEFAULT_BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
 PERSONAS_PATH = Path(__file__).resolve().parent.parent / "personas" / "personas.json"
+CHROMA_DIR = Path(__file__).resolve().parent.parent / "chroma_db"
+CHROMA_COLLECTION = "amazon_products"
 
 
 @st.cache_data
 def load_personas() -> list[dict[str, Any]]:
     return json.loads(PERSONAS_PATH.read_text(encoding="utf-8"))
+
+
+@st.cache_data
+def load_review_products(limit: int = 12) -> list[dict[str, Any]]:
+    client = chromadb.PersistentClient(path=str(CHROMA_DIR))
+    collection = client.get_collection(name=CHROMA_COLLECTION)
+    result = collection.get(limit=limit, include=["metadatas", "documents"])
+
+    products: list[dict[str, Any]] = []
+    for idx, product_id in enumerate(result.get("ids", [])):
+        metadata = dict(result.get("metadatas", [{}])[idx] or {})
+        products.append(
+            {
+                "product_id": product_id,
+                "title": metadata.get("title") or product_id,
+                "category": metadata.get("category") or "",
+                "brand": metadata.get("brand") or "",
+                "price": metadata.get("price"),
+            }
+        )
+    return products
 
 
 def persona_card(persona_entry: dict[str, Any]) -> str:
@@ -30,14 +54,71 @@ def persona_card(persona_entry: dict[str, Any]) -> str:
 
 def init_state() -> None:
     personas = load_personas()
+    products = load_review_products()
     if "selected_persona_id" not in st.session_state:
         st.session_state.selected_persona_id = personas[0]["id"]
     if "selected_persona" not in st.session_state:
         st.session_state.selected_persona = personas[0]["persona"]
+    if "selected_product_id" not in st.session_state and products:
+        st.session_state.selected_product_id = products[0]["product_id"]
     if "recommend_session_id" not in st.session_state:
         st.session_state.recommend_session_id = None
     if "chat_messages" not in st.session_state:
         st.session_state.chat_messages = []
+    if "latest_intent" not in st.session_state:
+        st.session_state.latest_intent = None
+    if "latest_bridged" not in st.session_state:
+        st.session_state.latest_bridged = None
+    if "latest_locations" not in st.session_state:
+        st.session_state.latest_locations = []
+
+
+def reset_recommendation_conversation() -> None:
+    st.session_state.recommend_session_id = None
+    st.session_state.chat_messages = []
+    st.session_state.latest_intent = None
+    st.session_state.latest_bridged = None
+    st.session_state.latest_locations = []
+
+
+def stream_chat_response(text: str):
+    if not text:
+        yield text
+        return
+
+    chunk_size = 24
+    for index in range(0, len(text), chunk_size):
+        yield text[: index + chunk_size]
+
+
+def format_intent_label(intent: dict[str, Any] | str | None) -> str:
+    if isinstance(intent, dict):
+        raw_value = intent.get("label") or intent.get("intent") or intent.get("name")
+    else:
+        raw_value = intent
+
+    if not raw_value:
+        return "No intent yet"
+
+    return str(raw_value).replace("_", " ").strip().title()
+
+
+def format_bridge_label(bridge_category: str | None) -> str:
+    if not bridge_category:
+        return "location recommendation"
+    return str(bridge_category).replace("_", " ").strip().title()
+
+
+def format_location_label(location: Any) -> str:
+    if isinstance(location, dict):
+        return str(
+            location.get("name")
+            or location.get("venue_name")
+            or location.get("venue_id")
+            or location.get("title")
+            or "Suggested venue"
+        )
+    return str(location)
 
 
 def select_persona() -> dict[str, Any]:
@@ -74,27 +155,89 @@ def render_simulator_tab(persona: dict[str, Any]) -> None:
     st.subheader("Review Simulator")
     st.write("Generate a Nigerian-voice review for any product using the selected persona.")
 
+    products = load_review_products()
+    product_labels = [
+        f"{product['title']} | {product['category']} | {product['product_id']}"
+        for product in products
+    ]
+    default_index = next(
+        (index for index, product in enumerate(products) if product["product_id"] == st.session_state.get("selected_product_id")),
+        0,
+    )
+
     with st.form("simulate_form", clear_on_submit=False):
-        product_id = st.text_input("Product ID / ASIN", value="B000BRLXUI")
+        selected_label = st.selectbox("Choose a product", product_labels, index=default_index)
+        selected_product = next(product for product in products if f"{product['title']} | {product['category']} | {product['product_id']}" == selected_label)
         submitted = st.form_submit_button("Generate review")
 
     if submitted:
-        payload = {"persona_description": persona, "product_id": product_id}
+        st.session_state.selected_product_id = selected_product["product_id"]
+        payload = {"persona_description": persona, "product_id": selected_product["product_id"]}
         with st.spinner("Calling /simulate..."):
             result = post_json("/simulate", payload)
         st.success("Review generated")
-        st.metric("Rating", result["rating"])
-        st.write(result["review"])
-        st.code(json.dumps(payload, indent=2, ensure_ascii=False), language="json")
+        rating = int(result["rating"])
+        stars = "★" * rating + "☆" * (5 - rating)
+        st.markdown(f"### {stars}  `{rating}/5`")
+        st.markdown(result["review"])
+        with st.expander("Request payload", expanded=False):
+            st.code(json.dumps(payload, indent=2, ensure_ascii=False), language="json")
 
 
 def render_recommender_tab(persona: dict[str, Any]) -> None:
     st.subheader("Conversational Recommender")
     st.write("Keep asking follow-up questions. The same persona stays attached to each turn.")
 
-    for message in st.session_state.chat_messages:
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
+    control_left, control_right = st.columns([1, 4])
+    with control_left:
+        if st.button("New Conversation", use_container_width=True):
+            reset_recommendation_conversation()
+            st.rerun()
+    with control_right:
+        if st.session_state.recommend_session_id:
+            st.caption(f"Session ID: {st.session_state.recommend_session_id}")
+        else:
+            st.caption("Session ID will be created on the first message.")
+
+    chat_col, reason_col = st.columns([3, 1.15], gap="large")
+
+    with chat_col:
+        for message in st.session_state.chat_messages:
+            with st.chat_message(message["role"]):
+                st.write(message["content"])
+
+    with reason_col:
+        with st.expander("Intent Reasoning", expanded=True):
+            intent = st.session_state.latest_intent or {}
+            intent_label = format_intent_label(intent)
+            confidence = intent.get("confidence") if isinstance(intent, dict) else None
+            bridge_category = intent.get("bridge_category") if isinstance(intent, dict) else None
+
+            st.markdown(f"**Detected Intent:** {intent_label}")
+            if confidence is not None:
+                try:
+                    confidence_text = f"{round(float(confidence) * 100)}%"
+                except Exception:
+                    confidence_text = str(confidence)
+            else:
+                confidence_text = "Unknown"
+            st.markdown(f"**Confidence:** {confidence_text}")
+
+            bridged = st.session_state.latest_bridged
+            if bridged is None:
+                st.markdown("**Bridge triggered:** Not yet")
+            elif bridged:
+                bridge_text = format_bridge_label(bridge_category)
+                st.markdown(f"**Bridge triggered:** Yes → {bridge_text}")
+            else:
+                st.markdown("**Bridge triggered:** No")
+
+            if st.session_state.latest_locations:
+                st.markdown("**Latest locations:**")
+                for location in st.session_state.latest_locations:
+                    st.caption(f"- {format_location_label(location)}")
+            else:
+                st.caption("Location suggestions will appear here when a bridge is triggered.")
 
     user_message = st.chat_input("Ask for a product, then ask for a place to use it...")
     if user_message:
@@ -112,10 +255,16 @@ def render_recommender_tab(persona: dict[str, Any]) -> None:
 
         st.session_state.recommend_session_id = result["session_id"]
         assistant_text = result["recommendation"]
+        st.session_state.latest_intent = result.get("intent") or result.get("debug", {}).get("intent")
+        st.session_state.latest_bridged = result.get("debug", {}).get("bridged")
+        st.session_state.latest_locations = result.get("debug", {}).get("locations") or []
         st.session_state.chat_messages.append({"role": "assistant", "content": assistant_text})
 
         with st.chat_message("assistant"):
-            st.write(assistant_text)
+            if hasattr(st, "write_stream"):
+                st.write_stream(stream_chat_response(assistant_text))
+            else:
+                st.write(assistant_text)
             with st.expander("Debug state", expanded=False):
                 st.json(result["debug"])
 

@@ -283,6 +283,7 @@ class RecommendRequest(BaseModel):
 class RecommendResponse(BaseModel):
     session_id: str
     recommendation: str
+    intent: dict[str, Any] | None = None
     debug: dict[str, Any]
     history: list[dict[str, Any]]
 
@@ -329,7 +330,13 @@ def recommend(payload: RecommendRequest):
         "locations": [l.get("venue_id") for l in state.get("locations", [])],
     }
 
-    return RecommendResponse(session_id=sid, recommendation=recommendation, debug=debug, history=hist)
+    return RecommendResponse(
+        session_id=sid,
+        recommendation=recommendation,
+        intent=state.get("intent"),
+        debug=debug,
+        history=hist,
+    )
 
 
 @app.post("/graph_simulate", response_model=GraphSimulateResponse)
