@@ -28,6 +28,19 @@ def understand_user(message: str, persona: Any, chat_history: Any = None, state:
 	return state
 
 
+def build_retrieval_query(chat_history: list[dict[str, Any]] | None, current_message: str) -> str:
+	"""Build a richer retrieval query from the current turn and prior conversation."""
+	parts: list[str] = []
+	if chat_history:
+		for item in chat_history:
+			content = str(item.get("content", "")).strip()
+			if content:
+				parts.append(content)
+	if current_message.strip() and (not parts or parts[-1] != current_message.strip()):
+		parts.append(current_message.strip())
+	return "\n".join(parts)
+
+
 def retrieve_products(query: str, top_k: int = 5, persist_dir: str = "chroma_db", collection_name: str = "amazon_products") -> list[Dict[str, Any]]:
 	"""Node 2 — retrieve_products
 
@@ -130,6 +143,8 @@ def retrieve_locations(bridge_category: str | None = None, top_k: int = 5, persi
 			"cafes_with_power": "cafes with generator and reliable power, good for remote work",
 			"remote_work_setup": "cafes or coworking spaces with power backup and WiFi",
 			"gyms_nearby": "gyms and fitness centers nearby",
+			"gyms_and_fitness": "gyms and fitness centers with generator and WiFi",
+			"events_and_owambe": "event venues and owambe halls with generator and WiFi",
 		}
 		query_text = mapping.get(bridge_category, bridge_category.replace("_", " "))
 	else:
@@ -191,10 +206,10 @@ def compose_response(state: Dict[str, Any], top_k_products: int = 3) -> str:
 		template.replace("{{persona_json}}", json.dumps(persona, ensure_ascii=False, indent=2))
 		.replace("{{chat_history}}", json.dumps(chat_history, ensure_ascii=False, indent=2))
 		.replace("{{retrieved_products}}", retrieved_products)
+		.replace("{{retrieved_locations}}", retrieved_locations)
 	)
 
-	# Attach locations if present
-	if "Retrieved products:" not in prompt and retrieved_products:
+	if locations and "{{retrieved_locations}}" not in template:
 		prompt += f"\n\nRetrieved locations:\n{retrieved_locations}"
 
 	if not Config.GEMINI_API_KEY:

@@ -22,6 +22,7 @@ Structure it with these parts:
 Use the persona details, the chat history, and the retrieved products only.
 Do not invent products that were not provided.
 Do not mention that you are an AI.
+If retrieved locations are provided, treat them as valid bridge suggestions and mention the best one or two clearly.
 
 USER:
 Persona JSON:
@@ -32,6 +33,9 @@ Chat history:
 
 Retrieved products:
 {{retrieved_products}}
+
+Retrieved locations:
+{{retrieved_locations}}
 
 Task:
 Recommend the best item or items and explain why they fit.

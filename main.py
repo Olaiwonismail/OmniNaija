@@ -1,5 +1,6 @@
 import json
 import re
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -9,12 +10,14 @@ from google import genai
 from pydantic import BaseModel, Field
 
 from config import Config
+from demo_cache import get_demo_cache_response
 from agent.graph import (
     understand_user,
     retrieve_products,
     should_bridge,
     retrieve_locations,
     compose_response,
+    build_retrieval_query,
 )
 
 app = FastAPI()
@@ -216,6 +219,11 @@ def read_root():
 
 @app.post("/simulate", response_model=SimulateResponse)
 def simulate_review(payload: SimulateRequest):
+    if Config.DEMO_MODE:
+        cached = get_demo_cache_response("/simulate", payload.model_dump())
+        if cached:
+            return SimulateResponse(**cached)
+
     persona = parse_persona(payload.persona_description)
     product = lookup_product_metadata(payload.product_id)
     prompt = render_review_prompt(persona, product)
@@ -234,9 +242,19 @@ def simulate_review(payload: SimulateRequest):
 
 
 def run_graph_simulation(persona: dict[str, Any], message: str) -> dict[str, Any]:
-    # Create a minimal chat history with the single incoming message by default.
-    state = understand_user(message, persona, chat_history=[{"role": "user", "content": message}])
-    products = retrieve_products(message, top_k=5)
+    return run_recommendation_flow(persona, message, chat_history=[{"role": "user", "content": message}])
+
+
+def run_recommendation_flow(
+    persona: dict[str, Any],
+    message: str,
+    chat_history: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    history = chat_history or [{"role": "user", "content": message}]
+    state = understand_user(message, persona, chat_history=history)
+
+    retrieval_query = build_retrieval_query(history, message)
+    products = retrieve_products(retrieval_query, top_k=5)
     state["products"] = products
 
     bridged = should_bridge(state)
@@ -271,10 +289,20 @@ class RecommendResponse(BaseModel):
 
 @app.post("/recommend", response_model=RecommendResponse)
 def recommend(payload: RecommendRequest):
+    request_payload = payload.model_dump()
+    if Config.DEMO_MODE:
+        cached = get_demo_cache_response("/recommend", request_payload)
+        if cached:
+            cached_session_id = cached.get("session_id") or payload.session_id or str(uuid.uuid4())
+            cached_history = cached.get("history") if isinstance(cached.get("history"), list) else []
+            if cached_history:
+                SESSION_HISTORIES[cached_session_id] = cached_history
+            return RecommendResponse(**cached)
+
     persona = parse_persona(payload.persona_description)
 
     # Use provided session_id or create a new one
-    sid = payload.session_id or str(__import__('uuid').uuid4())
+    sid = payload.session_id or str(uuid.uuid4())
 
     # Ensure session history exists
     hist = SESSION_HISTORIES.setdefault(sid, [])
@@ -284,24 +312,15 @@ def recommend(payload: RecommendRequest):
     hist.append(user_entry)
 
     # Run the graph simulation using full history
-    state = understand_user(payload.message, persona, chat_history=hist)
-    products = retrieve_products(payload.message, top_k=5)
-    state["products"] = products
-
-    bridged = should_bridge(state)
-    state["bridged"] = bridged
-    if bridged:
-        bridge_cat = state["intent"].get("bridge_category")
-        locations = retrieve_locations(bridge_category=bridge_cat, top_k=3)
-        state["locations"] = locations
-    else:
-        state["locations"] = []
-
-    recommendation = compose_response(state, top_k_products=3)
+    result = run_recommendation_flow(persona, payload.message, chat_history=hist)
+    state = result["state"]
+    recommendation = result["recommendation"]
 
     # Append assistant response to history
     assistant_entry = {"role": "assistant", "content": recommendation}
     hist.append(assistant_entry)
+
+    SESSION_HISTORIES[sid] = hist
 
     debug = {
         "intent": state.get("intent"),

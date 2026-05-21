@@ -345,10 +345,23 @@ Stored in `frontend/assets/personas.json`. Each includes:
 **Risk:** LLM API failure during live pitch  
 **Mitigation:** Demo Mode toggle in Streamlit UI
 
-- Pre-computed cached responses for 3 personas × 3 scenarios
+- Pre-computed cached responses for the core offline scenarios in `demo_cache/`
+- `DEMO_MODE=true` short-circuits `/simulate` and `/recommend` to those cached request/response pairs
 - Visually identical to live calls (same delay, same streaming animation)
 - Activates via UI toggle or env var `DEMO_MODE=true`
 - Multi-provider abstraction: switch Gemini → OpenAI → Anthropic via `LLM_PROVIDER` env var
+
+Offline verification:
+
+```bash
+PYTHONPATH=. python scripts/test_demo_mode.py
+```
+
+Cached demo files currently include:
+- `demo_cache/simulate_review_backup.json`
+- `demo_cache/scenario1_recommend_remote_work.json`
+- `demo_cache/scenario2_recommend_bridge_spot.json`
+- `demo_cache/scenario3_recommend_owambe_bridge.json`
 
 **Additional safety net:**
 - Pre-recorded 2-minute demo video (unlisted, backed up locally)

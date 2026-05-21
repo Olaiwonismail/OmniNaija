@@ -1,0 +1,59 @@
+{
+  "endpoint": "/recommend",
+  "request": {
+    "persona_description": {
+      "name": "Tobi",
+      "age": 27,
+      "location": "Yaba, Lagos",
+      "occupation": "freelance developer",
+      "budget": "careful with money",
+      "traits": [
+        "budget-conscious",
+        "likes practical gadgets",
+        "hates anything without USB-C"
+      ]
+    },
+    "message": "Yeah, find me a spot to use it",
+    "session_id": "dc96bf2d-3bce-4437-a522-9fb61ec5e659"
+  },
+  "response": {
+    "session_id": "dc96bf2d-3bce-4437-a522-9fb61ec5e659",
+    "recommendation": "1. Best recommendation\nThe best spot for you is the **Digital Nomad Cafe Spot in Surulere**. \n\n2. Why it fits the persona and conversation\nSince your main issue is staying productive during blackouts, this is the only logical choice among the options. \n* **Generator & WiFi:** Unlike the other spots, this cafe actually has a generator. There’s no point going to Co-Work Lagos in Ikeja if they don't have a generator, because you'll just end up sitting in the dark with your laptop. \n* **Proximity to Yaba:** Because you're in Yaba, Surulere is just a short trip away. You won't spend too much time or \"transport money\" commuting, which is important since you're careful with your budget.\n* **Reliability:** As a freelance developer, you need uptime. This spot gives you the two things you can't compromise on: power and internet.\n\n3. Any tradeoffs or cautions\n* **Daily Expenses:** Since you're budget-conscious, keep in mind that most cafes expect you to buy something (like coffee or a meal) to justify using their space for long hours. Factor that into your daily spending.\n* **Avoid the others:** Don't be distracted by the Maitama option (it's in Abuja, far from your current location) or the Ikeja option (no generator), as they won't solve your blackout problem.",
+    "debug": {
+      "intent": {
+        "intent": "remote_work_setup",
+        "confidence": 0.95,
+        "bridge_category": "cafes_with_power"
+      },
+      "products": [
+        "Electronics:B07SYW3XL1",
+        "Electronics:B079ZNSHDN",
+        "Electronics:B09CYHT3VK"
+      ],
+      "bridged": true,
+      "locations": [
+        "digital_nomad_cafe_spot_6.5087",
+        "co-work_lagos_6.4976",
+        "digital_nomad_cafe_spot_9.0349"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I need something to help me work during blackouts"
+      },
+      {
+        "role": "assistant",
+        "content": "1. Best recommendation\nFor an immediate fix so you don't lose your coding flow, I suggest heading to **Digital Nomad Cafe Spot in Surulere**. Since you are in Yaba, it's a very short trip. They have both a generator and WiFi, which is exactly what you need to stay online when the light goes out.\n\nFor your setup at home, get the **Belkin Power Strip Surge Protector (2 Pack)**. This will help protect your laptop, router, and other gear from the heavy power surges that usually happen when the electricity finally comes back on.\n\n2. Why it fits the persona and conversation\n* **The Cafe:** As a freelance developer, your work depends on uptime. The Surulere location is your best bet because, unlike the other options, it actually has a generator. Being in Yaba, Surulere is a practical \"bridge\" location that won't take too much of your time or transport money.\n* **The Belkin Pack:** You mentioned being budget-conscious, and this 2-pack offers great value for money. Most importantly, this model is rated for **240 Volts**, which is the standard in Nigeria. I noticed the other option (Tripp Lite) is 120V, which would not work safely here. This Belkin pack will give you enough outlets to protect your whole workstation (laptop, monitor, etc.) from those nasty \"NEPA\" spikes.\n\n3. Any tradeoffs or cautions\n* **Cafe Costs:** While the cafe solves the power problem, remember that you'll likely spend some money on coffee or meals to secure your seat, so factor that into your budget.\n* **Protection vs. Power:** Please note that the Belkin surge protector **does not provide electricity**; it only protects your electronics from damage. You will still need a power bank, an inverter, or a place like the cafe to actually keep your devices running during the blackout."
+      },
+      {
+        "role": "user",
+        "content": "Yeah, find me a spot to use it"
+      },
+      {
+        "role": "assistant",
+        "content": "1. Best recommendation\nThe best spot for you is the **Digital Nomad Cafe Spot in Surulere**. \n\n2. Why it fits the persona and conversation\nSince your main issue is staying productive during blackouts, this is the only logical choice among the options. \n* **Generator & WiFi:** Unlike the other spots, this cafe actually has a generator. There’s no point going to Co-Work Lagos in Ikeja if they don't have a generator, because you'll just end up sitting in the dark with your laptop. \n* **Proximity to Yaba:** Because you're in Yaba, Surulere is just a short trip away. You won't spend too much time or \"transport money\" commuting, which is important since you're careful with your budget.\n* **Reliability:** As a freelance developer, you need uptime. This spot gives you the two things you can't compromise on: power and internet.\n\n3. Any tradeoffs or cautions\n* **Daily Expenses:** Since you're budget-conscious, keep in mind that most cafes expect you to buy something (like coffee or a meal) to justify using their space for long hours. Factor that into your daily spending.\n* **Avoid the others:** Don't be distracted by the Maitama option (it's in Abuja, far from your current location) or the Ikeja option (no generator), as they won't solve your blackout problem."
+      }
+    ]
+  }
+}

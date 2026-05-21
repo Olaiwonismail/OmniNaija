@@ -1,0 +1,22 @@
+{
+  "endpoint": "/simulate",
+  "request": {
+    "persona_description": {
+      "name": "Tobi",
+      "age": 27,
+      "location": "Yaba, Lagos",
+      "occupation": "freelance developer",
+      "budget": "careful with money",
+      "traits": [
+        "budget-conscious",
+        "likes practical gadgets",
+        "hates anything without USB-C"
+      ]
+    },
+    "product_id": "B000BRLXUI"
+  },
+  "response": {
+    "rating": 4,
+    "review": "I needed something simple to grind my beans for those long coding sessions, and for this price, I couldn't complain. I no go lie, the build is mostly plastic, so I was a bit worried at first, but it's solid enough for everyday use. The grind settings are quite practical—I use the coarse setting for my cold brew and it works well. My only small issue is that the button can be a bit stubborn sometimes, you have to press it well before it starts. But overall, if you're looking for something budget-friendly that just gets the job done without too much stress, this one is worth the money."
+  }
+}

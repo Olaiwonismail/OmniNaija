@@ -1,0 +1,51 @@
+{
+  "endpoint": "/recommend",
+  "request": {
+    "persona_description": {
+      "name": "Kemi",
+      "age": 29,
+      "location": "Abuja",
+      "occupation": "event planner",
+      "budget": "mid-range",
+      "traits": [
+        "loves clean venues",
+        "values power backup",
+        "wants practical recommendations"
+      ]
+    },
+    "message": "I am planning an owambe in Wuse II and need a venue with generator and WiFi",
+    "session_id": null
+  },
+  "response": {
+    "session_id": "09a543eb-d6e3-45d5-a3e3-cd7e7d5b3da3",
+    "recommendation": "1. **Best recommendation**\nSince you are planning an owambe, you know that \"light\" (power) is the most important thing—if the music and cooling stop, the whole party is spoiled. Because no single venue in the list has both a generator and WiFi, the best practical move is to pick a venue with a generator and bring your own professional WiFi solution. \n\nI recommend:\n* **Venue:** Elite Occasions Express Wuye\n* **WiFi Solution:** NETGEAR Orbi Pro WiFi 6 Tri-Band Mesh System\n\n2. **Why it fits the persona and conversation**\nKemi, as an event planner, you value things being seamless and practical. While you specifically asked for Wuse II, the closest available options are in Wuye. \n* **Elite Occasions Express Wuye** is the safest bet because it has a generator. For an owambe, you can always fix a WiFi issue, but you cannot easily fix a total power failure mid-party. \n* Since Elite Occasions doesn't have WiFi, the **NETGEAR Orbi Pro** is the best \"pro\" tool for you. Unlike a small extender, this mesh system can handle up to 75 devices at once. This means when all your guests start uploading videos and photos to Instagram at the same time, the network won't crash. It gives you that \"clean\" and high-end experience you look for in your work.\n\n3. **Any tradeoffs or cautions**\n* **Location:** Please note that these venues are in Wuye, not Wuse II, so you'll need to confirm if the change in area works for your clients.\n* **Internet Source:** The NETGEAR system boosts and manages the signal, but you will still need a reliable internet source (like a high-speed router or a strong 4G/5G connection) to plug into it at the venue.\n* **Budget:** The NETGEAR system is a more premium investment compared to the cheaper $19 WiFi extender, but for a professional event, the cheaper options might struggle with the number of people connecting at once.",
+    "debug": {
+      "intent": {
+        "intent": "owambe_event_prep",
+        "confidence": 0.98,
+        "bridge_category": "events_and_owambe"
+      },
+      "products": [
+        "Electronics:B0BGN6TCGL",
+        "Electronics:B07Q2WQWT7",
+        "Electronics:B09XK17BN5"
+      ],
+      "bridged": true,
+      "locations": [
+        "celebration_hall_center_apapa_6.4538",
+        "elite_occasions_express_wuye_9.0066",
+        "grand_ballroom_spot_wuye_9.0669"
+      ]
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "I am planning an owambe in Wuse II and need a venue with generator and WiFi"
+      },
+      {
+        "role": "assistant",
+        "content": "1. **Best recommendation**\nSince you are planning an owambe, you know that \"light\" (power) is the most important thing—if the music and cooling stop, the whole party is spoiled. Because no single venue in the list has both a generator and WiFi, the best practical move is to pick a venue with a generator and bring your own professional WiFi solution. \n\nI recommend:\n* **Venue:** Elite Occasions Express Wuye\n* **WiFi Solution:** NETGEAR Orbi Pro WiFi 6 Tri-Band Mesh System\n\n2. **Why it fits the persona and conversation**\nKemi, as an event planner, you value things being seamless and practical. While you specifically asked for Wuse II, the closest available options are in Wuye. \n* **Elite Occasions Express Wuye** is the safest bet because it has a generator. For an owambe, you can always fix a WiFi issue, but you cannot easily fix a total power failure mid-party. \n* Since Elite Occasions doesn't have WiFi, the **NETGEAR Orbi Pro** is the best \"pro\" tool for you. Unlike a small extender, this mesh system can handle up to 75 devices at once. This means when all your guests start uploading videos and photos to Instagram at the same time, the network won't crash. It gives you that \"clean\" and high-end experience you look for in your work.\n\n3. **Any tradeoffs or cautions**\n* **Location:** Please note that these venues are in Wuye, not Wuse II, so you'll need to confirm if the change in area works for your clients.\n* **Internet Source:** The NETGEAR system boosts and manages the signal, but you will still need a reliable internet source (like a high-speed router or a strong 4G/5G connection) to plug into it at the venue.\n* **Budget:** The NETGEAR system is a more premium investment compared to the cheaper $19 WiFi extender, but for a professional event, the cheaper options might struggle with the number of people connecting at once."
+      }
+    ]
+  }
+}
