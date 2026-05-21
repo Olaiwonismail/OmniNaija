@@ -30,6 +30,7 @@ CHROMA_COLLECTION = "amazon_products"
 class SimulateRequest(BaseModel):
     persona_description: Any = Field(..., description="Persona JSON or free-form persona description")
     product_id: str = Field(..., description="Product identifier or ASIN")
+    demo_mode: bool | None = Field(None, description="Use cached demo responses when true")
 
 
 class SimulateResponse(BaseModel):
@@ -219,8 +220,10 @@ def read_root():
 
 @app.post("/simulate", response_model=SimulateResponse)
 def simulate_review(payload: SimulateRequest):
-    if Config.DEMO_MODE:
-        cached = get_demo_cache_response("/simulate", payload.model_dump())
+    request_payload = payload.model_dump(exclude={"demo_mode"})
+    demo_mode_enabled = Config.DEMO_MODE or bool(payload.demo_mode)
+    if demo_mode_enabled:
+        cached = get_demo_cache_response("/simulate", request_payload)
         if cached:
             return SimulateResponse(**cached)
 
@@ -278,6 +281,7 @@ class RecommendRequest(BaseModel):
     persona_description: Any = Field(..., description="Persona JSON or free-form persona description")
     message: str = Field(..., description="User message for this turn")
     session_id: str | None = Field(None, description="Optional session id for multi-turn history")
+    demo_mode: bool | None = Field(None, description="Use cached demo responses when true")
 
 
 class RecommendResponse(BaseModel):
@@ -290,8 +294,9 @@ class RecommendResponse(BaseModel):
 
 @app.post("/recommend", response_model=RecommendResponse)
 def recommend(payload: RecommendRequest):
-    request_payload = payload.model_dump()
-    if Config.DEMO_MODE:
+    request_payload = payload.model_dump(exclude={"demo_mode"})
+    demo_mode_enabled = Config.DEMO_MODE or bool(payload.demo_mode)
+    if demo_mode_enabled:
         cached = get_demo_cache_response("/recommend", request_payload)
         if cached:
             cached_session_id = cached.get("session_id") or payload.session_id or str(uuid.uuid4())

@@ -71,6 +71,12 @@ def init_state() -> None:
         st.session_state.latest_bridged = None
     if "latest_locations" not in st.session_state:
         st.session_state.latest_locations = []
+    if "offline_mode" not in st.session_state:
+        st.session_state.offline_mode = False
+    if "selected_persona_avatar" not in st.session_state:
+        st.session_state.selected_persona_avatar = personas[0].get("avatar", "🙂")
+    if "selected_persona_name" not in st.session_state:
+        st.session_state.selected_persona_name = personas[0].get("persona", {}).get("name", "Persona")
 
 
 def reset_recommendation_conversation() -> None:
@@ -123,7 +129,6 @@ def format_location_label(location: Any) -> str:
 
 def select_persona() -> dict[str, Any]:
     personas = load_personas()
-    options = {entry["id"]: entry for entry in personas}
 
     st.sidebar.title("Persona First")
     st.sidebar.caption("Pick a judge persona and every API call will use it automatically.")
@@ -136,9 +141,19 @@ def select_persona() -> dict[str, Any]:
     if chosen_entry["id"] != st.session_state.selected_persona_id:
         st.session_state.selected_persona_id = chosen_entry["id"]
         st.session_state.selected_persona = chosen_entry["persona"]
+        st.session_state.selected_persona_avatar = chosen_entry.get("avatar", "🙂")
+        st.session_state.selected_persona_name = chosen_entry["persona"].get("name", "Persona")
+    else:
+        st.session_state.selected_persona_avatar = chosen_entry.get("avatar", "🙂")
+        st.session_state.selected_persona_name = chosen_entry["persona"].get("name", "Persona")
 
     st.sidebar.markdown("---")
     st.sidebar.markdown(persona_card(chosen_entry))
+    st.sidebar.checkbox(
+        "Offline Mode",
+        key="offline_mode",
+        help="Use cached demo responses instead of live API calls.",
+    )
     st.sidebar.markdown("---")
     st.sidebar.json(chosen_entry["persona"], expanded=False)
 
@@ -149,6 +164,24 @@ def post_json(path: str, payload: dict[str, Any]) -> dict[str, Any]:
     response = requests.post(f"{DEFAULT_BACKEND_URL}{path}", json=payload, timeout=600)
     response.raise_for_status()
     return response.json()
+
+
+def build_payload(base_payload: dict[str, Any]) -> dict[str, Any]:
+    payload = dict(base_payload)
+    if st.session_state.offline_mode:
+        payload["demo_mode"] = True
+    return payload
+
+
+def chat_avatar(role: str) -> str:
+    if role == "assistant":
+        return st.session_state.get("selected_persona_avatar", "🙂")
+    return "🙂"
+
+
+def render_chat_message(role: str, content: str) -> None:
+    with st.chat_message(role, avatar=chat_avatar(role)):
+        st.write(content)
 
 
 def render_simulator_tab(persona: dict[str, Any]) -> None:
@@ -172,7 +205,7 @@ def render_simulator_tab(persona: dict[str, Any]) -> None:
 
     if submitted:
         st.session_state.selected_product_id = selected_product["product_id"]
-        payload = {"persona_description": persona, "product_id": selected_product["product_id"]}
+        payload = build_payload({"persona_description": persona, "product_id": selected_product["product_id"]})
         with st.spinner("Calling /simulate..."):
             result = post_json("/simulate", payload)
         st.success("Review generated")
@@ -203,8 +236,7 @@ def render_recommender_tab(persona: dict[str, Any]) -> None:
 
     with chat_col:
         for message in st.session_state.chat_messages:
-            with st.chat_message(message["role"]):
-                st.write(message["content"])
+            render_chat_message(message["role"], message["content"])
 
     with reason_col:
         with st.expander("Intent Reasoning", expanded=True):
@@ -242,14 +274,14 @@ def render_recommender_tab(persona: dict[str, Any]) -> None:
     user_message = st.chat_input("Ask for a product, then ask for a place to use it...")
     if user_message:
         st.session_state.chat_messages.append({"role": "user", "content": user_message})
-        with st.chat_message("user"):
-            st.write(user_message)
+        render_chat_message("user", user_message)
 
         payload = {
             "persona_description": persona,
             "message": user_message,
             "session_id": st.session_state.recommend_session_id,
         }
+        payload = build_payload(payload)
         with st.spinner("Calling /recommend..."):
             result = post_json("/recommend", payload)
 
@@ -260,7 +292,7 @@ def render_recommender_tab(persona: dict[str, Any]) -> None:
         st.session_state.latest_locations = result.get("debug", {}).get("locations") or []
         st.session_state.chat_messages.append({"role": "assistant", "content": assistant_text})
 
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar=chat_avatar("assistant")):
             if hasattr(st, "write_stream"):
                 st.write_stream(stream_chat_response(assistant_text))
             else:
@@ -271,8 +303,7 @@ def render_recommender_tab(persona: dict[str, Any]) -> None:
 
 def main() -> None:
     st.set_page_config(page_title=APP_TITLE, page_icon="🇳🇬", layout="wide")
-    st.title(APP_TITLE)
-    st.caption("Pick a persona first, then use the two tabs to test reviews and conversational recommendations.")
+    st.markdown("## OmniNaija Intent Graph | Persona-aware recommendations, reviews, and bridge suggestions")
 
     init_state()
     persona = select_persona()
