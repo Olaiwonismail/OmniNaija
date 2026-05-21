@@ -1,0 +1,20 @@
+{
+  "endpoint": "/simulate",
+  "request": {
+    "persona_description": {
+      "name": "Tobi",
+      "age": 27,
+      "location": "Yaba, Lagos",
+      "occupation": "freelance developer",
+      "budget": "careful with money",
+      "traits": [
+        "budget-conscious"
+      ]
+    },
+    "product_id": "B000BRLXUI"
+  },
+  "response": {
+    "rating": 4,
+    "review": "I no go lie, as a dev, coffee is life for me especially when I'm debugging late at night. I needed something simple and affordable to grind my own beans instead of buying the expensive pre-ground ones, and for this price, this Mr. Coffee is a solid deal. It's mostly plastic so it doesn't feel very heavy-duty, but it does the job well enough for my daily brew. The medium setting works perfectly for me and it's easy to clean. If you're looking for something that won't break the bank but will still get you caffeinated, this one is definitely worth the money."
+  }
+}

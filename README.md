@@ -3,6 +3,41 @@
 
 > Most teams ship a single-domain recommender. We ship **intent reasoning** linking Amazon and Yelp—the only team with a name for it: the **Intent Graph**. This approach uniquely unlocks the 25-point cross-domain bonus category in the rubric.
 
+ 
+## Graph Simulation & Tests
+
+We include a small LangGraph-style runner and node tests so you can exercise the intent→retrieve→compose flow locally without the frontend.
+
+- Run the interactive demo runner (prints recommendations and debug state):
+
+```bash
+PYTHONPATH=. python scripts/run_graph_demo.py
+```
+
+- Run lightweight node tests (downloads embeddings if needed; `compose_response` will call Gemini when `GEMINI_API_KEY` is set):
+
+```bash
+PYTHONPATH=. python scripts/run_node_tests.py
+```
+
+- Call the graph flow programmatically (no HTTP server) via the helper test:
+
+```bash
+PYTHONPATH=. python scripts/test_graph_simulation.py
+```
+
+- HTTP endpoint: `POST /graph_simulate` — sends `persona_description` and `chat_message`, returns `recommendation` and `debug` state. Example `curl`:
+
+```bash
+curl -sS -X POST http://127.0.0.1:8000/graph_simulate \
+  -H 'Content-Type: application/json' \
+  -d '{"persona_description": {"name":"Tobi"}, "chat_message":"I need something to work during blackouts"}'
+```
+
+Notes:
+- For embedding model downloads, set `HF_TOKEN` (Hugging Face) to improve throughput and avoid rate limits.
+- For end-to-end recommender text generation set `GEMINI_API_KEY` in `.env` or the environment.
+
 ---
 
 ## Problem
