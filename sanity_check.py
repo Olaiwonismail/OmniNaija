@@ -1,5 +1,5 @@
 from config import Config
-from llm import generate_text_with_fallback
+from llm import generate_text
 
 
 def run_sanity_check():
@@ -8,7 +8,7 @@ def run_sanity_check():
         return
 
     try:
-        response_text, provider = generate_text_with_fallback("Say hello in one short sentence.")
+        response_text, provider = generate_text("Say hello in one short sentence.")
         print(f"Response provider: {provider}")
         print("Response:", response_text)
     except Exception as e:

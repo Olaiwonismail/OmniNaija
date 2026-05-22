@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from llm import generate_text_with_fallback
+from llm import generate_text
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 
@@ -86,13 +86,13 @@ def classify_user_intent(
         .replace("{{cart_history}}", _stringify(cart_value))
     )
 
-    response_text, _provider = generate_text_with_fallback(prompt)
+    response_text, _provider = generate_text(prompt)
 
     try:
         result = _extract_json_object(response_text)
     except ValueError:
         repair_prompt = prompt + "\n\nIMPORTANT: Return only valid JSON with intent, confidence, and bridge_category."
-        retry_text, _provider = generate_text_with_fallback(repair_prompt)
+        retry_text, _provider = generate_text(repair_prompt)
         result = _extract_json_object(retry_text)
 
     intent = str(result.get("intent", "general_browsing")).strip()

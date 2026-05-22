@@ -3,7 +3,15 @@ from typing import Any, Dict
 from pathlib import Path
 import json
 
-from llm import generate_text_with_fallback
+from llm import generate_text
+
+# Initialize the embedding model once at import time to avoid re-loading
+# large weights on every request. SentenceTransformer can be reused safely
+# for repeated `encode()` calls.
+from sentence_transformers import SentenceTransformer
+
+_MODEL_NAME = "all-MiniLM-L6-v2"
+_EMBED_MODEL = SentenceTransformer(_MODEL_NAME)
 
 
 def understand_user(message: str, persona: Any, chat_history: Any = None, state: Dict[str, Any] | None = None) -> Dict[str, Any]:
@@ -40,22 +48,19 @@ def build_retrieval_query(chat_history: list[dict[str, Any]] | None, current_mes
 	return "\n".join(parts)
 
 
-def retrieve_products(query: str, top_k: int = 5, persist_dir: str = "chroma_db", collection_name: str = "amazon_products") -> list[Dict[str, Any]]:
+def retrieve_products(query: str, top_k: int = 10, persist_dir: str = "chroma_db", collection_name: str = "amazon_products") -> list[Dict[str, Any]]:
 	"""Node 2 — retrieve_products
 
 	Performs a semantic search against a local ChromaDB persistent collection using
 	a SentenceTransformer embedding. Returns a list of normalized product dicts.
 	"""
 	import chromadb
-	from sentence_transformers import SentenceTransformer
-
-	model_name = "all-MiniLM-L6-v2"
-	model = SentenceTransformer(model_name)
 
 	client = chromadb.PersistentClient(path=persist_dir)
 	collection = client.get_collection(name=collection_name)
 
-	embedding = model.encode(query)
+	# reuse module-level embedding model to avoid re-loading weights
+	embedding = _EMBED_MODEL.encode(query)
 	result = collection.query(query_embeddings=[embedding], n_results=top_k)
 
 	normalized_results = []
@@ -108,7 +113,7 @@ def retrieve_products(query: str, top_k: int = 5, persist_dir: str = "chroma_db"
 	return normalized_results
 
 
-def should_bridge(state: Dict[str, Any], threshold: float = 0.6) -> bool:
+def should_bridge(state: Dict[str, Any], threshold: float = 0.7) -> bool:
 	"""Return True if the intent confidence meets or exceeds the threshold."""
 	intent = state.get("intent") if isinstance(state, dict) else None
 	if not intent:
@@ -127,11 +132,7 @@ def retrieve_locations(bridge_category: str | None = None, top_k: int = 5, persi
 	`bridge_category` is provided, builds a focused natural-language query.
 	"""
 	import chromadb
-	from sentence_transformers import SentenceTransformer
 	import json
-
-	model_name = "all-MiniLM-L6-v2"
-	model = SentenceTransformer(model_name)
 
 	client = chromadb.PersistentClient(path=persist_dir)
 	collection = client.get_collection(name=collection_name)
@@ -149,7 +150,8 @@ def retrieve_locations(bridge_category: str | None = None, top_k: int = 5, persi
 	else:
 		query_text = "popular cafes and coworking spaces"
 
-	embedding = model.encode(query_text)
+	# reuse module-level embedding model to avoid re-loading weights
+	embedding = _EMBED_MODEL.encode(query_text)
 	result = collection.query(query_embeddings=[embedding], n_results=top_k)
 
 	normalized_results = []
@@ -180,7 +182,7 @@ def retrieve_locations(bridge_category: str | None = None, top_k: int = 5, persi
 	return normalized_results
 
 
-def compose_response(state: Dict[str, Any], top_k_products: int = 3) -> str:
+def compose_response(state: Dict[str, Any], top_k_products: int = 5) -> str:
 	"""Node 5 — compose_response
 
 	Renders the `prompts/recommender_prompt.txt` template and calls Gemini
@@ -211,5 +213,5 @@ def compose_response(state: Dict[str, Any], top_k_products: int = 3) -> str:
 	if locations and "{{retrieved_locations}}" not in template:
 		prompt += f"\n\nRetrieved locations:\n{retrieved_locations}"
 
-	text, _provider = generate_text_with_fallback(prompt)
+	text, _provider = generate_text(prompt)
 	return text.strip()

@@ -25,6 +25,7 @@ app = FastAPI()
 PROMPTS_DIR = Path(__file__).resolve().parent / "prompts"
 CHROMA_DIR = Path(__file__).resolve().parent / "chroma_db"
 CHROMA_COLLECTION = "amazon_products"
+MAX_SESSION_MESSAGES = 12
 
 
 class SimulateRequest(BaseModel):
@@ -179,7 +180,7 @@ def extract_json_object(text: str) -> dict[str, Any]:
 
 
 def request_review_from_gemini(prompt: str) -> dict[str, Any]:
-    response_text, _provider = generate_text_with_fallback(prompt)
+    response_text, _provider = generate_text(prompt)
 
     try:
         return extract_json_object(response_text)
@@ -188,7 +189,7 @@ def request_review_from_gemini(prompt: str) -> dict[str, Any]:
             prompt
             + "\n\nIMPORTANT: Return only a valid JSON object with keys rating and review. No markdown, no code fences."
         )
-        retry_text, _provider = generate_text_with_fallback(repair_prompt)
+        retry_text, _provider = generate_text(repair_prompt)
         try:
             return extract_json_object(retry_text)
         except ValueError as exc:
@@ -262,6 +263,12 @@ def run_recommendation_flow(
     return {"recommendation": recommendation, "state": state}
 
 
+def trim_session_history(history: list[dict[str, Any]], max_messages: int = MAX_SESSION_MESSAGES) -> list[dict[str, Any]]:
+    if len(history) <= max_messages:
+        return history
+    return history[-max_messages:]
+
+
 # Simple in-memory session store: { session_id: [ {role, content}, ... ] }
 SESSION_HISTORIES: dict[str, list[dict[str, Any]]] = {}
 
@@ -305,6 +312,7 @@ def recommend(payload: RecommendRequest):
     # Append incoming user message
     user_entry = {"role": "user", "content": payload.message}
     hist.append(user_entry)
+    hist = trim_session_history(hist)
 
     # Run the graph simulation using full history
     result = run_recommendation_flow(persona, payload.message, chat_history=hist)
@@ -314,12 +322,13 @@ def recommend(payload: RecommendRequest):
     # Append assistant response to history
     assistant_entry = {"role": "assistant", "content": recommendation}
     hist.append(assistant_entry)
+    hist = trim_session_history(hist)
 
     SESSION_HISTORIES[sid] = hist
 
     debug = {
         "intent": state.get("intent"),
-        "products": [p.get("product_id") for p in state.get("products", [])[:3]],
+        "products": [p.get("product_id") for p in state.get("products", [])[:10]],
         "bridged": state.get("bridged"),
         "locations": [l.get("venue_id") for l in state.get("locations", [])],
     }
@@ -339,7 +348,7 @@ def graph_simulate(payload: GraphSimulateRequest):
     result = run_graph_simulation(persona, payload.chat_message)
     debug = {
         "intent": result["state"].get("intent"),
-        "products": [p.get("product_id") for p in result["state"].get("products", [])[:3]],
+        "products": [p.get("product_id") for p in result["state"].get("products", [])[:10]],
         "bridged": result["state"].get("bridged"),
         "locations": [l.get("venue_id") for l in result["state"].get("locations", [])],
     }
