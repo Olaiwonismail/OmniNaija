@@ -313,31 +313,33 @@ def _infer_traits(history):
 # ============================================================
 
 def call_recommend(persona, message, session_id=None):
+    from main import recommend, RecommendRequest
     payload = {
         "persona_description": persona,
         "message": message,
         "session_id": session_id or f"eval_{int(time.time())}",
     }
     try:
-        resp = requests.post(f"{API_BASE_URL}/recommend", json=payload, timeout=150)
-        resp.raise_for_status()
-        return resp.json()
-    except requests.exceptions.RequestException as e:
-        print(f"  API call failed: {e}")
+        req = RecommendRequest(**payload)
+        resp = recommend(req)
+        return resp.model_dump()
+    except Exception as e:
+        print(f"  Local /recommend call failed: {e}")
         return None
 
 
 def call_simulate(persona, product_id):
+    from main import simulate_review, SimulateRequest
     payload = {
         "persona_description": persona,
         "product_id": product_id,
     }
     try:
-        resp = requests.post(f"{API_BASE_URL}/simulate", json=payload, timeout=150)
-        resp.raise_for_status()
-        return resp.json()
-    except requests.exceptions.RequestException as e:
-        print(f"  /simulate call failed: {e}")
+        req = SimulateRequest(**payload)
+        resp = simulate_review(req)
+        return resp.model_dump()
+    except Exception as e:
+        print(f"  Local /simulate call failed: {e}")
         return None
 
 
@@ -881,12 +883,7 @@ def main():
     print(f"Started: {datetime.now():%Y-%m-%d %H:%M:%S}  |  API: {API_BASE_URL}")
     print("=" * 60)
 
-    try:
-        requests.get(f"{API_BASE_URL}/docs", timeout=5)
-        print("API connection: OK")
-    except requests.exceptions.ConnectionError:
-        print(f"ERROR: Cannot reach API at {API_BASE_URL}. Start: uvicorn main:app")
-        return
+    print("API connection: Bypassed (Running directly in-process)")
 
     all_results = {}
 
