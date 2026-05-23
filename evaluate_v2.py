@@ -638,7 +638,7 @@ def run_task_a_evaluation(test_cases, num_cases=30):
                 [generated_review],
                 [reference_review],
                 lang="en",
-                model_type="microsoft/deberta-xlarge-mnli",
+                model_type="distilbert-base-uncased",
             )
             bertscore_f1 = float(f1.mean().item())
         except Exception as exc:
