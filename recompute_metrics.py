@@ -26,9 +26,10 @@ def compute_ndcg(details, k=10):
         rel = [1.0 if pid == gt else 0.0 for pid in recs[:k]]
         while len(rel) < k:
             rel.append(0.0)
-        ideal = [1.0] + [0.0]*(k-1)
+        y_true = [rel]
+        y_score = [[float(k - i) for i in range(k)]]
         try:
-            sc = ndcg_score([ideal], [rel], k=k)
+            sc = ndcg_score(y_true, y_score, k=k)
         except Exception:
             sc = 0.0
         scores.append(sc)

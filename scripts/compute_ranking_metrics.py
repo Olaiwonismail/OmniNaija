@@ -215,8 +215,10 @@ def compute_ndcg(details: List[dict], k: int = DEFAULT_K) -> float:
         rel = [1.0 if pid == gt else 0.0 for pid in recs[:k]]
         while len(rel) < k:
             rel.append(0.0)
+        y_true = [rel]
+        y_score = [[float(k - i) for i in range(k)]]
         try:
-            sc = ndcg_score([ [1.0] + [0.0]*(k-1) ], [rel], k=k)
+            sc = ndcg_score(y_true, y_score, k=k)
         except Exception:
             sc = 0.0
         scores.append(sc)
@@ -227,8 +229,10 @@ def per_query_ndcg(recommended: List[str], gt: str, k: int) -> float:
     rel = [1.0 if pid == gt else 0.0 for pid in recommended[:k]]
     while len(rel) < k:
         rel.append(0.0)
+    y_true = [rel]
+    y_score = [[float(k - i) for i in range(k)]]
     try:
-        return float(ndcg_score([[1.0] + [0.0]*(k-1)], [rel], k=k))
+        return float(ndcg_score(y_true, y_score, k=k))
     except Exception:
         return 0.0
 

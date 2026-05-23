@@ -57,7 +57,7 @@ def main():
         return
 
     try:
-        corpus_ids, _id_to_category = load_corpus(CHROMA_PATH, CHROMA_COLLECTION)
+        corpus_ids, _id_to_category, _ = load_corpus(CHROMA_PATH, CHROMA_COLLECTION)
     except Exception as e:
         print(f"ERROR loading ChromaDB corpus: {e}")
         print("Check CHROMA_PATH and CHROMA_COLLECTION in evaluate_v2.py CONFIG.")

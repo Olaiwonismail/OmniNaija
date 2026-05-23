@@ -47,6 +47,8 @@ AMAZON_DATA_PATH = "data/processed/user_interactions.jsonl"
 
 # --- ChromaDB (the retrieval corpus the agent actually recommends from) ---
 CHROMA_PATH = "/workspaces/OmniNaija/chroma_db"
+if not Path(CHROMA_PATH).exists():
+    CHROMA_PATH = str(Path(__file__).resolve().parent / "chroma_db")
 CHROMA_COLLECTION = "amazon_products"
 
 MIN_USER_REVIEWS = 5
