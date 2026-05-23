@@ -1,7 +1,8 @@
 """
 OmniNaija Lite — Offline Evaluation Script (v2)
 ================================================
-Computes Hit Rate@10, NDCG@10, Category-Match Rate@10, and Cross-Domain Accuracy.
+Computes Hit Rate@10, NDCG@10, Category-Match Rate@10, ROUGE, BERTScore,
+and Cross-Domain Accuracy.
 
 WHAT CHANGED IN v2:
 - Loads the ChromaDB product corpus at startup (CHROMA_PATH / CHROMA_COLLECTION below)
@@ -12,7 +13,7 @@ WHAT CHANGED IN v2:
   even if not the exact held-out SKU? This is the fairer metric for semantic retrieval.
 
 BEFORE RUNNING:
-1. pip install scikit-learn requests pandas chromadb --break-system-packages
+1. pip install scikit-learn requests pandas chromadb rouge-score bert-score --break-system-packages
 2. Start your FastAPI server: uvicorn main:app
 3. Confirm CHROMA_PATH and CHROMA_COLLECTION below match your setup
 
@@ -33,6 +34,8 @@ from pathlib import Path
 from datetime import datetime
 
 import chromadb
+from rouge_score import rouge_scorer
+from bert_score import score as bert_score
 
 # ============================================================
 # CONFIG — adjust these to match your project
@@ -64,6 +67,49 @@ def to_bare_id(pid):
     return pid
 
 
+def _clean_text_value(value):
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, (list, tuple, set)):
+        parts = [_clean_text_value(item) for item in value]
+        return "; ".join(part for part in parts if part)
+    if isinstance(value, dict):
+        parts = []
+        for key in ("title", "name", "category", "brand", "store", "description", "summary"):
+            item = _clean_text_value(value.get(key))
+            if item:
+                parts.append(item)
+        if parts:
+            return ", ".join(parts)
+        return json.dumps(value, ensure_ascii=False)
+    return str(value).strip()
+
+
+def build_reference_text(metadata):
+    if not metadata:
+        return ""
+
+    parts = []
+    for key in ("title", "brand", "store", "category"):
+        item = _clean_text_value(metadata.get(key))
+        if item:
+            parts.append(item)
+
+    for key in ("features", "details", "bundled_reviews"):
+        item = _clean_text_value(metadata.get(key))
+        if item:
+            parts.append(item)
+
+    for key in ("price", "avg_rating", "review_count"):
+        item = metadata.get(key)
+        if item is not None and item != "":
+            parts.append(f"{key.replace('_', ' ')}: {item}")
+
+    return ". ".join(parts)
+
+
 # ============================================================
 # CORPUS LOADING (from ChromaDB)
 # ============================================================
@@ -71,7 +117,7 @@ def to_bare_id(pid):
 def load_corpus(chroma_path, collection_name):
     """
     Load all product IDs + categories from the ChromaDB collection.
-    Returns (bare_ids set, id_to_category dict).
+    Returns (bare_ids set, id_to_category dict, id_to_metadata dict).
     """
     client = chromadb.PersistentClient(path=chroma_path)
     col = client.get_collection(collection_name)
@@ -82,17 +128,19 @@ def load_corpus(chroma_path, collection_name):
 
     bare_ids = set()
     id_to_category = {}
+    id_to_metadata = {}
     for raw_id, meta in zip(ids, metas):
         bare = to_bare_id(raw_id)
         bare_ids.add(bare)
         if meta:
+            id_to_metadata[bare] = dict(meta)
             cat = meta.get("category") or meta.get("main_category") or meta.get("categories")
             if cat:
                 id_to_category[bare] = cat
 
     print(f"Corpus loaded: {len(bare_ids)} products, "
           f"{len(set(id_to_category.values()))} distinct categories")
-    return bare_ids, id_to_category
+    return bare_ids, id_to_category, id_to_metadata
 
 
 # ============================================================
@@ -208,10 +256,15 @@ def build_test_set(df, num_cases, corpus_ids):
             "traits": _infer_traits(history),
         }
 
+        held_out_review_text = ""
+        if "review_text" in ground_truth and pd.notna(ground_truth["review_text"]):
+            held_out_review_text = str(ground_truth["review_text"]).strip()
+
         test_cases.append({
             "persona": persona,
             "ground_truth_product": to_bare_id(ground_truth["product_id"]),
             "ground_truth_rating": float(ground_truth["rating"]),
+            "ground_truth_review_text": held_out_review_text,
             "history_product_ids": [to_bare_id(p) for p in products_reviewed],
         })
 
@@ -286,6 +339,18 @@ def call_simulate(persona, product_id):
         return None
 
 
+def extract_generated_review(sim_response):
+    if not sim_response:
+        return ""
+    review = sim_response.get("review")
+    if isinstance(review, str):
+        return review.strip()
+    review_text = sim_response.get("review_text")
+    if isinstance(review_text, str):
+        return review_text.strip()
+    return ""
+
+
 def extract_predicted_rating(sim_response):
     if not sim_response:
         return None
@@ -303,6 +368,15 @@ def extract_recommended_products(response):
         return []
     products = response.get("debug", {}).get("products", [])
     return [to_bare_id(p) for p in products]
+
+
+def extract_recommendation_text(response):
+    if not response:
+        return ""
+    recommendation = response.get("recommendation")
+    if isinstance(recommendation, str):
+        return recommendation.strip()
+    return ""
 
 
 # ============================================================
@@ -362,6 +436,79 @@ def compute_rmse(test_results):
     if not errors:
         return 0.0
     return float(np.sqrt(np.mean(errors)))
+
+
+def compute_text_metrics(test_results):
+    rouge_available = rouge_scorer is not None
+    bert_available = bert_score is not None
+    rouge_scores = []
+    bert_f1_scores = []
+
+    scorer = None
+    if rouge_available:
+        scorer = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
+
+    valid_examples = []
+    for r in test_results:
+        generated = (r.get("generated_text") or "").strip()
+        reference = (r.get("reference_text") or "").strip()
+        if not generated or not reference:
+            r["rouge"] = None
+            r["bertscore"] = None
+            continue
+
+        valid_examples.append(r)
+
+        if scorer is not None:
+            scores = scorer.score(reference, generated)
+            rouge_entry = {
+                "rouge1_f": round(float(scores["rouge1"].fmeasure), 4),
+                "rouge2_f": round(float(scores["rouge2"].fmeasure), 4),
+                "rougeL_f": round(float(scores["rougeL"].fmeasure), 4),
+            }
+            rouge_scores.append(rouge_entry)
+            r["rouge"] = rouge_entry
+        else:
+            r["rouge"] = None
+
+    if bert_available and valid_examples:
+        try:
+            predictions = [r["generated_text"] for r in valid_examples]
+            references = [r["reference_text"] for r in valid_examples]
+            _precision, _recall, f1 = bert_score(
+                predictions,
+                references,
+                lang="en",
+                model_type="distilbert-base-uncased",
+                verbose=False,
+                rescale_with_baseline=True,
+            )
+            bert_f1_scores = [float(value) for value in f1]
+            for r, score in zip(valid_examples, bert_f1_scores):
+                r["bertscore"] = {
+                    "f1": round(score, 4),
+                    "model_type": "distilbert-base-uncased",
+                }
+        except Exception as exc:
+            print(f"  BERTScore unavailable: {exc}")
+            for r in valid_examples:
+                r["bertscore"] = None
+
+    aggregate = {
+        "num_examples": len(valid_examples),
+        "rouge": {
+            "rouge1_f": round(float(np.mean([item["rouge1_f"] for item in rouge_scores])), 4) if rouge_scores else 0.0,
+            "rouge2_f": round(float(np.mean([item["rouge2_f"] for item in rouge_scores])), 4) if rouge_scores else 0.0,
+            "rougeL_f": round(float(np.mean([item["rougeL_f"] for item in rouge_scores])), 4) if rouge_scores else 0.0,
+            "available": rouge_available,
+        },
+        "bertscore": {
+            "f1": round(float(np.mean(bert_f1_scores)), 4) if bert_f1_scores else None,
+            "available": bert_available and bool(bert_f1_scores),
+            "model_type": "distilbert-base-uncased" if bert_f1_scores else None,
+        },
+    }
+    return aggregate
 
 
 # ============================================================
@@ -427,11 +574,136 @@ def run_review_simulation_evaluation(test_cases):
     }
 
 
+def run_task_a_evaluation(test_cases, num_cases=30):
+    print("\n" + "=" * 60)
+    print("TASK A EVALUATION: Review Generation Quality")
+    print("=" * 60)
+
+    scorer = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
+    test_results = []
+
+    cases_to_run = test_cases[:num_cases]
+    for i, case in enumerate(cases_to_run):
+        persona = case["persona"]
+        gt_product = case["ground_truth_product"]
+        reference_review = (case.get("ground_truth_review_text") or "").strip()
+
+        print(f"\n[{i + 1}/{len(cases_to_run)}] {persona['name']}")
+
+        if not reference_review:
+            print(f"  Skipping case: missing held-out review text for product={gt_product}")
+            test_results.append({
+                "user": persona["name"],
+                "ground_truth_product": gt_product,
+                "reference_review": "",
+                "generated_review": None,
+                "rouge1_f1": None,
+                "rouge2_f1": None,
+                "rougeL_f1": None,
+                "bertscore_f1": None,
+                "valid_case": False,
+                "skip_reason": "missing_reference_review",
+            })
+            continue
+
+        response = call_simulate(persona=persona, product_id=gt_product)
+        generated_review = extract_generated_review(response)
+
+        if not generated_review:
+            print(f"  Skipping case: /simulate failed or returned no review for product={gt_product}")
+            test_results.append({
+                "user": persona["name"],
+                "ground_truth_product": gt_product,
+                "reference_review": reference_review,
+                "generated_review": None,
+                "rouge1_f1": None,
+                "rouge2_f1": None,
+                "rougeL_f1": None,
+                "bertscore_f1": None,
+                "valid_case": False,
+                "skip_reason": "simulate_failed_or_empty_review",
+            })
+            time.sleep(0.3)
+            continue
+
+        try:
+            rouge_scores = scorer.score(reference_review, generated_review)
+            rouge1_f1 = float(rouge_scores["rouge1"].fmeasure)
+            rouge2_f1 = float(rouge_scores["rouge2"].fmeasure)
+            rougeL_f1 = float(rouge_scores["rougeL"].fmeasure)
+
+            _precision, _recall, f1 = bert_score(
+                [generated_review],
+                [reference_review],
+                lang="en",
+                model_type="microsoft/deberta-xlarge-mnli",
+            )
+            bertscore_f1 = float(f1.mean().item())
+        except Exception as exc:
+            print(f"  Skipping case: metric computation failed for product={gt_product} ({exc})")
+            test_results.append({
+                "user": persona["name"],
+                "ground_truth_product": gt_product,
+                "reference_review": reference_review,
+                "generated_review": generated_review,
+                "rouge1_f1": None,
+                "rouge2_f1": None,
+                "rougeL_f1": None,
+                "bertscore_f1": None,
+                "valid_case": False,
+                "skip_reason": f"metric_computation_failed: {exc}",
+            })
+            time.sleep(0.3)
+            continue
+
+        print(
+            f"  GT product={gt_product}  "
+            f"ROUGE-1={rouge1_f1:.4f}  ROUGE-2={rouge2_f1:.4f}  ROUGE-L={rougeL_f1:.4f}  BERTScore={bertscore_f1:.4f}"
+        )
+        test_results.append({
+            "user": persona["name"],
+            "ground_truth_product": gt_product,
+            "reference_review": reference_review,
+            "generated_review": generated_review,
+            "rouge1_f1": round(rouge1_f1, 4),
+            "rouge2_f1": round(rouge2_f1, 4),
+            "rougeL_f1": round(rougeL_f1, 4),
+            "bertscore_f1": round(bertscore_f1, 4),
+            "valid_case": True,
+            "skip_reason": None,
+        })
+        time.sleep(0.3)
+
+    valid_results = [result for result in test_results if result["valid_case"]]
+    rouge1_avg = float(np.mean([result["rouge1_f1"] for result in valid_results])) if valid_results else 0.0
+    rouge2_avg = float(np.mean([result["rouge2_f1"] for result in valid_results])) if valid_results else 0.0
+    rougeL_avg = float(np.mean([result["rougeL_f1"] for result in valid_results])) if valid_results else 0.0
+    bertscore_avg = float(np.mean([result["bertscore_f1"] for result in valid_results])) if valid_results else 0.0
+
+    print("\n" + "-" * 40)
+    print(f"ROUGE-1 F1:   {rouge1_avg:.4f}")
+    print(f"ROUGE-2 F1:   {rouge2_avg:.4f}")
+    print(f"ROUGE-L F1:   {rougeL_avg:.4f}")
+    print(f"BERTScore F1: {bertscore_avg:.4f}")
+    print(f"Valid cases:  {len(valid_results)}/{len(test_results)}")
+    print("-" * 40)
+
+    return {
+        "rouge1_f1": round(rouge1_avg, 4),
+        "rouge2_f1": round(rouge2_avg, 4),
+        "rougeL_f1": round(rougeL_avg, 4),
+        "bertscore_f1": round(bertscore_avg, 4),
+        "num_test_cases": len(valid_results),
+        "num_attempted_cases": len(test_results),
+        "details": test_results,
+    }
+
+
 # ============================================================
 # RANKING EVALUATION
 # ============================================================
 
-def run_ranking_evaluation(test_cases, id_to_category):
+def run_ranking_evaluation(test_cases, id_to_category, id_to_metadata):
     print("\n" + "=" * 60)
     print("TASK B EVALUATION: Ranking Quality")
     print("=" * 60)
@@ -448,6 +720,7 @@ def run_ranking_evaluation(test_cases, id_to_category):
 
         response = call_recommend(persona=case["persona"], message=message)
         recommended = extract_recommended_products(response)
+        recommendation_text = extract_recommendation_text(response)
         gt = case["ground_truth_product"]
         hit = gt in recommended
 
@@ -455,6 +728,9 @@ def run_ranking_evaluation(test_cases, id_to_category):
         rec_cats = {id_to_category.get(p) for p in recommended}
         rec_cats.discard(None)
         cat_match = (gt_cat in rec_cats) if gt_cat else False
+        reference_text = build_reference_text(id_to_metadata.get(gt)) or " ".join(
+            part for part in [gt_cat, gt] if part
+        )
 
         print(f"  GT: {gt} ({gt_cat})  hit={'Y' if hit else 'n'}  cat_match={'Y' if cat_match else 'n'}")
         print(f"  Recommended: {recommended[:5]}")
@@ -464,6 +740,8 @@ def run_ranking_evaluation(test_cases, id_to_category):
             "ground_truth_product": gt,
             "ground_truth_category": gt_cat,
             "recommended_products": recommended,
+            "generated_text": recommendation_text,
+            "reference_text": reference_text,
             "hit": hit,
             "category_match": cat_match,
         })
@@ -472,11 +750,17 @@ def run_ranking_evaluation(test_cases, id_to_category):
     hit_rate = compute_hit_rate(test_results)
     ndcg = compute_ndcg(test_results)
     cat_match_rate = compute_category_match(test_results, id_to_category)
+    text_metrics = compute_text_metrics(test_results)
 
     print("\n" + "-" * 40)
     print(f"Hit Rate@{TOP_K}:        {hit_rate:.4f} ({hit_rate*100:.1f}%)")
     print(f"NDCG@{TOP_K}:            {ndcg:.4f}")
     print(f"Category-Match@{TOP_K}:  {cat_match_rate:.4f} ({cat_match_rate*100:.1f}%)")
+    print(f"ROUGE-1 F1:            {text_metrics['rouge']['rouge1_f']:.4f}")
+    print(f"ROUGE-2 F1:            {text_metrics['rouge']['rouge2_f']:.4f}")
+    print(f"ROUGE-L F1:            {text_metrics['rouge']['rougeL_f']:.4f}")
+    bertscore_f1 = text_metrics["bertscore"]["f1"]
+    print(f"BERTScore F1:          {bertscore_f1:.4f}" if bertscore_f1 is not None else "BERTScore F1:          n/a")
     print(f"Test cases:          {len(test_results)}")
     print("-" * 40)
 
@@ -484,6 +768,7 @@ def run_ranking_evaluation(test_cases, id_to_category):
         "hit_rate": round(hit_rate, 4),
         "ndcg": round(ndcg, 4),
         "category_match_rate": round(cat_match_rate, 4),
+        "text_metrics": text_metrics,
         "num_test_cases": len(test_results),
         "num_hits": sum(1 for r in test_results if r["hit"]),
         "num_category_matches": sum(1 for r in test_results if r["category_match"]),
@@ -605,11 +890,11 @@ def main():
 
     if not args.cross_domain:
         try:
-            corpus_ids, id_to_category = load_corpus(CHROMA_PATH, CHROMA_COLLECTION)
+            corpus_ids, id_to_category, id_to_metadata = load_corpus(CHROMA_PATH, CHROMA_COLLECTION)
         except Exception as e:
             print(f"ERROR loading ChromaDB corpus: {e}")
             print("Check CHROMA_PATH and CHROMA_COLLECTION in CONFIG.")
-            corpus_ids, id_to_category = None, {}
+            corpus_ids, id_to_category, id_to_metadata = None, {}, {}
 
         if corpus_ids:
             num_cases = 10 if args.quick else args.num_cases
@@ -632,9 +917,10 @@ def main():
                       f"interactions and the corpus (of {len(corpus_ids)} corpus items)")
 
                 test_cases = build_test_set(df, num_cases, corpus_ids)
+                all_results["task_a_review_quality"] = run_task_a_evaluation(test_cases, num_cases=num_cases)
                 if args.review_sim:
                     all_results["review_simulation"] = run_review_simulation_evaluation(test_cases)
-                all_results["ranking"] = run_ranking_evaluation(test_cases, id_to_category)
+                all_results["ranking"] = run_ranking_evaluation(test_cases, id_to_category, id_to_metadata)
 
     all_results["cross_domain"] = run_cross_domain_evaluation()
 
@@ -654,11 +940,25 @@ def main():
         rs = all_results["review_simulation"]
         print(f"  Task A RMSE:             {rs['rmse']:.4f}")
         print(f"  Task A Valid Predictions:{rs['num_valid_predictions']}/{rs['num_total_cases']}")
+    if "task_a_review_quality" in all_results:
+        ta = all_results["task_a_review_quality"]
+        print(f"  Task A ROUGE-1 F1:       {ta['rouge1_f1']:.4f}")
+        print(f"  Task A ROUGE-2 F1:       {ta['rouge2_f1']:.4f}")
+        print(f"  Task A ROUGE-L F1:       {ta['rougeL_f1']:.4f}")
+        print(f"  Task A BERTScore F1:     {ta['bertscore_f1']:.4f}")
     if "ranking" in all_results:
         r = all_results["ranking"]
         print(f"  Hit Rate@{TOP_K}:        {r['hit_rate']*100:.1f}%")
         print(f"  NDCG@{TOP_K}:            {r['ndcg']:.4f}")
         print(f"  Category-Match@{TOP_K}:  {r['category_match_rate']*100:.1f}%")
+        text_metrics = r.get("text_metrics", {})
+        rouge = text_metrics.get("rouge", {})
+        bertscore = text_metrics.get("bertscore", {})
+        print(f"  ROUGE-1 F1:              {rouge.get('rouge1_f', 0.0):.4f}")
+        print(f"  ROUGE-2 F1:              {rouge.get('rouge2_f', 0.0):.4f}")
+        print(f"  ROUGE-L F1:              {rouge.get('rougeL_f', 0.0):.4f}")
+        bert_f1 = bertscore.get("f1")
+        print(f"  BERTScore F1:            {bert_f1:.4f}" if bert_f1 is not None else "  BERTScore F1:            n/a")
     cd = all_results["cross_domain"]
     print(f"  Cross-Domain Accuracy:   {cd['accuracy']:.1%}")
     print(f"  Bridge Precision:        {cd['bridge_precision']:.1%}")

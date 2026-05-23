@@ -1,0 +1,64 @@
+{
+  "cases": [
+    {
+      "message": "I need something to help me work during blackouts",
+      "assumed_product_category": "Electronics",
+      "intent_graph": {
+        "intent": "remote_work_setup",
+        "confidence": 0.9,
+        "bridge_category": "cafes_with_power"
+      },
+      "keyword_baseline_bridge": "cafes"
+    },
+    {
+      "message": "I'm looking for a good novel to read",
+      "assumed_product_category": "Books",
+      "intent_graph": {
+        "intent": "reading_habit",
+        "confidence": 0.95,
+        "bridge_category": "books_and_reading"
+      },
+      "keyword_baseline_bridge": "libraries"
+    },
+    {
+      "message": "I want to start working out and need equipment",
+      "assumed_product_category": "Sports",
+      "intent_graph": {
+        "intent": "fitness_journey",
+        "confidence": 0.95,
+        "bridge_category": "gyms_and_fitness"
+      },
+      "keyword_baseline_bridge": "gyms"
+    },
+    {
+      "message": "I need a blender for cooking and trying new recipes",
+      "assumed_product_category": "Home",
+      "intent_graph": {
+        "intent": "cooking_exploration",
+        "confidence": 0.95,
+        "bridge_category": "kitchen_tools_and_recipes"
+      },
+      "keyword_baseline_bridge": "restaurants"
+    },
+    {
+      "message": "Looking for a stroller for my baby",
+      "assumed_product_category": "Baby",
+      "intent_graph": {
+        "intent": "baby_family_prep",
+        "confidence": 0.98,
+        "bridge_category": "baby_and_family"
+      },
+      "keyword_baseline_bridge": "family_restaurants"
+    },
+    {
+      "message": "Just browsing cases for my phone",
+      "assumed_product_category": "Electronics",
+      "intent_graph": {
+        "intent": "general_browsing",
+        "confidence": 0.55,
+        "bridge_category": null
+      },
+      "keyword_baseline_bridge": "cafes"
+    }
+  ]
+}

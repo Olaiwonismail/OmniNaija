@@ -1,12 +1,14 @@
 chromadb==1.5.9
 fastapi==0.136.1
 fsspec==2026.4.0
+bert-score==0.3.13
 numpy==2.4.6
 pandas==3.0.3
 protobuf==7.35.0
 pydantic==2.13.4
 python-dotenv==1.2.2
 Requests==2.34.2
+rouge-score==0.1.2
 scikit_learn==1.8.0
 sentence_transformers==5.5.0
 streamlit==1.57.0

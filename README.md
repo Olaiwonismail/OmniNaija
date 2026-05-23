@@ -38,6 +38,27 @@ Notes:
 - For embedding model downloads, set `HF_TOKEN` (Hugging Face) to improve throughput and avoid rate limits.
 - For end-to-end recommender text generation set `GEMINI_API_KEY` in `.env` or the environment.
 
+## Evaluation Metrics
+
+The offline evaluation scripts now report both ranking metrics and text-similarity metrics.
+
+- Ranking: Hit Rate@K, NDCG@K, Category-Match@K
+- Text similarity: ROUGE-1, ROUGE-2, ROUGE-L, BERTScore
+
+Run the main evaluator:
+
+```bash
+python evaluate_v2.py
+```
+
+Recompute ranking metrics from a saved results file:
+
+```bash
+python scripts/compute_ranking_metrics.py --results evaluation_results.json --out results_ranking.json
+```
+
+Both scripts use the held-out product metadata as a reference proxy for ROUGE/BERTScore when no gold explanation text is available.
+
 ## Streamlit App
 
 Run the UI with two tabs and the sidebar persona selector:

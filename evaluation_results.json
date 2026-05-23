@@ -2,10 +2,24 @@
   "ranking": {
     "hit_rate": 0.0,
     "ndcg": 0.0,
-    "category_match_rate": 0.6,
-    "num_test_cases": 50,
+    "category_match_rate": 0.5,
+    "text_metrics": {
+      "num_examples": 10,
+      "rouge": {
+        "rouge1_f": 0.0,
+        "rouge2_f": 0.0,
+        "rougeL_f": 0.0,
+        "available": false
+      },
+      "bertscore": {
+        "f1": null,
+        "available": false,
+        "model_type": null
+      }
+    },
+    "num_test_cases": 10,
     "num_hits": 0,
-    "num_category_matches": 30,
+    "num_category_matches": 5,
     "details": [
       {
         "user": "User_user_020",
@@ -23,8 +37,11 @@
           "B08MBX4FNC",
           "B0057Z7EIY"
         ],
+        "generated_text": "1. Best recommendation\n**TopEsct Kids Case for iPad (6th Gen, 5th Gen, Air & Air 2)**\n\n2. Why it fits the persona and conversation\nI noticed you just bought a SPARIN screen protector for the iPad 6th Generation/5th Generation and iPad Air 2. Since you're already setting up that device, the TopEsct case is the most logical next step because it is specifically designed for those exact models. \n\nAlso, looking at your recent interest in children's books like *The Cat in the Hat* and *Thomas and Friends*, it seems like you might have little ones at home. If the iPad is going to be in their hands, this shockproof silicone case is a lifesaver. It's built to survive those inevitable drops, and the built-in strap and kickstand make it much easier for them to hold or watch cartoons hands-free. It\u2019s a very practical way to protect your investment.\n\n3. Any tradeoffs or cautions\nThe main thing is to just double-check your iPad's model number in your settings (Settings > General > About) to be 100% sure it matches the ones listed (like A1893 or A1822). While it matches your recent screen protector purchase perfectly, you want to be sure before you commit. Also, keep in mind that because it's a thick, shockproof case, it will make the iPad a bit bulkier than it is normally.",
+        "reference_text": "15th Affair (Women's Murder Club). James Patterson (Author),  Maxine Paetro (Author)   Format: Kindle Edition. Books. [\"When an alluring blonde with ties to the CIA disappears from a murder scene, Detective Lindsay Boxer turns to the Women's Murder Club to help her track down an elusive suspect: her husband.\", \"As she settles into motherhood and a happy marriage, Lindsay Boxer thinks she has found domestic bliss. But when a beautiful, alluring blonde woman with links to the CIA disappears from the scene of a brutal murder at a downtown luxury hotel, Lindsay's life begins to unravel. Before she can track down the woman for questioning, a plane crash plunges San Francisco into chaos and Lindsay's husband Joe vanishes.The deeper she digs, the more Lindsay suspects that Joe shares a secret past with the mystery blonde. Thrown into a tailspin and questioning everything she thought she knew, Lindsay turns to the Women's Murder Club for help as she tries to uncover the truth.Filled with the pulse-pounding intrigue that has made James Patterson the world's #1 bestselling writer,\", \"15th Affair\", \"proves that all is fair in love, war, and espionage.\"]. {\"Publisher\": \"Little, Brown and Company (May 2, 2016)\", \"Publication date\": \"May 2, 2016\", \"Language\": \"English\", \"File size\": \"1400 KB\", \"Text to Speech\": \"Enabled\", \"Screen Reader\": \"Supported\", \"Enhanced typesetting\": \"Enabled\", \"X Ray\": \"Enabled\", \"Word Wise\": \"Enabled\", \"Sticky notes\": \"On Kindle Scribe\", \"Print length\": \"263 pages\"}. [{\"text\": \"I'm not going to give anything away, but fans of this series won't be able to put it down and will be left waiting for the next one because of the giant cliffhanger at the end.\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 1}, {\"text\": \"Great book\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}, {\"text\": \"15th Affair James Patterson  15th book of the Women's Murder Club in a series\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 9.99. avg rating: 5.0. review count: 5",
         "hit": false,
-        "category_match": true
+        "category_match": true,
+        "rouge": null
       },
       {
         "user": "User_user_028",
@@ -42,8 +59,11 @@
           "B0C82BRRX1",
           "B07XFBBLT3"
         ],
+        "generated_text": "Omo, you've been busy with your shopping! Looking at your recent buys, it\u2019s clear you\u2019re someone who values both a good story and a solid, practical tech setup.\n\n1. Best recommendation\nMy top pick for you is the **Kindle E-reader**, but I also highly recommend the **LENRUE Portable Wireless Bluetooth Speaker** as a great follow-up.\n\n2. Why it fits the persona and conversation\nYou have a very clear pattern in your recent purchases. First, you've been building a library with books like *The Ocean at the End of the Lane* and some children's titles\u2014the Kindle is the perfect companion for a reader, especially because it's easier on the eyes than a phone screen if you like to read at night or while traveling. \n\nSecondly, since you just picked up speaker wire and a foldable keyboard, you clearly enjoy setting up your own gadgets and audio gear. The LENRUE speaker is a very practical, value-for-money addition that complements your interest in sound without breaking the bank.\n\n3. Any tradeoffs or cautions\n* **Kindle:** Just a small heads-up, some users find the touchscreen can be a bit sensitive or \"jumpy\" when turning pages, so you might need to take a little time to get used to how it responds.\n* **Speaker:** This is a small, portable device. It's perfect for your desk or personal use, but don't expect it to give you that heavy, loud bass you would get from a much larger home theater system.",
+        "reference_text": "Never Look Back. Mary Burton (Author)   Format: Kindle Edition. Books. [\"Expect the unexpected in this gritty, tense, and page-turning mystery from\", \"New York Times\", \"bestselling author Mary Burton.\", \"After multiple women go missing, Agent Melina Shepard of the Tennessee Bureau of Investigation makes the impulsive decision to go undercover as a prostitute. While working the street, she narrowly avoids becoming a serial killer\\u2019s latest victim; as much as it pains her to admit, she needs backup.\", \"Enter lone wolf FBI agent Jerrod Ramsey. Stonewalled by a lack of leads, he and Melina investigate a scene where a little girl has been found abandoned in a crashed vehicle. They open the trunk to reveal a horror show and quickly realize they\\u2019re dealing with two serial killers with very different MOs. The whole situation brings back memories for Melina\\u2014why does this particular case feel so connected to her painful past?\", \"Before time runs out, Melina must catch not one but two serial killers, both ready to claim another victim\\u2014and both with their sights set on her.\"]. {\"Publisher\": \"Montlake (July 1, 2020)\", \"Publication date\": \"July 1, 2020\", \"Language\": \"English\", \"File size\": \"1536 KB\", \"Text to Speech\": \"Enabled\", \"Screen Reader\": \"Supported\", \"Enhanced typesetting\": \"Enabled\", \"X Ray\": \"Enabled\", \"Word Wise\": \"Enabled\", \"Sticky notes\": \"On Kindle Scribe\", \"Print length\": \"337 pages\", \"Page numbers source ISBN\": \"1542009847\"}. [{\"text\": \"I was hoping that the characters would be more completely developed. Also, the plot was fairly predictable, not as twisty and turny as the reviews had stated, and it had several minor flaws concerning the details that would have led to arrests much sooner. This novel could have been so much better with a more articulate vocabulary and a richer use of language. Short and punchy sentences are great for creating a sense of being definitive and for keeping a story moving, but overly used the story and characters become shallow. On a positive note, Burton's characters Bonnie and Sonny do a fair job of  portraying the tortured psyches of people lacking self-love, self respect, and compassion for others, so naturally they create ruin wherever they go. I believe that o say that this was just \\\"an average read\\\"  is an overall Fair assessment.\", \"rating\": 3, \"verified_purchase\": true, \"helpful_vote\": 4}, {\"text\": \"I have loved all if the books that I have read by Mary Burton. Can't wait to read another one.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}, {\"text\": \"Mary Burton is a wonderful author, I have enjoyed any book of hers I have been fortunate enough to find.  She really keeps your interest thru the whole book!!\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 0.0. avg rating: 4.6. review count: 5",
         "hit": false,
-        "category_match": false
+        "category_match": false,
+        "rouge": null
       },
       {
         "user": "User_user_003",
@@ -61,8 +81,11 @@
           "B07NK8G2HH",
           "B07CYZGQ12"
         ],
+        "generated_text": "**Best recommendation**\nREETEC Wireless Bluetooth Headphones Over-Ear (Rose Gold)\n\n**Why it fits the persona and conversation**\nI noticed you\u2019ve already picked up some great audio gear\u2014the LENRUE portable speaker for your space and the TAGRY earbuds for when you're on the move. To complete your \"audio toolkit,\" these REETEC over-ear headphones are the perfect next step. \n\nSince you enjoy reading books like *The Woman in Cabin 10* and creative hobbies like lettering, these headphones are ideal for those quiet, focused sessions. They are designed for comfort with soft protein earpads, so you can wear them for hours while you're relaxing or working without your ears feeling tired. Also, the 40-hour battery life is a massive plus\u2014you won't be constantly hunting for a charger, which is always a relief.\n\n**Any tradeoffs or cautions**\nOne thing to keep in mind is the microphone quality. Based on reviews, the mic is okay, but it can make your voice sound a bit distant or muffled during calls. If you need to jump on very important business calls where you need to sound crystal clear, you might still want to stick to your earbuds. But for music, movies, and just shutting out the noise while you read, they are excellent value for money.",
+        "reference_text": "Fire TV Stick with Alexa Voice Remote (includes TV controls) | HD streaming device | 2020 release. Amazon. Electronics. [\"Latest release of our best-selling Fire TV device - 50% more powerful than previous gen for fast streaming in Full HD. Includes Alexa Voice Remote with power and volume buttons.\", \"Less clutter, more control - Alexa Voice Remote lets you use your voice to search and launch shows across apps. Plus, control power and volume on your TV and soundbar with a single remote.\", \"Home theater audio with Dolby Atmos - Feel scenes come to life with immersive Dolby Atmos audio on select titles with compatible home audio systems.\", \"Tens of thousands of channels, Alexa skills, and apps - Including Netflix, YouTube, Prime Video, Disney+, Apple TV+, and HBO Max. Subscription fees may apply.\", \"500,000+ movies and TV episodes - With thousands included in your Prime membership.\", \"Live TV - Watch your favorite live TV, news, and sports with subscriptions to SLING TV, YouTube TV, and others.\", \"Free TV - Access over 20,000 free movies and TV shows from apps like IMDb TV, Tubi, Pluto TV and more.\", \"Listen to music - Stream on Amazon Music, Spotify, Pandora, and others. Subscription fees may apply.\", \"Easy to set up, stays hidden - Plug in behind your TV, turn on the TV, and connect to the internet to get set up.\", \"Food Network Kitchen subscription - Live Q&A with culinary expert and more with a 1-year complimentary subscription.\"]. {}. [{\"text\": \"I purchased this for my husband that is road warrior so that he could more easily access our accounts.  He uses a separate hotspot for security, never logging into hotel wifi - he reports that it is so nice to easily access our various streaming accounts.  We've had several firesticks over the years.  This one is handy for sure.  Plugs in and sets up super easy.  If I can do it, ANY ONE can.  :)\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}, {\"text\": \"Just buy it\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}, {\"text\": \"Works great with my older tv. Can easily stream everything... Netflix, Hulu, Discovery Plus, Prime, etc.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 0.0. avg rating: 4.5. review count: 10",
         "hit": false,
-        "category_match": true
+        "category_match": true,
+        "rouge": null
       },
       {
         "user": "User_user_021",
@@ -80,8 +103,11 @@
           "B0BBR71NCL",
           "B07QKPCWN5"
         ],
+        "generated_text": "1. **Best recommendation**\nThe **SUPERDANNY Surge Protector (5 Outlets, 3 USB Ports, 4.5 Ft Extension Cord)**.\n\n2. **Why it fits the persona and conversation**\nI see you're already building a solid setup! You just picked up that Addtam wall charger, which is perfect for fixed sockets, but since you also bought a SATA hard drive enclosure, it looks like you're setting up a workspace for your tech. \n\nThe Addtam you have is a wall-plug type, which is great, but it doesn't give you much movement. The SUPERDANNY is a better follow-up because it comes with a 4.5ft cord. This gives you the flexibility to reach your desk, your bedside table, or even a reading nook for those books you just bought, without being stuck right next to the wall socket. It also has 900 Joules of surge protection, which is important to keep your hard drives and other electronics safe from power spikes.\n\n3. **Any tradeoffs or cautions**\nThe main tradeoff is that it has 3 USB ports instead of the 4 you got with the Addtam, and it's a bit more of an investment than a simple wall extender. Also, if you are looking for the absolute cheapest way to get more outlets, the Amazon Basics 2-pack is a great value, but please be careful\u2014that one has a very short 2ft cord, so it won't give you much \"reach\" at all. For a proper desk setup, the SUPERDANNY is the more practical choice.",
+        "reference_text": "Age of Myth: Book One of The Legends of the First Empire. Michael J. Sullivan (Author). Books. [\"One of fantasy\\u2019s finest next-generation storytellers continues to break new ground.\", \"Michael J. Sullivan\\u2019s trailblazing career began with the breakout success of his Riyria series: full-bodied, spellbinding fantasy adventures whose imaginative scope and sympathetic characters won a devoted readership and comparisons to fantasy masters Brandon Sanderson, Scott Lynch, and J.R.R. Tolkien himself. Now\", \"Age of Myth\", \"inaugurates an original five-book series. Since time immemorial, humans have worshipped the gods they call Fhrey, truly a race apart: invincible in battle, masters of magic, and seemingly immortal. But when a god falls to a human blade, the balance of power between humans and those they thought were gods changes forever. Now only a few stand between humankind and annihilation: Raithe, reluctant to embrace his destiny as the God Killer; Suri, a young seer burdened by signs of impending doom; and Persephone, who must overcome personal tragedy to lead her people. The Age of Myth is over. The time of rebellion has begun.\", \"Magic, fantasy, and mythology collide in Michael J. Sullivan\\u2019s Legends of the First Empire series:\", \"AGE OF MYTH \\u2022 AGE OF SWORDS \\u2022 AGE OF WAR\"]. {\"Publisher\": \"Del Rey (June 28, 2016)\", \"Language\": \"English\", \"Hardcover\": \"432 pages\", \"ISBN 10\": \"1101965339\", \"ISBN 13\": \"978-1101965337\", \"Item Weight\": \"1.3 pounds\", \"Dimensions\": \"6.42 x 1.54 x 9.41 inches\"}. [{\"text\": \"I hadn't read the other Michael Sullivan books, so I approached this prequel on its own merits.<br /><br />In the Age of Myth, humans have worshipped and regarded Fhrey as gods.  They've worked and fought for them and believed that the Fhrey are immortal.  The Fhrey regard humans as pets, animals, servants, slaves - certainly not considered threats or dangerous.<br /><br />But a chance encounter between an arrogrant Fhrey turns into a bloody confrontation with Fhrey and human deaths.  The survivors run away but find that the story of the God Killer spreads.  As the Fhrey retaliate with the mass destruction of local villages.<br /><br /> Age of Myth started slow, but as the survivors Raithe and Malcolm make their way to a local village and the different characters intersect, the story picks up quickly.  Raithe is a young warrior trained by his father. He ends up fighting and killing a Fhrey.  Malcolm, a former Fhrey slave, helps Raithe and runs away with him.  Malcolm knows how to live among humans and helps Raithe adjust to the village that takes them in.  Raithe and Malcolm meet and rescue Persephone, the widow of the old lord.  Though Persephone's position is precarious, she understands that change is coming and works to prepare the villagers for the Fhrey's attack.  The group is rounded out by a young seer who has just joined the community.  The four humans must safely steer the village to safety.<br /><br />Though I hadn't read the Riyria Chronicles, I was drawn into The Age of Myth and am looking forward to reading the next in the series.\", \"rating\": 4, \"verified_purchase\": false, \"helpful_vote\": 8}, {\"text\": \"I\\u2019ve wanted to read something of Michael J. Sullivan\\u2019s forever, since I\\u2019ve heard good things about his Riyria books. But I never got to any of them, so when I saw he had a new series coming out, it seemed like the perfect time to finally check out his work. And by the gods, am I glad I read AGE OF MYTH, because now I want to binge read all of his books.<br /><br />First, I appreciated the Author\\u2019s Note at the beginning of the book. I\\u2019m always wary of starting new epic fantasy series because there\\u2019s that chance they won\\u2019t be finished. No worry of that here -- all five books in The Legends of the First Empire are already written. That gives me such peace of mind knowing I\\u2019ll get the entire story, and too, I like knowing the author stuck to his ideas for how everything would go, and was even able to work in lots of foreshadowing.<br /><br />Second, I like the squad of unlikely heroes. Born in a harsh land, Raithe has only ever known fighting and becomes the mythical God Killer. But all he really wants is to quit fighting and find a quiet place to settle down. Widow Persephone must give up leadership of the clan she\\u2019s helped lead for 20 years when her husband is killed. But when the new chieftain shows himself unworthy of protecting their clan, she kicks aside generations of tradition. And so on.<br /><br />Third, AGE OF MYTH is epic fantasy without requiring 800+ pages per volume to be epic. There are big consequences to little events, battles where the underdog is overwhelmed and against the wall, and big powerful bad guys who see humans as rats. Classic fantasy stuff in some ways, but Sullivan puts his own spin on it all. And that ending? Oh man oh man! It\\u2019s going to be a long wait until summer 2017.\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 2}, {\"text\": \"This is grand fantasy, a high quest, a brilliant start to a new series (book 2 cannot come soon enough) and above all, a tale of human connections.<br /><br />We see a daughter, reaching out tentatively for her estranged mother, knowing it's likely their last meeting, trying for a connection.  We see her as well trying to speak to a lost mentor, again seeking connection.<br /><br />To the other extreme we see one of her own students nearly drown a town full of his own neighbors and laugh at it, unable to connect on a basic human level.  We see a man die before a group of onlooking villages, their minds mainly on how good a hunter he was, and how a deer he brought in saved them, a connection of shared dependence, but not a deep one.<br /><br />Connections are town to town, and species to species if the Fhrey and Rhunes can be called that.  They see each other as uniform but themselves as comprised of a great number of tribes and villages and such.<br /><br />Malcolm forges connections, an ability that serves him well.  The Door impedes connections, and is revered for it.<br /><br />There are many more examples.  A girl Suri, who comes with her wolf to a town, the first she's seen, and works perhaps too hard to connect with the people she finds but does not understand.<br /><br />That is the greatest strength in this novel.  That which lives between the characters (and to some extent the events) linking them.  That which lives in the spaces.<br /><br />Even the names empower the novel by what they connect to in our world.  I keep looking for how former Second Chair Persephone relates to wife of Hades Persephone.  Some (Heimdal, Arion) are mythological, while others Raithe (wraith?) and minna (Japanese for &#34;everyone&#34;?) seem like playing on words.<br /><br />I've been so unable to put this down, I've read it while walking down the street. I'll be shocked if it doesn't take the Hugo.\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 1}]. price: 0.0. avg rating: 4.6. review count: 5",
         "hit": false,
-        "category_match": false
+        "category_match": false,
+        "rouge": null
       },
       {
         "user": "User_user_009",
@@ -99,8 +125,11 @@
           "B01HPADPCW",
           "B08FVMRW4D"
         ],
+        "generated_text": "1. Best recommendation\nThe SUPERDANNY Surge Protector (5 Outlets, 3 USB Ports).\n\n2. Why it fits the persona and conversation\nI see you are really setting up a proper workstation, especially with that Wacom tablet and your focus on protecting your gear with those Belkin and Tripp Lite strips. Since you're clearly someone who values both creativity and keeping your electronics safe from power issues, this SUPERDANNY strip is a very practical next step. \n\nThe real \"win\" here is the 3 smart USB ports. Instead of looking for extra charging bricks for your phone or other small gadgets while you're busy working or drawing, you can plug them directly into the strip. It helps keep your desk area much cleaner and more organized, which is always better when you're in the zone. Plus, it has a great rating and is very easy on the pocket.\n\n3. Any tradeoffs or cautions\nIt only has 5 AC outlets, which is fewer than the big tower option. However, since you already bought those Belkin 6-outlet packs, you shouldn't be lacking in sockets. I wouldn't recommend the JACKYLED Tower right now because, even though it has more ports, the reviews are a bit mixed compared to this one, and it's more expensive. Stick with the SUPERDANNY for better value and reliability.",
+        "reference_text": "The Late Show. Michael Connelly (Author). Books. [\"Introducing Renee Ballard, a fierce young detective fighting to prove herself on the LAPD's toughest beat, from #1\", \"New York Times\", \"bestselling author Michael Connelly.\", \"Renee Ballard works the night shift in Hollywood--also known as the Late Show--beginning many investigations but finishing none, as each morning she turns everything over to the day shift. A once up-and-coming detective, she's been given this beat as punishment after filing a sexual harassment complaint against a supervisor.But one night she catches two assignments she doesn't want to part with: the brutal beating of a prostitute left for dead in a parking lot and the killing of a young woman in a nightclub shooting. Ballard is determined not to give up at dawn. Against orders and her partner's wishes, she works both cases by day while maintaining her shift by night. As the investigations entwine, they pull her closer to her own demons and the reason she won't give up her job, no matter what the department throws at her.\"]. {\"Publisher\": \"Little, Brown and Company; First Edition (July 18, 2017)\", \"Language\": \"English\", \"Hardcover\": \"448 pages\", \"ISBN 10\": \"0316225983\", \"ISBN 13\": \"978-0316225984\", \"Item Weight\": \"1.5 pounds\", \"Dimensions\": \"6.5 x 1.25 x 9.75 inches\"}. [{\"text\": \"Wow!  I just finished this book and loved it.  This may be my favorite book of Connelly's so far.  Renee Ballard is a gutsy female protagonist.  She never has her &#34;too stupid to live&#34; moments.  She's intense, fearless, driven and smart.  She doesn't brook any foolishness from colleagues or higher ups.<br /><br />She's a surfer girl with a rescue dog Lola.  They surf and sleep on the beach in a tent during the day, and then Ballard goes on the night shift or &#34;the late show&#34; where she was scheduled after she complained about the sexual harassment of a higher up.  She works independently a lot, as she doesn't know who she can trust.<br /><br />A typical night might involve a burglary, an attempted murder and a shooting in a bar.  Ballard's frustration is that on the night shift you rarely investigate these crimes yourself, but turn them over to colleagues who may not be as driven to find the bad guys and protect the innocent.  Ballard tries to find her way around that which can get her into trouble.<br /><br />I hope Connelly continues with this character, and Amazon turns it into a show.  This was an original and refreshing read.  I'm going to recommend it to our library mystery book club for a monthly selection.  Now, we only have to wait until October for our next Bosch hit.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 24}, {\"text\": \"Great authors hook repetitive readers with the construction of great characters.  If you're reading this review, you've probably read the Michael Connelly books that feature Detective Harry Bosch.  And if you're a Bosch fan, you've probably also read these authors for similar strong characters: James Lee Burke (Dave Robicheaux and Clete Purcell), Robert Crais (Joe Pike), Lee Child (Jack Reacher), John Sandford (Lucas Davenport and Virgil Flowers), John Connoly (Charlie Parker), Jeffry Deaver (Lincoln Rhyme), Stephen Hunter (generations of the Swagger clan), and probably my favorites, Douglas Preston and Lincoln Child (Agent Pendergast).  If you have read them, you know what I mean.  And if you haven't picked up on them, this is a not so subtle suggestion that you do.  These authors and their respective characters keep bringing me back again and again --unless/until the characters and plots go stale.<br /><br />I'm convinced that good authors know when their work is going stale, either they get tired of writing about the same character or they've played out the story options they've come up with.  Sometimes they might notice that the reviews on their most recent work have become a bit jaded, and sometimes they see their book sales trailing off and want to get back ahead of the curve.  While I don't know the reason why Michael Connelly brought out this new character, he introduces us to Renee Ballard in &#34;The Late Show&#34;, a young, attractive, energetic and intelligent female LAPD detective now working the night shift.  Many LEOs (law enforcement officers) work the night shift because that is where the action is.  Others are demoted to it in the same way that corporate executives might be relocated to Fairbanks, Alaska (no offense intended), the lowest rung on the totem pole that there is typically no recovery from.  That is what has happened to Detective Ballard.<br /><br />Say what you will about sexual harassment, it still rears its ugly head in many work environments. It is simply 'wrong' but is firmly entrenched in what have been considered male dominated industries. Find yourself being taken advantage of by a superior in today's day and age and the superior often pays with his/her job.  Vamoose, good-bye, nice knowing you.  But in some environments strings are pulled, good old boys protected, and the victim finds himself/herself victimized once again.  The payback for not succeeding in a sexual harassment case is that the accused retains his/her position and the accuser pays the price.  This is what happens in this fast moving story by Michael Connelly. It sure isn't pretty.<br /><br />Mr. Connelly has changed gears only as far as the sexual orientation of his main character.  Like Harry Bosch, Renee Ballard works for one of the largest law enforcement units in the country.  In fact, the City of Los Angeles Police Department is the third largest in the country, following only New York City and Chicago.  The size of local law enforcement usually follows the extent of crime in that jurisdiction.  Go figure. So the author has pretty much stayed with what he knows.  And why shouldn't he?  Enough crazy situations occur out there that it's easy to use and justify the phrase that &#34;you can't make this stuff up&#34;.  Several interesting cases are part of the story line and the author successfully leads us through them to their ultimate conclusions.  Prostitution, sexual ambiguity, violent actions followed by grim investigations, bad language and inappropriate humor, theft, murder, corruption and manipulation of facts, sadism, and the willingness of a determined (and maligned) detective to take on these investigations.<br /><br />This novel has a little bit of something for everyone.  It is well-written, humorous, and pushes the envelope.  It will be a bumpy but interesting ride for you as you follow the human motivations and try to figure out where this whole thing is heading.  Think that you've got it?  Sorry -- think again!\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 5}, {\"text\": \"I never have to read a description of Michael Connelly's books before purchasing them. Still don't. This is a new character and as usual, Connelly gives us depth, with action, well developed story lines and kept me up until 2 am. Bosch is still my favorite flawed detective but Ballard is right behind him. Plan to spend some time with this one.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}]. price: 7.81. avg rating: 5.0. review count: 5",
         "hit": false,
-        "category_match": false
+        "category_match": false,
+        "rouge": null
       },
       {
         "user": "User_user_008",
@@ -118,8 +147,11 @@
           "B09554QF7L",
           "B007HCCNJU"
         ],
+        "generated_text": "1. Best recommendation\nYtonet 15 Laptop Backpack\n\n2. Why it fits the persona and conversation\nI see you've been getting your gear together lately, especially with that KROSER backpack and the UGREEN printer cable. Since you seem to value practical, tech-friendly items for work or travel, the Ytonet backpack is a very smart addition. \n\nEven though you just got the KROSER, this one offers something different: extra security. If you're commuting in busy areas or traveling for business, the anti-theft features\u2014like the RFID blocking and that hidden pocket at the back near your waist\u2014are huge for peace of mind. It\u2019s a practical way to make sure your wallet, phone, and important documents stay safe from pickpockets while you're on the move.\n\n3. Any tradeoffs or cautions\nThis bag is more about \"security and utility\" than \"pure fashion.\" While it\u2019s still sleek, if you are looking for something specifically to match a high-end professional look, you might find it a bit more functional than stylish compared to something like the LOVEVOOK. Also, since you already have a good backpack, this would be more of a specialized bag for when you need to be extra careful with your belongings.",
+        "reference_text": "The Battery Organizer, Battery Storage Organizer Hinged Clear Cover with Locking Lid, Holds 180 Batteries, Includes a Removable Battery Tester, Holder for Garage Organization, Charcoal. THE BATTERY ORGANISER. Electronics. [\"Expanded Battery Organizer Case \\u2013 This versatile, portable batteries organizer holds 180 total batteries, including 78 AA, 64 AAA, eight 9-volt, 10 C, 8 D, and 12 flat batteries!\", \"Wall-Mounted or Drawer Use \\u2013 The smart designed with hinged clear cover can be stored in a kitchen drawer or closet or mounted on a wall in a garage or mud room.\", \"Quick Visual Accessibility \\u2013 A transparent lid design makes it easier to identify which batteries you have in stock, which you need to replenish, and what\\u2019s available.\", \"Includes Removable Battery Tester \\u2013 Each home battery organizer also comes with a small battery tester (no batteries required) to help you see if batteries are still good.\", \"Strong, Durable Plastic \\u2013 The heavy-duty construction and portable design makes our battery storage organizer perfect for home, kitchen, garage, work, or contracting.\", \"Looking for other sizes or colors? Use this ASIN: B07LH5YD13 for our 93 battery organizer\"]. {\"Brand\": \"THE BATTERY ORGANISER\", \"Color\": \"Charcoal\", \"Material\": \"Plastic\", \"Special Feature\": \"battery storage organizer, the battery organizer, battery organizer with cover, battery organizer with lid, battery storage case with testerbattery storage organizer, the battery organizer, battery organizer with cover, battery organizer with lid, battery storage case with tester  See more\", \"Style\": \"Case\", \"Recommended Uses For Product\": \"Kitchen Storage\", \"Room Type\": \"Kitchen\", \"Product Dimensions\": \"12.25\\\"L x 6.5\\\"W x 10\\\"H\", \"Closure Type\": \"Snap\", \"Water Resistance Level\": \"Water Resistant\", \"Item Weight\": \"3.1 pounds\", \"Opening Mechanism\": \"Hinge\", \"Shape\": \"Rectangular\", \"Pattern\": \"Solid\", \"Number of Items\": \"1\", \"Unit Count\": \"1 Count\", \"Item Package Quantity\": \"1\", \"Manufacturer\": \"The Battery Organizer\", \"Part Number\": \"TBO8189\", \"Item model number\": \"TBO8189\", \"Size\": \"180 Batteries Holder of Various Sizes\", \"Number Of Pieces\": \"1\", \"Mounting Type\": \"Wall Mount\", \"Special Features\": \"battery storage organizer, the battery organizer, battery organizer with cover, battery organizer with lid, battery storage case with tester\", \"Batteries Included?\": \"No\", \"Batteries Required?\": \"No\", \"Date First Available\": \"March 3, 2021\"}. [{\"text\": \"The AA batteries don\\u2019t  fit on the back slots. They only fit on the front side of the case.\", \"rating\": 1, \"verified_purchase\": true, \"helpful_vote\": 4}, {\"text\": \"This was a perfect design fir organizing household batteries.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}, {\"text\": \"Great organizer! Holds a ton of batteries. Lightweight but sturdy! This is a must have for battery storage!\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 0.0. avg rating: 4.2. review count: 5",
         "hit": false,
-        "category_match": true
+        "category_match": true,
+        "rouge": null
       },
       {
         "user": "User_user_032",
@@ -137,8 +169,11 @@
           "B08YFJ1D9V",
           "B07H936BZT"
         ],
+        "generated_text": "1. Best recommendation\n**Fire HD 8 Tablet with Alexa (32 GB, Black)**\n\n2. Why it fits the persona and conversation\nI noticed you\u2019ve been building a really nice collection of entertainment, from your JBL speaker to a variety of books\u2014both memoirs and children's stories. Since you already have the Fire HD 10, which is great for watching movies or heavy tasks, the **Fire HD 8** is the perfect \"companion\" device. \n\nIt hits that sweet spot for someone who loves reading. It\u2019s more compact and easier to hold for long sessions (like when you're reading those new books you just got) compared to the 10-inch version, but it still has a much better screen than a standard phone. Most importantly, the **12-hour battery life** is a massive plus. If you're commuting or dealing with power issues, having a device that lasts longer on a single charge gives you much more peace of mind. Plus, at a very reasonable price, it's a great way to expand your library without breaking the bank.\n\n3. Any tradeoffs or cautions\nJust keep in mind that because the screen is 8 inches, it won't feel as \"cinematic\" as your 10-inch tablet if you're planning to watch a lot of Netflix. Also, like many of these models, the camera quality is just okay\u2014fine for video calls, but don't expect it to replace a proper camera for clear photos.",
+        "reference_text": "Seagate Backup Plus Ultra Touch HDD 1TB External Hard Drive \u2013 White USB-C USB 3.0, 1 year Mylio Create, 4 month Adobe Creative Cloud Photography plan and Rescue Services (STHH1000402). Seagate. Electronics. [\"SECURITY FIRST: Securely and easily manage photos, videos, movies, and more with password activated hardware encryption\", \"STYLISH & SPACIOUS: Stylish tone-on-tone fabric design works seamlessly with USB-C and USB 3.0 laptops and PCs\", \"PLUG & PLAY: The perfect external hard drive for Windows or Mac, simply back up files with a single click or schedule automatic daily, weekly, or monthly backups (Reformatting may be required for use with Time Machine)\", \"MYLIO & ADOBE: Edit, manage, and share photos with a 1-yr. complimentary subscription to Mylio Create and a 4-mo. membership to Adobe Creative Cloud Photography plan (must redeem within 1-yr. of drive registration; not available in China)\"]. {\"Hard Drive\": \"1 TB Mechanical Hard Disk\", \"Brand\": \"Seagate\", \"Series\": \"Seagate 1TB Backup Plus Ultra Touch Portable External Hard Drive, USB-C, US\", \"Item model number\": \"STHH1000402\", \"Hardware Platform\": \"Mac\", \"Item Weight\": \"5.3 ounces\", \"Product Dimensions\": \"4.52 x 3.07 x 0.46 inches\", \"Item Dimensions  LxWxH\": \"4.52 x 3.07 x 0.46 inches\", \"Color\": \"White\", \"Flash Memory Size\": \"1000 GB\", \"Hard Drive Interface\": \"USB 1.1\", \"Batteries\": \"1 Lithium Ion batteries required.\", \"Manufacturer\": \"SEAGATE\", \"Language\": \"English, English, English, English, English\", \"Is Discontinued By Manufacturer\": \"No\", \"Date First Available\": \"January 7, 2019\", \"Best Sellers Rank\": {\"External Hard Drives\": 717}, \"Digital Storage Capacity\": \"1 TB\", \"Hard Disk Interface\": \"USB 1.1\", \"Connectivity Technology\": \"USB\", \"Hard Disk Form Factor\": \"2.5 Inches\", \"Hard Disk Description\": \"Mechanical Hard Disk\", \"Compatible Devices\": \"Laptop\", \"Installation Type\": \"Plug In\", \"Hard Disk Size\": \"1 TB\"}. [{\"text\": \"I\\u2019ll admit it -- hardware intimidates me so I tend to opt for the simplest solutions I can find.  I needed a better backup solution for my MacBook Air, and was happy to try this external drive.<br /><br />So far, I\\u2019m very happy,  super easy to connect, easy to set up and use, and faster than my older (much older) 500GB external storage unit.  I did a selective backup (music, photos, videos, and some important files), and found the performance to be better than I expected.  I didn\\u2019t time it, but I\\u2019ll do that for sure on the next group of files/folders.<br /><br />The physical size makes it truly portable, so I purchased a hardshell case so i could transport it as needed.  I\\u2019m really happy with this.  Five stars!\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 1}, {\"text\": \"I really love this little drive.  It worked right out of the box and has been fast and reliable so far.  Aesthetically it is great, I love the cloth texture on the top.  I am actually hard pressed to say anthing bad about this drive.  The size is great, the capacity is great, the price is very good.  All in all, this is a great little drive.\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 0}, {\"text\": \"The Seagate 2TB external hard drive comes with its own backup / restore software. The file selection criteria is very easy to set for regular or on demand backups. Only backing up the files that have changed greatly shortens the backup process. I highly recommend this drive.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 75.98. avg rating: 5.0. review count: 5",
         "hit": false,
-        "category_match": true
+        "category_match": true,
+        "rouge": null
       },
       {
         "user": "User_user_009",
@@ -156,8 +191,11 @@
           "1450845800",
           "088743147X"
         ],
+        "generated_text": "1. Best recommendation\n**The Complete Cookbook for Young Chefs: 100+ Recipes that You'll Love to Cook and Eat**\n\n2. Why it fits the persona and conversation\nI see a very clear pattern in what you\u2019ve been picking up. You\u2019re clearly interested in cooking\u2014with that Gluten-Free bread book and the Pressure Cooker manual\u2014but you're also buying items specifically for a child, like the Echo Dot Kids Edition and the sticker book. \n\nThis cookbook is the perfect bridge between those two interests. Instead of just cooking *for* the kids, this book lets them join you in the kitchen. It\u2019s designed specifically for their age group with recipes that have actually been tested by kids, so they won't find the steps too overwhelming. Since you already have the \"how-to\" for advanced cooking, this is a great way to pass those skills down and make meal prep a fun family activity. It's also very good value for money at around $9.97.\n\n3. Any tradeoffs or cautions\nSince this involves children handling food, you'll definitely need to supervise them closely, especially when it comes to using heat or knives. Also, because it's a physical cookbook, you'll need to be careful about keeping it clean from oil splashes or flour while you're working in the kitchen!",
+        "reference_text": "Amazon Basics 60-Inch Lightweight Tripod With Bag, Black. Amazon Basics. Electronics. [\"Lightweight tripod with adjustable-height legs and rubber feet\", \"Compatible with most video cameras, digital cameras, still cameras, GoPro devices, smartphone adapters (not included), and scopes.\", \"Recommended max load weight is 6.6 lbs (3kg) for optimal performance\", \"Weighs 3 lbs; Extends from 25 inches to 60 inches when center post is fully extended; Carrying case included\", \"Two built-in bubble view levels and 3-way head to allow for tilt and swivel motion; portrait or landscape options\", \"Quick-release mounting plate helps ensure fast transitions between shots\"]. {\"Product Dimensions\": \"4.8\\\"D x 4.33\\\"W x 25\\\"H\", \"Item Weight\": \"2.72 Pounds\", \"Item model number\": \"WT3540\", \"Best Sellers Rank\": {\"Our Brands\": 1166, \"Complete Tripod Units\": 5}, \"Is Discontinued By Manufacturer\": \"No\", \"Date First Available\": \"October 11, 2018\", \"Manufacturer\": \"AmazonBasics\", \"Country of Origin\": \"China\", \"Brand\": \"Amazon Basics\", \"Color\": \"Black\", \"Compatible Devices\": \"Camera, Smartphone\", \"Material\": \"Aluminum\", \"Weight Limit\": \"6.6 Pounds\", \"Maximum Height\": \"152 Centimeters\", \"Tripod Head Type\": \"Pan Heads\", \"Minimum Height\": \"60.5 Centimeters\"}. [{\"text\": \"I've had several Amazon Basics' items since the line was introduced. Most have been quite good. Unfortunately this tripod wasn't one of them.<br /><br />The feel is cheap and plastic-y. I wasn't expecting bearings in the pan-head but the plastic on plastic mechanisms are terrible.<br /><br />I tested this item with my Kodak Z990 digital camera. It weighs approx. 21 oz. with batteries.<br /><br />The camera mount has a good rubber pad for your camera to sit on and the tightening screw has a butterfly head so no screwdriver or coins are needed to attach/detach the mount from the camera. The mount attaches to the tripod with a spring-loaded release arm. There is actually very little contact area on the tripod itself (only two corners) holding the mount in place, also the release arm does NOT have a safety catch.<br /><br />Pan Functionality - Fully tightened down I can still, with not much effort, swing the head from left to right. Fully loosened the motion is heavy and awkward easily upsetting the tripod's position. Tightening this knob fully actually interferes with the...<br /><br />Tilt Functionality - The action is not much better here. You can lock the tilt angle into place and it does stay there. There's just as much plastic on plastic drag when in motion. The arm is generously long and comfortable to grip. The side-tilt mechanism goes reasonably easily from flat to 90\\u00b0. It does not lock in place well.<br /><br />Leg Functionality - The legs extend and retract with mild effort. They lock into place firmly. With just the larger leg section extended the tripod is fairly sturdy. Extending the smaller leg sections dramatically increases wobble. There is a weight/gear hook for added stabilization but it is plastic and feels easily broken. The swiveling rubber feet are innovative but only held on by friction and can easily become detached. The center stabilizer locks and unlocks easily with only a quarter turn and holds in place well. There is a serviceable carry handle attached to the leg mount section.<br /><br />The tripod has two bubble levels. The first, a small button level is at the top of one of the leg mounts. The second, a tube level, is just under and inch long and is under and partially obscured by the camera mount. With a camera attached it becomes useless.<br /><br />The center section extends and lowers via a crank mechanisms and locks in place with a plastic collar. There is no positive safety lock. Loosen the collar and your camera comes down rapidly on its own. Extending your camera this way will only increase the instability of this tripod.<br /><br />The included carry bag reflects the quality of it's tripod. Its material is unpadded and thin. It has no extra pockets and the half-inch nylon shoulder strap is also unpadded making it rather uncomfortable to carry.<br /><br />In conclusion... I wouldn't recommend this tripod even as a starter for someone just getting into photography it will only add frustration to the experience. Spend a little more and get a far better tripod or spend a little less and get something of equal quality.\", \"rating\": 2, \"verified_purchase\": false, \"helpful_vote\": 288}, {\"text\": \"Which is all I wanted.  It holds my camera and points it at what I want it to without any motion.  Perfect.  These version is cheap, light, and adjustable.  If you need a tripod and you're not a professional or just need to capture some home content, this does the job.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}, {\"text\": \"For a basic tripod, this is worth it. I'm not a pro photographer, but for what I want, this is more than adequate. I like to take pictures of the sky, Moon and Milky Way. Also closeups of insects on flowers. This works great.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 0}]. price: 35.99. avg rating: 4.1. review count: 10",
         "hit": false,
-        "category_match": false
+        "category_match": false,
+        "rouge": null
       },
       {
         "user": "User_user_026",
@@ -175,8 +213,11 @@
           "B08VD2NX25",
           "B07V3RB9C1"
         ],
+        "generated_text": "1. **Best recommendation**\nSennheiser RS 175 RF Wireless Headphone System\n\n2. **Why it fits the persona and conversation**\nI see you're setting up a proper home entertainment and productivity vibe with that TCL Smart TV and your Anker headphones! Since you are building out your setup, the Sennheiser is the perfect \"level up\" for your new TV. \n\nWhile your Anker headphones are great for music and general use, these Sennheisers are specifically designed for TV listening. Because they use RF (radio frequency) technology rather than standard Bluetooth, they are much better for watching movies or shows from your TV\u2014you can move around your room without worrying about the connection dropping. It also helps you enjoy that surround sound and deep bass without disturbing anyone else in the house, which is a lifesaver if you're watching late at night.\n\n3. **Any tradeoffs or cautions**\nThis is a bit of a step up in price compared to your recent budget-friendly buys (like the TCL or the Anker), so it's more of an investment. Also, please note that the headphones use AAA batteries, and while some users mentioned a very slight audio lag (latency), it\u2019s usually not noticeable when you're watching movies.",
+        "reference_text": "Everyday Italian: 125 Simple and Delicious Recipes. Giada De Laurentiis (Author). Books. [\"In the Food Network star's first book, Giada De Laurentiis helps you put a fabulous Italian dinner on the table tonight, for friends or just for the kids, with a minimum of fuss and a maximum of flavor.\", \"Everyday Italian\", \"is true to its title: the fresh, simple recipes are incredibly quick and accessible, and also utterly mouth-watering\\u2014perfect for everyday cooking. And the book is focused on the real-life considerations of what you actually have in your refrigerator and pantry (no mail-order ingredients here) and what you\\u2019re in the mood for\\u2014whether a simply sauced pasta or a hearty family-friendly roast, these great recipes cover every contingency. So, for example, you\\u2019ll find dishes that you can make solely from pantry ingredients, or those that transform lowly leftovers into exquisite entr\\u00e9es (including brilliant ideas for leftover pasta), and those that satisfy your yearning to have something sweet baking in the oven. There are 7 ways to make red sauce more interesting, 6 different preparations of the classic cutlet, 5 perfect pestos, 4 creative uses for prosciutto, 3 variations on basic polenta, 2 great steaks, and 1 sublime chocolate tiramis\\u00f9\\u2014plus 100 other recipes that turn everyday ingredients into speedy but special dinners. What\\u2019s more,\", \"Everyday Italian\", \"is organized according to what type of food you want tonight\\u2014whether a soul-warming stew for Sunday supper, a quick saut\\u00e9 for a weeknight, or a baked pasta for potluck. These categories will help you figure out what to cook in an instant, with such choices as fresh-from-the-pantry appetizers, sauceless pastas, everyday roasts, and stuffed vegetables\\u2014whatever you\\u2019re in the mood for, you\\u2019ll be able to find a simple, delicious recipe for it here. That\\u2019s the beauty of Italian home cooking, and that\\u2019s what Giada De Laurentiis offers here\\u2014the essential recipes to make a great Italian dinner. Tonight.\"]. {\"Publisher\": \"Clarkson Potter; First Edition (February 22, 2005)\", \"Language\": \"English\", \"Hardcover\": \"256 pages\", \"ISBN 10\": \"1400052580\", \"ISBN 13\": \"978-1400052585\", \"Item Weight\": \"2.14 pounds\", \"Dimensions\": \"7.78 x 0.81 x 9.76 inches\"}. [{\"text\": \"Those of us who watch Food Network are familiar with some of the top names in cooking, and Giada De Laurentiis comes up in the Top 10 list. Her presentation skills, youth appearance wearing a low-cut top attracts many viewers and her cooking techniques are simple and choice of the recipes on her show is marginal. Yet for those of us who are interested in Italian cooking with an American touch, we have to look for her recopies. Until now we had to depend on recipes published on the Food Network. In this long-awaited first book, she does the same as she does on her show - helps you put Italian dinner on the table for friends or just for the kids with a minimum effort and a maximum of flavor. The book reveals sevaral ways to make red sauce, Pesto and Polenta. The price of the book is too steep, and I would recommend this if you are familiar with her show and know what to expect from the book.\", \"rating\": 3, \"verified_purchase\": false, \"helpful_vote\": 8}, {\"text\": \"This cookbook is very very good. I would recommend it to anyone that likes red sauce of any kind. Her instructions are easy to follow.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}, {\"text\": \"I cook and I really like to cook. When I have the time, I love to cook. Mostly, this is because I enjoy eating what I cook. Others do too! I have bought a few cookbooks over the years. However, I just bought a new one: [[ASIN:1455596892 Pinot, Pasta, and Parties]]. While reviewing it I mentioned that this one by Giada was the last one I bought, back in 2005. It has stood the test of time! I bought it because there were things in there I hadn't cooked, like her Chicken Cacciatore and Orecchiette with Spicy Sausage and Broccoli Rabe, two recipes that I had never made, but wanted to. I make them, and others, all the time now.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}]. price: 18.12. avg rating: 4.333. review count: 6",
         "hit": false,
-        "category_match": false
+        "category_match": false,
+        "rouge": null
       },
       {
         "user": "User_user_012",
@@ -194,783 +235,26 @@
           "1574219952",
           "B0BM5353Z3"
         ],
+        "generated_text": "1. Best recommendation: Notebook Doodles Go Girl!: Coloring & Activity Book (Design Originals) 30 Inspiring Designs; Beginner-Friendly Empowering Art Activities for Tweens, on High-Quality Extra-Thick Perforated Paper\n2. Why it fits: it is the safest practical choice for User_user_012 based on the retrieved options and keeps value for money in mind.\n3. Tradeoffs or cautions: if the user needs a more specific feature set, they should compare the top few options before buying.\nBridge suggestion: Brew & Browse",
+        "reference_text": "The Secret Orphan: The heartbreaking and gripping World War 2 historical novel. Glynis Peters (Author)   Format: Kindle Edition. Books. [\"The USA Today bestseller\", \"This is a stunning and memorable page-turner of love, loss and resilience for fans of\", \"The Tattooist of Auschwitz\", \"Don\\u2019t miss\", \"The Red Cross Orphans\", \", the brand new historical novel from Glynis Peters coming in November 2021\", \"Keep her secret.\", \"Keep her safe.\", \"On the 14th November 1940, Hitler\\u2019s bombs rain down on Coventry. From the rubble of a bombed-out family home, a young girl is saved\\u2026\", \"As the Nazis\\u2019 relentless bombs fall during the Blitz of Coventry, six-year-old Rose Sherbourne finds herself orphaned and under the guardianship of a Cornish farmer's daughter, Elenor Cardew.\", \"Elenor knows that the only way to protect spirited Rose is to leave the city and make a new life for themselves away from harm. But soon Elenor discovers that Hitler\\u2019s firestorm is not the only thing she must fear when she learns a devastating secret about Rose\\u2026\", \"With Rose\\u2019s life in imminent danger, Elenor turns to the only person she can trust to keep the deadly secret, heroic Canadian pilot, Jackson St John. And amidst the destruction of war, an unlikely romance blossoms as they find a way to protect the child they have both grown to love\\u2026and each other.\", \"Readers LOVE\", \"The Secret Orphan\", \":\", \"\\u2018Keeps you wanting to read\", \"into the small hours\", \"\\u2019 Lisa, Goodreads\", \"\\u2018The\", \"best\", \"and most beautiful book\", \"I've read in a long time\", \"\\u2019 Brid, Netgalley\", \"\\u2018Simply\", \"amazing\", \"\\u2019 Rikki-Doodlebug's Book Reviews\", \"\\u2018\", \"Captivated\", \"from beginning to end\\u2019 Jessyca, Goodreads\", \"\\u2018A\", \"gripping, page turner\", \"set in WWII \\u2026 Loved it\\u2019 Amanda, Netgalley\"]. {\"Publisher\": \"One More Chapter (November 9, 2018)\", \"Publication date\": \"November 9, 2018\", \"Language\": \"English\", \"File size\": \"1765 KB\", \"Text to Speech\": \"Enabled\", \"Screen Reader\": \"Supported\", \"Enhanced typesetting\": \"Enabled\", \"X Ray\": \"Enabled\", \"Word Wise\": \"Enabled\", \"Sticky notes\": \"On Kindle Scribe\", \"Print length\": \"402 pages\"}. [{\"text\": \"Thank you Netgally, This book was great. Rose is a little girl who  lived with her parents and a old lady her Mother worked for. This was during War world 2. Elenor  comes to live with  her Aunt Maude to help care for her at end of her life. She meets little Rose then and falls deeply in love with the little girl when she see's the girl is neglected by her parents . One day as Elenor is out doing errands she meets a handsome man named Jackson .<br />  So much happends but Rose looses both parents, Elenor looses her Aunt who she grew very close to and both her brothers who treated her so terrible .She moves back to her farm runs it Rose ends up with her  where she ends up Adopting little Rose after Rose's parents are both killed. Elenor  marries Jackson and he,Elenor and Rose live a happy life. .<br />  This is a great read.. I truly enjoyed it.\", \"rating\": 5, \"verified_purchase\": false, \"helpful_vote\": 2}, {\"text\": \"It\\u2019s hard for me to pinpoint exactly why this novel fell flat for me. It might have been the fact that I felt like the author could not decide exactly what story she wanted to tell.  Regardless of her intent, I found the story was neither heartbreaking nor gripping as advertised in the title.  It was in fact a meandering tale of a very young woman caught up in the privations of war trying to run a farm and raise the orphaned daughter of her Aunt\\u2019s housekeeper and the housekeeper\\u2019s husband.<br /><br />The story opens at what will be the novel\\u2019s end, a fairly common device.  There is a long segment of Elenor\\u2019s life with her Aunt and her Aunt\\u2019s housekeeper, her husband and their daughter.  It is during this time that the author lays down some heavy hints pointing to what will be the novel\\u2019s BIG SECRET.  There is some havey-cavey goings on with the housekeeper and husband and trust me, you won\\u2019t have any trouble figuring that intrigue out and will likely guess the BIG SECRET long before it\\u2019s revealed.<br /><br />The story\\u2019s next major segment is in Cornwall in Southern England, Elenor\\u2019s birthplace and the location of her family farm.  It is in this section, that the novel bogs down with too much not too interesting details of life on the farm.  In this segment, the Elenor\\u2019s and Jackson\\u2019s love story begins and we get the story that the author really wanted to write.<br /><br />Bottom line, this book is just okay.  I don\\u2019t regret reading but I doubt I\\u2019ll think about it again once I finish writing this review.\", \"rating\": 3, \"verified_purchase\": true, \"helpful_vote\": 2}, {\"text\": \"It's interesting how various countries infiltrated and spied on each other. Rose \\ud83c\\udf39was fortunate child; there were many orphans during WWII who were never adopted and grew up in orphanages and seldom adopted and were not exposed to natural parental love. This story convinced me that Rose's natural parents were most likely German spies.  The ending was perfect.\", \"rating\": 5, \"verified_purchase\": true, \"helpful_vote\": 1}]. price: 0.99. avg rating: 4.6. review count: 5",
         "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_000",
-        "ground_truth_product": "1641529776",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B08Y28TY6Q",
-          "B0BVGF6PTC",
-          "B01DUF3UVC",
-          "B0BJ7QMYBF",
-          "B0C1V5SRCW",
-          "B0BQV27MZ7",
-          "B07NRBL8CM",
-          "B0BMQN7L6B",
-          "B00T9QONN6",
-          "B06XHWWJRW"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_036",
-        "ground_truth_product": "0307461300",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B0791T9CV7",
-          "B0BMQN7L6B",
-          "B07456BG8N",
-          "B0BM5353Z3",
-          "B076K6QXF5",
-          "0740785397",
-          "B0C6D2TBZ7",
-          "B0C4Y7T5Z3",
-          "B010BWYDYA",
-          "B0170RBJ9Q"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_005",
-        "ground_truth_product": "B0BXM1MVWN",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B08QTVZKFV",
-          "B00TE8XKIS",
-          "B0BMGZXST9",
-          "B0B2V9KS41",
-          "B0BF59V2F7",
-          "B007HCCNJU",
-          "B09ZTXZ1MQ",
-          "B0C2TNX859",
-          "B0C82BRRX1",
-          "0756634687"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_007",
-        "ground_truth_product": "B00HUVUSZ4",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B01DUF3UVC",
-          "B01LLANEAU",
-          "B0BJ7QMYBF",
-          "0486478483",
-          "B0BMQN7L6B",
-          "B0C4LF1T4X",
-          "1412799538",
-          "B0B75PV61F",
-          "B0BZ5HGVQP",
-          "B07H9YX94V"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_013",
-        "ground_truth_product": "B01LYHEC16",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B078C6N6CR",
-          "B07CMZZN4N",
-          "B07YY8YMQ4",
-          "B075NTQJ3D",
-          "B08MBX4FNC",
-          "B07GK3LQVC",
-          "B07W42V3CY",
-          "B07QYL62CZ",
-          "B08HGHSZ8N",
-          "B07PR21291"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_004",
-        "ground_truth_product": "1465475516",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B08SM7QW5K",
-          "B018K5EJCQ",
-          "B00X5P8BJO",
-          "B0C82BRRX1",
-          "B0BPN2DXC1",
-          "B00E4TOWR0",
-          "B07SSDKNSL",
-          "B0BZHMK2Y9",
-          "B005ONMDYE",
-          "B00QRPPCMI"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_027",
-        "ground_truth_product": "B07C9C7N4G",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B07CYZGQ12",
-          "B0BZVGQ1M3",
-          "B091K4WYD1",
-          "B0BMQN7L6B",
-          "B08K4PNJ7C",
-          "B08XD4N3K4",
-          "B0170RBJ9Q",
-          "B07KSPDR2K",
-          "B00WUN9PE2",
-          "B07R9QJS9L"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_037",
-        "ground_truth_product": "B07HL5SDPQ",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B0BBR71NCL",
-          "B08K4FTDW6",
-          "B09QLBKCZ3",
-          "B083NYMDDH",
-          "B09CYHT3VK",
-          "B0BMQN7L6B",
-          "B08Y8FSTMT",
-          "B077ZVBJH2",
-          "B081DGFQDL",
-          "B08N5TC2Z3"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_023",
-        "ground_truth_product": "B00YYZEQ1G",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B082X666WZ",
-          "B082T84YJQ",
-          "B072FHJVT2",
-          "B0C3ZV9NNY",
-          "B01N9P860N",
-          "B0756HHHL2",
-          "B01F9RH0R4",
-          "B0B5D96R42",
-          "B082T78RKN",
-          "B082T7HDGT"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_038",
-        "ground_truth_product": "141694737X",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B07ZWJR9GD",
-          "B08K4PNJ7C",
-          "B0170RBJ9Q",
-          "B07S5JVP78",
-          "B07VD3M6M3",
-          "B07S3ZY1HG",
-          "B0721MP41Q",
-          "B08J83TR22",
-          "B0B59QBY9G",
-          "B00LP6CFEC"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_007",
-        "ground_truth_product": "1483839826",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B08J79T7CQ",
-          "B08M8Y6473",
-          "B07M87KRKR",
-          "B08GLRVD95",
-          "B00LWHUBPO",
-          "B01BKUB6BA",
-          "B007HCCNJU",
-          "B011WESR1G",
-          "B005GRMGLS",
-          "B01A08E70K"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_001",
-        "ground_truth_product": "B002PEP4SC",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "1501100076",
-          "1450845800",
-          "1780677553",
-          "B07HF55K3P",
-          "1645671127",
-          "B00P42WROG",
-          "1423645588",
-          "1451627289",
-          "1781574332",
-          "B00ARK6SUO"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_039",
-        "ground_truth_product": "B07V2DMFM6",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B0BQJG3KGN",
-          "B0BQ3VKQG9",
-          "B00T9QONN6",
-          "B0BT22X92B",
-          "B0BQRNFHCV",
-          "B06XX29S9Q",
-          "B0772Y1FVD",
-          "B07ZYH9R2C",
-          "B08SBZJQG4",
-          "B08TJXX3MD"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_027",
-        "ground_truth_product": "B01MYMMZS1",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "1497200873",
-          "1574219723",
-          "1574219952",
-          "1941325173",
-          "0399579044",
-          "1497200156",
-          "0486478483",
-          "1412799538",
-          "1645671127",
-          "1449498388"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_000",
-        "ground_truth_product": "0769677436",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B0C82BRRX1",
-          "B0C6D2TBZ7",
-          "B07FP8VLXS",
-          "B091JB6HQ7",
-          "B00QRPPCMI",
-          "B079TGL2BZ",
-          "B0BPN2DXC1",
-          "B007HCCNJU",
-          "B01K1IO3QW",
-          "B0819N8RP8"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_039",
-        "ground_truth_product": "B01K8B8YA8",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B00WUN9PE2",
-          "B07WXZXWDV",
-          "B0BNC1QBH6",
-          "B08K4PNJ7C",
-          "B00PKTU83U",
-          "B0BNV9818Q",
-          "B08K2S5B88",
-          "B07T85W8P7",
-          "B07G7VT8KQ",
-          "B07V3RB9C1"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_011",
-        "ground_truth_product": "B092JDKT8F",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B07JZT6YMB",
-          "B08DJ24VMB",
-          "B07718V6S8",
-          "B09554QF7L",
-          "B0C337TNGS",
-          "B0C33824RM",
-          "B07WC183S5",
-          "B08J83TR22",
-          "B09JQMJHXY",
-          "B0C338S8M7"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_022",
-        "ground_truth_product": "B01DA0YCNC",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B07J2FGZSM",
-          "B007HCCNJU",
-          "B09F81Q875",
-          "B00EHFJGW2",
-          "B09F7TGV1H",
-          "B00LWHUBPO",
-          "B011WESR1G",
-          "B007OZNUCE",
-          "B07NPK4PY4",
-          "B01A08E70K"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_026",
-        "ground_truth_product": "B0BTP3N2HC",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B07KR62YBD",
-          "B01G8JO5F2",
-          "B07VD3M6M3",
-          "B09S6ZWPS5",
-          "B07NK8G2HH",
-          "B09F3RBZB6",
-          "B01N6DC2ZE",
-          "B07S5JVP78",
-          "B00LP6CFEC",
-          "B07S3ZY1HG"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_010",
-        "ground_truth_product": "1683371356",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B07KSPDR2K",
-          "B0170RBJ9Q",
-          "B0B62FJF1J",
-          "B00L3KSKYY",
-          "B0154RZUH6",
-          "B0816GVJVW",
-          "B00WUN9PE2",
-          "B07VD3M6M3",
-          "B08K4PNJ7C",
-          "B006T9ZKAQ"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_039",
-        "ground_truth_product": "B07DQF8LHL",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B09PZMVHQB",
-          "B09SFXWW5M",
-          "B08N5TC2Z3",
-          "B0BJKGH183",
-          "B07D22Z8GQ",
-          "B083NYMDDH",
-          "B0BBR71NCL",
-          "B0BMG8VFNW",
-          "B08Y8FSTMT",
-          "B0BDF98BNH"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_019",
-        "ground_truth_product": "B09KV19HQ5",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B0C3NMZ2C7",
-          "B09KWWZ67B",
-          "B01N183L5E",
-          "B09B36FJVT",
-          "B07H936BZT",
-          "B0189XYW08",
-          "B010O0CBHU",
-          "B00LWHU9D8",
-          "B08Z31SKBB",
-          "B075XN1NZC"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_026",
-        "ground_truth_product": "1933615893",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B083TH1B45",
-          "B092W3K376",
-          "B001TIG36C",
-          "B07CXQRMLQ",
-          "B0B5153M52",
-          "B08DJRFLBX",
-          "B00SFSU53G",
-          "B09T1KWVP5",
-          "B01N0VNIA9",
-          "B0BYDKHZVC"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_005",
-        "ground_truth_product": "B01DOB6YQA",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B083NYMDDH",
-          "B07SYW3XL1",
-          "B08DKR85CX",
-          "B08Y8FSTMT",
-          "B07T65DRZW",
-          "B0BBR71NCL",
-          "B0BB6XM417",
-          "B09QLBKCZ3",
-          "B0BDF98BNH",
-          "B081DGFQDL"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_023",
-        "ground_truth_product": "B00S5K0CAU",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "1574219952",
-          "0399579044",
-          "1497200156",
-          "1574219723",
-          "0316543535",
-          "1780677553",
-          "076369245X",
-          "0486286541",
-          "B08HYTVDQ6",
-          "1982989815"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_011",
-        "ground_truth_product": "B077W8JVFY",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B07SYW3XL1",
-          "B08FVMRW4D",
-          "B083NYMDDH",
-          "B08Y8FSTMT",
-          "B09CYHT3VK",
-          "B0BBR71NCL",
-          "B09QLBKCZ3",
-          "B0BB6XM417",
-          "B07QKPCWN5",
-          "B08WQ55H4Y"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_011",
-        "ground_truth_product": "B09JRV9PP4",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "1574219952",
-          "0399579044",
-          "1524715123",
-          "1780677553",
-          "B0057Z7EIY",
-          "B007HCCNJU",
-          "1683371550",
-          "1988923026",
-          "0692637702",
-          "1497200156"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_034",
-        "ground_truth_product": "0786965592",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B08MBX4FNC",
-          "B07YY8YMQ4",
-          "B0BYJJHWJ9",
-          "B078C6N6CR",
-          "B075NTQJ3D",
-          "B002VPE1Q6",
-          "B007HCCNJU",
-          "B06XT1BD3X",
-          "B08F7TDSZ2",
-          "B018Y23MNM"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_015",
-        "ground_truth_product": "1492671525",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B09GBPVD27",
-          "B00GUXZE6Q",
-          "B0B3JVPY1K",
-          "B091JB6HQ7",
-          "B07XFBBLT3",
-          "B07TJLM1YM",
-          "B09Y89DRDG",
-          "B01LZV6TYQ",
-          "B07S4MFN8Z",
-          "B08BG7J2MN"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_014",
-        "ground_truth_product": "B002KQ6BT6",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B00SMBG8QY",
-          "B0C4Y7T5Z3",
-          "B01LW71IBJ",
-          "B00SMBFZNG",
-          "B07TRQ9JSH",
-          "B0BJQ8TH85",
-          "B07XFBBLT3",
-          "B08LZKCGQ6",
-          "B09Q5BNT76",
-          "B07X2586Y5"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_038",
-        "ground_truth_product": "B075NWYMRY",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B08JQ42WFN",
-          "B0BGS23YKX",
-          "B0BG4BVXPZ",
-          "B08VWZRB92",
-          "B09QL59Q12",
-          "B07XYSV4KJ",
-          "B09RZFJT88",
-          "B0C557PVVR",
-          "B082D4W9FV",
-          "B08395G597"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_005",
-        "ground_truth_product": "B00AESRRQS",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B0C337TNGS",
-          "B08K4PNJ7C",
-          "B0C337RV7Q",
-          "B0170RBJ9Q",
-          "B0BMQN7L6B",
-          "B08WCGKBT9",
-          "B0C338S8M7",
-          "B076K6QXF5",
-          "B07KSPDR2K",
-          "B07Q5CPHX2"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_007",
-        "ground_truth_product": "B000HKGK8Y",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B01G69E69E",
-          "B092RVYFG2",
-          "B079TGL2BZ",
-          "B08LYQT6C6",
-          "B07S6X6RLG",
-          "B01K1IO3QW",
-          "B00EHFJGW2",
-          "B07538T649",
-          "B00T9QONN6",
-          "B00Q5W5BUQ"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_002",
-        "ground_truth_product": "0789327724",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B06VX1PKQ7",
-          "B07F4MYW5B",
-          "B0C6D2TBZ7",
-          "B09472VM57",
-          "B00LWHU9D8",
-          "B08TRCQHWZ",
-          "B07V42PDX8",
-          "B007HCCNJU",
-          "B08W5G45PR",
-          "B07FN9PR61"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_008",
-        "ground_truth_product": "1941325173",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B07CYZGQ12",
-          "B08K4PNJ7C",
-          "B08WCGKBT9",
-          "B0BZVGQ1M3",
-          "B091K4WYD1",
-          "B09GFWZGK8",
-          "B07KSPDR2K",
-          "B076K6QXF5",
-          "B07VD3M6M3",
-          "B07S5JVP78"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_038",
-        "ground_truth_product": "1646112199",
-        "ground_truth_category": "Books",
-        "recommended_products": [
-          "B08518LVFD",
-          "B0BMQN7L6B",
-          "B07XFBBLT3",
-          "B0B59QBY9G",
-          "B07X2586Y5",
-          "B0C1V5SRCW",
-          "B0BJ7QMYBF",
-          "B08K4PNJ7C",
-          "B0BZVGQ1M3",
-          "B07CYZGQ12"
-        ],
-        "hit": false,
-        "category_match": false
-      },
-      {
-        "user": "User_user_014",
-        "ground_truth_product": "B08BRJ98H3",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B0BDF98BNH",
-          "B010BWYDYA",
-          "B00VKIY9RG",
-          "B083NYMDDH",
-          "B08Y8FSTMT",
-          "B081DGFQDL",
-          "B018Y23MNM",
-          "B00FB50SBU",
-          "B002VPE1Q6",
-          "B08BH87FPJ"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_018",
-        "ground_truth_product": "B0BL3B12HK",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B0B62FJF1J",
-          "B08K4PNJ7C",
-          "B076K6QXF5",
-          "B01EL7VTC0",
-          "B09GFWZGK8",
-          "B0170RBJ9Q",
-          "B0105VDCZ8",
-          "B07VD3M6M3",
-          "B08J83TR22",
-          "B07CYZGQ12"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_002",
-        "ground_truth_product": "B0093162RM",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B09ZLL36JF",
-          "B01N0VNIA9",
-          "B01ITOFEX6",
-          "B0C3HNDTW1",
-          "B0BPMNH8LD",
-          "B010O0CBHU",
-          "B00LWHU9D8",
-          "B07F2GQGTY",
-          "B07V2RK8ZB",
-          "B083ZJYDRV"
-        ],
-        "hit": false,
-        "category_match": true
-      },
-      {
-        "user": "User_user_017",
-        "ground_truth_product": "B07KKMWWXB",
-        "ground_truth_category": "Electronics",
-        "recommended_products": [
-          "B077JFK5YH",
-          "B07VXXBTX4",
-          "B07FP8VLXS",
-          "B010BWYDYA",
-          "B0C82BRRX1",
-          "B0791T9CV7",
-          "B00L9EPT8O",
-          "B0BPN2DXC1",
-          "B07456BG8N",
-          "B01K8B8YA8"
-        ],
-        "hit": false,
-        "category_match": true
+        "category_match": true,
+        "rouge": null
       }
     ]
   },
   "cross_domain": {
-    "accuracy": 0.8,
-    "bridge_precision": 0.8571,
+    "accuracy": 0.9,
+    "bridge_precision": 1.0,
     "bridge_restraint": 0.6667,
-    "num_passed": 8,
+    "num_passed": 9,
     "num_total": 10,
     "details": [
       {
         "message": "I need to keep working during power outages",
         "expected_intent": "remote_work_setup",
         "actual_intent": "remote_work_setup",
-        "confidence": 0.95,
+        "confidence": 0.9,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
@@ -985,7 +269,7 @@
         "message": "I want to start working out at home",
         "expected_intent": "fitness_journey",
         "actual_intent": "fitness_journey",
-        "confidence": 0.9,
+        "confidence": 0.98,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
@@ -1067,7 +351,7 @@
         "message": "We just had a baby and need to get everything ready",
         "expected_intent": "baby_family_prep",
         "actual_intent": "baby_family_prep",
-        "confidence": 0.9,
+        "confidence": 0.98,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
@@ -1082,7 +366,7 @@
         "message": "I need a new HDMI cable for my monitor",
         "expected_intent": "general_browsing",
         "actual_intent": "remote_work_setup",
-        "confidence": 0.75,
+        "confidence": 0.85,
         "should_bridge": false,
         "actual_bridged": true,
         "bridge_correct": false,
@@ -1096,17 +380,21 @@
       {
         "message": "Setting up a complete home office since I just went fully remote",
         "expected_intent": "remote_work_setup",
-        "actual_intent": "general_browsing",
-        "confidence": 0.45,
+        "actual_intent": "remote_work_setup",
+        "confidence": 0.95,
         "should_bridge": true,
-        "actual_bridged": false,
-        "bridge_correct": false,
-        "locations": [],
-        "passed": false
+        "actual_bridged": true,
+        "bridge_correct": true,
+        "locations": [
+          "digital_nomad_cafe_spot_6.5087",
+          "co-work_lagos_6.4976",
+          "digital_nomad_cafe_spot_9.0349"
+        ],
+        "passed": true
       }
     ]
   },
-  "timestamp": "2026-05-23T05:01:43.970118",
+  "timestamp": "2026-05-23T13:42:16.645933",
   "config": {
     "api_url": "http://localhost:8000",
     "top_k": 10,

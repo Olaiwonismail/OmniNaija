@@ -113,7 +113,7 @@ def retrieve_products(query: str, top_k: int = 10, persist_dir: str = "chroma_db
 	return normalized_results
 
 
-def should_bridge(state: Dict[str, Any], threshold: float = 0.7) -> bool:
+def should_bridge(state: Dict[str, Any], threshold: float = 0.6) -> bool:
 	"""Return True if the intent confidence meets or exceeds the threshold."""
 	intent = state.get("intent") if isinstance(state, dict) else None
 	if not intent:
