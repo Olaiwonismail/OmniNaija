@@ -1,0 +1,418 @@
+{
+  "review_simulation": {
+    "rmse": 0.9165,
+    "num_valid_predictions": 50,
+    "num_total_cases": 50,
+    "details": [
+      {
+        "user": "User_user_020",
+        "ground_truth_product": "B00ZPT3UB2",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_028",
+        "ground_truth_product": "B07XJTDDC5",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_003",
+        "ground_truth_product": "B07ZZVX1F2",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_021",
+        "ground_truth_product": "1101965339",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_009",
+        "ground_truth_product": "0316225983",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_008",
+        "ground_truth_product": "B09KH1J658",
+        "actual_rating": 1.0,
+        "predicted_rating": 4.0,
+        "squared_error": 9.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_032",
+        "ground_truth_product": "B0C447ZT7H",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_009",
+        "ground_truth_product": "B07BX4X77P",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_026",
+        "ground_truth_product": "1400052580",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_012",
+        "ground_truth_product": "B07CKQV7F8",
+        "actual_rating": 3.0,
+        "predicted_rating": 5.0,
+        "squared_error": 4.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_000",
+        "ground_truth_product": "1641529776",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_036",
+        "ground_truth_product": "0307461300",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_005",
+        "ground_truth_product": "B0BXM1MVWN",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_007",
+        "ground_truth_product": "B00HUVUSZ4",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_013",
+        "ground_truth_product": "B01LYHEC16",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_004",
+        "ground_truth_product": "1465475516",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_027",
+        "ground_truth_product": "B07C9C7N4G",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_037",
+        "ground_truth_product": "B07HL5SDPQ",
+        "actual_rating": 2.0,
+        "predicted_rating": 4.0,
+        "squared_error": 4.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_023",
+        "ground_truth_product": "B00YYZEQ1G",
+        "actual_rating": 4.0,
+        "predicted_rating": 4.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_038",
+        "ground_truth_product": "141694737X",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_007",
+        "ground_truth_product": "1483839826",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_001",
+        "ground_truth_product": "B002PEP4SC",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_039",
+        "ground_truth_product": "B07V2DMFM6",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_027",
+        "ground_truth_product": "B01MYMMZS1",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_000",
+        "ground_truth_product": "0769677436",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_039",
+        "ground_truth_product": "B01K8B8YA8",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_011",
+        "ground_truth_product": "B092JDKT8F",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_022",
+        "ground_truth_product": "B01DA0YCNC",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_026",
+        "ground_truth_product": "B0BTP3N2HC",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_010",
+        "ground_truth_product": "1683371356",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_039",
+        "ground_truth_product": "B07DQF8LHL",
+        "actual_rating": 2.0,
+        "predicted_rating": 5.0,
+        "squared_error": 9.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_019",
+        "ground_truth_product": "B09KV19HQ5",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_026",
+        "ground_truth_product": "1933615893",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_005",
+        "ground_truth_product": "B01DOB6YQA",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_023",
+        "ground_truth_product": "B00S5K0CAU",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_011",
+        "ground_truth_product": "B077W8JVFY",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_011",
+        "ground_truth_product": "B09JRV9PP4",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_034",
+        "ground_truth_product": "0786965592",
+        "actual_rating": 3.0,
+        "predicted_rating": 5.0,
+        "squared_error": 4.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_015",
+        "ground_truth_product": "1492671525",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_014",
+        "ground_truth_product": "B002KQ6BT6",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_038",
+        "ground_truth_product": "B075NWYMRY",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_005",
+        "ground_truth_product": "B00AESRRQS",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_007",
+        "ground_truth_product": "B000HKGK8Y",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_002",
+        "ground_truth_product": "0789327724",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_008",
+        "ground_truth_product": "1941325173",
+        "actual_rating": 3.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_038",
+        "ground_truth_product": "1646112199",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_014",
+        "ground_truth_product": "B08BRJ98H3",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_018",
+        "ground_truth_product": "B0BL3B12HK",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_002",
+        "ground_truth_product": "B0093162RM",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_017",
+        "ground_truth_product": "B07KKMWWXB",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      }
+    ]
+  },
+  "timestamp": "2026-05-23T03:59:03.270961",
+  "config": {
+    "api_url": "http://localhost:8000",
+    "mode": "standalone_rmse",
+    "num_cases_requested": 50,
+    "quick": false,
+    "chroma_path": "/workspaces/OmniNaija/chroma_db",
+    "chroma_collection": "amazon_products"
+  }
+}

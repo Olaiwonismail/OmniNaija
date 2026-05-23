@@ -10,7 +10,7 @@ from pydantic import BaseModel, Field
 
 from config import Config
 from demo_cache import get_demo_cache_response
-from llm import generate_text_with_fallback
+from llm import generate_text
 from agent.graph import (
     understand_user,
     retrieve_products,
@@ -247,7 +247,7 @@ def run_recommendation_flow(
     state = understand_user(message, persona, chat_history=history)
 
     retrieval_query = build_retrieval_query(history, message)
-    products = retrieve_products(retrieval_query, top_k=5)
+    products = retrieve_products(retrieval_query, top_k=10)
     state["products"] = products
 
     bridged = should_bridge(state)

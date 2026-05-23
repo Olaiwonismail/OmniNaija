@@ -22,7 +22,6 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-from sklearn.metrics import ndcg_score
 
 # ============================================================
 # CONFIG — adjust these to match your project
@@ -303,37 +302,36 @@ def compute_ndcg(test_results: list[dict], k: int = TOP_K) -> float:
     """
     NDCG@K: measures ranking quality — rewards placing the relevant
     item higher in the list.
+
+    Computes DCG directly from the pre-ranked recommendation list
+    instead of using sklearn's ndcg_score (which expects predicted
+    scores and re-sorts, causing false positives on tied scores).
     """
     ndcg_scores = []
-    
+
     for result in test_results:
         recommended = result["recommended_products"]
         if recommended is None:
             continue
-        
+
         gt = result["ground_truth_product"]
-        
+
         # Build relevance vector: 1 if ground truth, 0 otherwise
-        # Pad to k items if fewer were returned
-        relevance = []
-        for pid in recommended[:k]:
-            relevance.append(1.0 if pid == gt else 0.0)
-        
-        # Pad with zeros if less than k recommendations
-        while len(relevance) < k:
-            relevance.append(0.0)
-        
-        # Ideal relevance: ground truth at position 1
-        ideal = [0.0] * k
-        ideal[0] = 1.0
-        
-        # sklearn expects 2D arrays
-        try:
-            score = ndcg_score([ideal], [relevance], k=k)
-            ndcg_scores.append(score)
-        except ValueError:
+        relevance = [1.0 if pid == gt else 0.0 for pid in recommended[:k]]
+
+        # If the ground-truth item is not in the list, NDCG is 0
+        if sum(relevance) == 0:
             ndcg_scores.append(0.0)
-    
+            continue
+
+        # DCG: sum of rel_i / log2(i + 2)  (i is 0-indexed, so rank = i+1)
+        dcg = sum(rel / np.log2(i + 2) for i, rel in enumerate(relevance))
+
+        # IDCG: best possible case — single relevant item at rank 1
+        idcg = 1.0 / np.log2(2)  # = 1.0
+
+        ndcg_scores.append(dcg / idcg)
+
     if not ndcg_scores:
         return 0.0
     return float(np.mean(ndcg_scores))
@@ -694,3 +692,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

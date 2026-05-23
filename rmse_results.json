@@ -1,0 +1,98 @@
+{
+  "review_simulation": {
+    "rmse": 1.2649,
+    "num_valid_predictions": 10,
+    "num_total_cases": 10,
+    "details": [
+      {
+        "user": "User_user_020",
+        "ground_truth_product": "B00ZPT3UB2",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_028",
+        "ground_truth_product": "B07XJTDDC5",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_003",
+        "ground_truth_product": "B07ZZVX1F2",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_021",
+        "ground_truth_product": "1101965339",
+        "actual_rating": 4.0,
+        "predicted_rating": 5.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_009",
+        "ground_truth_product": "0316225983",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_008",
+        "ground_truth_product": "B09KH1J658",
+        "actual_rating": 1.0,
+        "predicted_rating": 4.0,
+        "squared_error": 9.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_032",
+        "ground_truth_product": "B0C447ZT7H",
+        "actual_rating": 5.0,
+        "predicted_rating": 5.0,
+        "squared_error": 0.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_009",
+        "ground_truth_product": "B07BX4X77P",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_026",
+        "ground_truth_product": "1400052580",
+        "actual_rating": 5.0,
+        "predicted_rating": 4.0,
+        "squared_error": 1.0,
+        "valid_prediction": true
+      },
+      {
+        "user": "User_user_012",
+        "ground_truth_product": "B07CKQV7F8",
+        "actual_rating": 3.0,
+        "predicted_rating": 5.0,
+        "squared_error": 4.0,
+        "valid_prediction": true
+      }
+    ]
+  },
+  "timestamp": "2026-05-23T03:02:36.129122",
+  "config": {
+    "api_url": "http://localhost:8000",
+    "mode": "standalone_rmse",
+    "num_cases_requested": 10,
+    "quick": true,
+    "chroma_path": "/workspaces/OmniNaija/chroma_db",
+    "chroma_collection": "amazon_products"
+  }
+}

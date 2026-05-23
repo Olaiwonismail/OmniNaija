@@ -1,0 +1,661 @@
+{
+  "aggregated": {
+    "hit_rate": 0.0,
+    "ndcg": 0.4543559338088345,
+    "num_test_cases": 50,
+    "num_hits": 0
+  },
+  "details": [
+    {
+      "user": "User_user_020",
+      "ground_truth_product": "B00ZPT3UB2",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_028",
+      "ground_truth_product": "B07XJTDDC5",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_003",
+      "ground_truth_product": "B07ZZVX1F2",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_021",
+      "ground_truth_product": "1101965339",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_009",
+      "ground_truth_product": "0316225983",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_008",
+      "ground_truth_product": "B09KH1J658",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_032",
+      "ground_truth_product": "B0C447ZT7H",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_009",
+      "ground_truth_product": "B07BX4X77P",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_026",
+      "ground_truth_product": "1400052580",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_012",
+      "ground_truth_product": "B07CKQV7F8",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_000",
+      "ground_truth_product": "1641529776",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_036",
+      "ground_truth_product": "0307461300",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_005",
+      "ground_truth_product": "B0BXM1MVWN",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_007",
+      "ground_truth_product": "B00HUVUSZ4",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_013",
+      "ground_truth_product": "B01LYHEC16",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_004",
+      "ground_truth_product": "1465475516",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_027",
+      "ground_truth_product": "B07C9C7N4G",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_037",
+      "ground_truth_product": "B07HL5SDPQ",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_023",
+      "ground_truth_product": "B00YYZEQ1G",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_038",
+      "ground_truth_product": "141694737X",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_007",
+      "ground_truth_product": "1483839826",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_001",
+      "ground_truth_product": "B002PEP4SC",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_039",
+      "ground_truth_product": "B07V2DMFM6",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_027",
+      "ground_truth_product": "B01MYMMZS1",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_000",
+      "ground_truth_product": "0769677436",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_039",
+      "ground_truth_product": "B01K8B8YA8",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_011",
+      "ground_truth_product": "B092JDKT8F",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_022",
+      "ground_truth_product": "B01DA0YCNC",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_026",
+      "ground_truth_product": "B0BTP3N2HC",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_010",
+      "ground_truth_product": "1683371356",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_039",
+      "ground_truth_product": "B07DQF8LHL",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_019",
+      "ground_truth_product": "B09KV19HQ5",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_026",
+      "ground_truth_product": "1933615893",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_005",
+      "ground_truth_product": "B01DOB6YQA",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_023",
+      "ground_truth_product": "B00S5K0CAU",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_011",
+      "ground_truth_product": "B077W8JVFY",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_011",
+      "ground_truth_product": "B09JRV9PP4",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_034",
+      "ground_truth_product": "0786965592",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_015",
+      "ground_truth_product": "1492671525",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_014",
+      "ground_truth_product": "B002KQ6BT6",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_038",
+      "ground_truth_product": "B075NWYMRY",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_005",
+      "ground_truth_product": "B00AESRRQS",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_007",
+      "ground_truth_product": "B000HKGK8Y",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_002",
+      "ground_truth_product": "0789327724",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_008",
+      "ground_truth_product": "1941325173",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_038",
+      "ground_truth_product": "1646112199",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_014",
+      "ground_truth_product": "B08BRJ98H3",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_018",
+      "ground_truth_product": "B0BL3B12HK",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_002",
+      "ground_truth_product": "B0093162RM",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    },
+    {
+      "user": "User_user_017",
+      "ground_truth_product": "B07KKMWWXB",
+      "recommended_products": [
+        "B09B36FJVT",
+        "B0C6D2TBZ7",
+        "B0C3W6FDNV",
+        "B007HCCNJU",
+        "B08K4PNJ7C"
+      ],
+      "hit": false,
+      "ndcg_at_k": 0.45435593380883454
+    }
+  ],
+  "k": 10
+}

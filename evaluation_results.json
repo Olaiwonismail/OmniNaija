@@ -1,611 +1,969 @@
 {
   "ranking": {
     "hit_rate": 0.0,
-    "ndcg": 0.4544,
+    "ndcg": 0.0,
+    "category_match_rate": 0.6,
     "num_test_cases": 50,
     "num_hits": 0,
+    "num_category_matches": 30,
     "details": [
       {
         "user": "User_user_020",
         "ground_truth_product": "B00ZPT3UB2",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B01HHURN3W",
           "B07CMZZN4N",
           "B078C6N6CR",
           "1574219952",
-          "B07YY8YMQ4"
+          "B07YY8YMQ4",
+          "B07C9H4JY8",
+          "0486456420",
+          "B0C3HNDTW1",
+          "B08MBX4FNC",
+          "B0057Z7EIY"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_028",
         "ground_truth_product": "B07XJTDDC5",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B07SSDKNSL",
           "B07TJLM1YM",
           "B00LWHUBPO",
           "B0B59QBY9G",
-          "B09GBPVD27"
+          "B09GBPVD27",
+          "B0BMQN7L6B",
+          "B0BPN2DXC1",
+          "B0BJ7QMYBF",
+          "B0C82BRRX1",
+          "B07XFBBLT3"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_003",
         "ground_truth_product": "B07ZZVX1F2",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B091964YKR",
           "B07VD3M6M3",
           "B08K4PNJ7C",
           "B07XFBBLT3",
-          "B0BNZ2785V"
+          "B0BNZ2785V",
+          "B07TJLM1YM",
+          "B0BMQN7L6B",
+          "B07S5JVP78",
+          "B07NK8G2HH",
+          "B07CYZGQ12"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_021",
         "ground_truth_product": "1101965339",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B0C9DP86HZ",
           "B083NYMDDH",
           "B07T65DRZW",
           "B09QLBKCZ3",
-          "B0BCPC68J6"
+          "B0BCPC68J6",
+          "B07SYW3XL1",
+          "B082FJXVW6",
+          "B0BDF98BNH",
+          "B0BBR71NCL",
+          "B07QKPCWN5"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_009",
         "ground_truth_product": "0316225983",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B07SYW3XL1",
           "B083NYMDDH",
           "B0BBR71NCL",
           "B081DGFQDL",
-          "B09CYHT3VK"
+          "B09CYHT3VK",
+          "B09QLBKCZ3",
+          "B0BDF98BNH",
+          "B08Y8FSTMT",
+          "B01HPADPCW",
+          "B08FVMRW4D"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_008",
         "ground_truth_product": "B09KH1J658",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B074FTRZ8H",
           "B0819N8RP8",
           "B0C4XQTB8W",
           "B08HRLQNY3",
-          "B0C5PHZ4QS"
+          "B0C5PHZ4QS",
+          "B09682TWD8",
+          "B083YHS7SV",
+          "B002VPE1WK",
+          "B09554QF7L",
+          "B007HCCNJU"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_032",
         "ground_truth_product": "B0C447ZT7H",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B010BWYDYA",
           "B01J94T4R2",
           "B0189XYW08",
           "B01J94SWWU",
-          "B01MTF2Z37"
+          "B01MTF2Z37",
+          "B0794ZR7T8",
+          "B00VKIY9RG",
+          "B00LWHU9D8",
+          "B08YFJ1D9V",
+          "B07H936BZT"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_009",
         "ground_truth_product": "B07BX4X77P",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "1492670022",
           "1492677671",
           "1948703246",
           "1423163249",
-          "1641525290"
+          "1641525290",
+          "1948703505",
+          "B00AQM9HS8",
+          "1936493616",
+          "1450845800",
+          "088743147X"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_026",
         "ground_truth_product": "1400052580",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B08K4PNJ7C",
           "B00WUN9PE2",
           "B076K6QXF5",
           "B0170RBJ9Q",
-          "B09GFWZGK8"
+          "B09GFWZGK8",
+          "B0B59QBY9G",
+          "B071WGSZ81",
+          "B08K2S5B88",
+          "B08VD2NX25",
+          "B07V3RB9C1"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_012",
         "ground_truth_product": "B07CKQV7F8",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "1497200156",
           "1988923026",
           "B0C4XQTB8W",
           "0486413608",
-          "B007HCCNJU"
+          "B007HCCNJU",
+          "0764125958",
+          "0744039568",
+          "B0BMQN7L6B",
+          "1574219952",
+          "B0BM5353Z3"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_000",
         "ground_truth_product": "1641529776",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B08Y28TY6Q",
           "B0BVGF6PTC",
           "B01DUF3UVC",
           "B0BJ7QMYBF",
-          "B0C1V5SRCW"
+          "B0C1V5SRCW",
+          "B0BQV27MZ7",
+          "B07NRBL8CM",
+          "B0BMQN7L6B",
+          "B00T9QONN6",
+          "B06XHWWJRW"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_036",
         "ground_truth_product": "0307461300",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B0791T9CV7",
           "B0BMQN7L6B",
           "B07456BG8N",
           "B0BM5353Z3",
-          "B076K6QXF5"
+          "B076K6QXF5",
+          "0740785397",
+          "B0C6D2TBZ7",
+          "B0C4Y7T5Z3",
+          "B010BWYDYA",
+          "B0170RBJ9Q"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_005",
         "ground_truth_product": "B0BXM1MVWN",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B08QTVZKFV",
           "B00TE8XKIS",
           "B0BMGZXST9",
           "B0B2V9KS41",
-          "B0BF59V2F7"
+          "B0BF59V2F7",
+          "B007HCCNJU",
+          "B09ZTXZ1MQ",
+          "B0C2TNX859",
+          "B0C82BRRX1",
+          "0756634687"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_007",
         "ground_truth_product": "B00HUVUSZ4",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B01DUF3UVC",
           "B01LLANEAU",
           "B0BJ7QMYBF",
           "0486478483",
-          "B0BMQN7L6B"
+          "B0BMQN7L6B",
+          "B0C4LF1T4X",
+          "1412799538",
+          "B0B75PV61F",
+          "B0BZ5HGVQP",
+          "B07H9YX94V"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_013",
         "ground_truth_product": "B01LYHEC16",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B078C6N6CR",
           "B07CMZZN4N",
           "B07YY8YMQ4",
           "B075NTQJ3D",
-          "B08MBX4FNC"
+          "B08MBX4FNC",
+          "B07GK3LQVC",
+          "B07W42V3CY",
+          "B07QYL62CZ",
+          "B08HGHSZ8N",
+          "B07PR21291"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_004",
         "ground_truth_product": "1465475516",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B08SM7QW5K",
           "B018K5EJCQ",
           "B00X5P8BJO",
           "B0C82BRRX1",
-          "B0BPN2DXC1"
+          "B0BPN2DXC1",
+          "B00E4TOWR0",
+          "B07SSDKNSL",
+          "B0BZHMK2Y9",
+          "B005ONMDYE",
+          "B00QRPPCMI"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_027",
         "ground_truth_product": "B07C9C7N4G",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B07CYZGQ12",
           "B0BZVGQ1M3",
           "B091K4WYD1",
           "B0BMQN7L6B",
-          "B08K4PNJ7C"
+          "B08K4PNJ7C",
+          "B08XD4N3K4",
+          "B0170RBJ9Q",
+          "B07KSPDR2K",
+          "B00WUN9PE2",
+          "B07R9QJS9L"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_037",
         "ground_truth_product": "B07HL5SDPQ",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B0BBR71NCL",
           "B08K4FTDW6",
           "B09QLBKCZ3",
           "B083NYMDDH",
-          "B09CYHT3VK"
+          "B09CYHT3VK",
+          "B0BMQN7L6B",
+          "B08Y8FSTMT",
+          "B077ZVBJH2",
+          "B081DGFQDL",
+          "B08N5TC2Z3"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_023",
         "ground_truth_product": "B00YYZEQ1G",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B082X666WZ",
           "B082T84YJQ",
           "B072FHJVT2",
           "B0C3ZV9NNY",
-          "B01N9P860N"
+          "B01N9P860N",
+          "B0756HHHL2",
+          "B01F9RH0R4",
+          "B0B5D96R42",
+          "B082T78RKN",
+          "B082T7HDGT"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_038",
         "ground_truth_product": "141694737X",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B07ZWJR9GD",
           "B08K4PNJ7C",
           "B0170RBJ9Q",
           "B07S5JVP78",
-          "B07VD3M6M3"
+          "B07VD3M6M3",
+          "B07S3ZY1HG",
+          "B0721MP41Q",
+          "B08J83TR22",
+          "B0B59QBY9G",
+          "B00LP6CFEC"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_007",
         "ground_truth_product": "1483839826",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B08J79T7CQ",
           "B08M8Y6473",
           "B07M87KRKR",
           "B08GLRVD95",
-          "B00LWHUBPO"
+          "B00LWHUBPO",
+          "B01BKUB6BA",
+          "B007HCCNJU",
+          "B011WESR1G",
+          "B005GRMGLS",
+          "B01A08E70K"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_001",
         "ground_truth_product": "B002PEP4SC",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "1501100076",
           "1450845800",
           "1780677553",
           "B07HF55K3P",
-          "1645671127"
+          "1645671127",
+          "B00P42WROG",
+          "1423645588",
+          "1451627289",
+          "1781574332",
+          "B00ARK6SUO"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_039",
         "ground_truth_product": "B07V2DMFM6",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B0BQJG3KGN",
           "B0BQ3VKQG9",
           "B00T9QONN6",
           "B0BT22X92B",
-          "B0BQRNFHCV"
+          "B0BQRNFHCV",
+          "B06XX29S9Q",
+          "B0772Y1FVD",
+          "B07ZYH9R2C",
+          "B08SBZJQG4",
+          "B08TJXX3MD"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_027",
         "ground_truth_product": "B01MYMMZS1",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "1497200873",
           "1574219723",
           "1574219952",
           "1941325173",
-          "0399579044"
+          "0399579044",
+          "1497200156",
+          "0486478483",
+          "1412799538",
+          "1645671127",
+          "1449498388"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_000",
         "ground_truth_product": "0769677436",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B0C82BRRX1",
           "B0C6D2TBZ7",
           "B07FP8VLXS",
           "B091JB6HQ7",
-          "B00QRPPCMI"
+          "B00QRPPCMI",
+          "B079TGL2BZ",
+          "B0BPN2DXC1",
+          "B007HCCNJU",
+          "B01K1IO3QW",
+          "B0819N8RP8"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_039",
         "ground_truth_product": "B01K8B8YA8",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B00WUN9PE2",
           "B07WXZXWDV",
           "B0BNC1QBH6",
           "B08K4PNJ7C",
-          "B00PKTU83U"
+          "B00PKTU83U",
+          "B0BNV9818Q",
+          "B08K2S5B88",
+          "B07T85W8P7",
+          "B07G7VT8KQ",
+          "B07V3RB9C1"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_011",
         "ground_truth_product": "B092JDKT8F",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B07JZT6YMB",
           "B08DJ24VMB",
           "B07718V6S8",
           "B09554QF7L",
-          "B0C337TNGS"
+          "B0C337TNGS",
+          "B0C33824RM",
+          "B07WC183S5",
+          "B08J83TR22",
+          "B09JQMJHXY",
+          "B0C338S8M7"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_022",
         "ground_truth_product": "B01DA0YCNC",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B07J2FGZSM",
           "B007HCCNJU",
           "B09F81Q875",
           "B00EHFJGW2",
-          "B09F7TGV1H"
+          "B09F7TGV1H",
+          "B00LWHUBPO",
+          "B011WESR1G",
+          "B007OZNUCE",
+          "B07NPK4PY4",
+          "B01A08E70K"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_026",
         "ground_truth_product": "B0BTP3N2HC",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B07KR62YBD",
           "B01G8JO5F2",
           "B07VD3M6M3",
           "B09S6ZWPS5",
-          "B07NK8G2HH"
+          "B07NK8G2HH",
+          "B09F3RBZB6",
+          "B01N6DC2ZE",
+          "B07S5JVP78",
+          "B00LP6CFEC",
+          "B07S3ZY1HG"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_010",
         "ground_truth_product": "1683371356",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B07KSPDR2K",
           "B0170RBJ9Q",
           "B0B62FJF1J",
           "B00L3KSKYY",
-          "B0154RZUH6"
+          "B0154RZUH6",
+          "B0816GVJVW",
+          "B00WUN9PE2",
+          "B07VD3M6M3",
+          "B08K4PNJ7C",
+          "B006T9ZKAQ"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_039",
         "ground_truth_product": "B07DQF8LHL",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B09PZMVHQB",
           "B09SFXWW5M",
           "B08N5TC2Z3",
           "B0BJKGH183",
-          "B07D22Z8GQ"
+          "B07D22Z8GQ",
+          "B083NYMDDH",
+          "B0BBR71NCL",
+          "B0BMG8VFNW",
+          "B08Y8FSTMT",
+          "B0BDF98BNH"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_019",
         "ground_truth_product": "B09KV19HQ5",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B0C3NMZ2C7",
           "B09KWWZ67B",
           "B01N183L5E",
           "B09B36FJVT",
-          "B07H936BZT"
+          "B07H936BZT",
+          "B0189XYW08",
+          "B010O0CBHU",
+          "B00LWHU9D8",
+          "B08Z31SKBB",
+          "B075XN1NZC"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_026",
         "ground_truth_product": "1933615893",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B083TH1B45",
           "B092W3K376",
           "B001TIG36C",
           "B07CXQRMLQ",
-          "B0B5153M52"
+          "B0B5153M52",
+          "B08DJRFLBX",
+          "B00SFSU53G",
+          "B09T1KWVP5",
+          "B01N0VNIA9",
+          "B0BYDKHZVC"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_005",
         "ground_truth_product": "B01DOB6YQA",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B083NYMDDH",
           "B07SYW3XL1",
           "B08DKR85CX",
           "B08Y8FSTMT",
-          "B07T65DRZW"
+          "B07T65DRZW",
+          "B0BBR71NCL",
+          "B0BB6XM417",
+          "B09QLBKCZ3",
+          "B0BDF98BNH",
+          "B081DGFQDL"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_023",
         "ground_truth_product": "B00S5K0CAU",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "1574219952",
           "0399579044",
           "1497200156",
           "1574219723",
-          "0316543535"
+          "0316543535",
+          "1780677553",
+          "076369245X",
+          "0486286541",
+          "B08HYTVDQ6",
+          "1982989815"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_011",
         "ground_truth_product": "B077W8JVFY",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B07SYW3XL1",
           "B08FVMRW4D",
           "B083NYMDDH",
           "B08Y8FSTMT",
-          "B09CYHT3VK"
+          "B09CYHT3VK",
+          "B0BBR71NCL",
+          "B09QLBKCZ3",
+          "B0BB6XM417",
+          "B07QKPCWN5",
+          "B08WQ55H4Y"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_011",
         "ground_truth_product": "B09JRV9PP4",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "1574219952",
           "0399579044",
           "1524715123",
           "1780677553",
-          "B0057Z7EIY"
+          "B0057Z7EIY",
+          "B007HCCNJU",
+          "1683371550",
+          "1988923026",
+          "0692637702",
+          "1497200156"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_034",
         "ground_truth_product": "0786965592",
-        "recommended_products": [],
-        "hit": false
+        "ground_truth_category": "Books",
+        "recommended_products": [
+          "B08MBX4FNC",
+          "B07YY8YMQ4",
+          "B0BYJJHWJ9",
+          "B078C6N6CR",
+          "B075NTQJ3D",
+          "B002VPE1Q6",
+          "B007HCCNJU",
+          "B06XT1BD3X",
+          "B08F7TDSZ2",
+          "B018Y23MNM"
+        ],
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_015",
         "ground_truth_product": "1492671525",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B09GBPVD27",
           "B00GUXZE6Q",
           "B0B3JVPY1K",
           "B091JB6HQ7",
-          "B07XFBBLT3"
+          "B07XFBBLT3",
+          "B07TJLM1YM",
+          "B09Y89DRDG",
+          "B01LZV6TYQ",
+          "B07S4MFN8Z",
+          "B08BG7J2MN"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_014",
         "ground_truth_product": "B002KQ6BT6",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B00SMBG8QY",
           "B0C4Y7T5Z3",
           "B01LW71IBJ",
           "B00SMBFZNG",
-          "B07TRQ9JSH"
+          "B07TRQ9JSH",
+          "B0BJQ8TH85",
+          "B07XFBBLT3",
+          "B08LZKCGQ6",
+          "B09Q5BNT76",
+          "B07X2586Y5"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_038",
         "ground_truth_product": "B075NWYMRY",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B08JQ42WFN",
           "B0BGS23YKX",
           "B0BG4BVXPZ",
           "B08VWZRB92",
-          "B09QL59Q12"
+          "B09QL59Q12",
+          "B07XYSV4KJ",
+          "B09RZFJT88",
+          "B0C557PVVR",
+          "B082D4W9FV",
+          "B08395G597"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_005",
         "ground_truth_product": "B00AESRRQS",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B0C337TNGS",
           "B08K4PNJ7C",
           "B0C337RV7Q",
           "B0170RBJ9Q",
-          "B0BMQN7L6B"
+          "B0BMQN7L6B",
+          "B08WCGKBT9",
+          "B0C338S8M7",
+          "B076K6QXF5",
+          "B07KSPDR2K",
+          "B07Q5CPHX2"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_007",
         "ground_truth_product": "B000HKGK8Y",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B01G69E69E",
           "B092RVYFG2",
           "B079TGL2BZ",
           "B08LYQT6C6",
-          "B07S6X6RLG"
+          "B07S6X6RLG",
+          "B01K1IO3QW",
+          "B00EHFJGW2",
+          "B07538T649",
+          "B00T9QONN6",
+          "B00Q5W5BUQ"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_002",
         "ground_truth_product": "0789327724",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B06VX1PKQ7",
           "B07F4MYW5B",
           "B0C6D2TBZ7",
           "B09472VM57",
-          "B00LWHU9D8"
+          "B00LWHU9D8",
+          "B08TRCQHWZ",
+          "B07V42PDX8",
+          "B007HCCNJU",
+          "B08W5G45PR",
+          "B07FN9PR61"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_008",
         "ground_truth_product": "1941325173",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B07CYZGQ12",
           "B08K4PNJ7C",
           "B08WCGKBT9",
           "B0BZVGQ1M3",
-          "B091K4WYD1"
+          "B091K4WYD1",
+          "B09GFWZGK8",
+          "B07KSPDR2K",
+          "B076K6QXF5",
+          "B07VD3M6M3",
+          "B07S5JVP78"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_038",
         "ground_truth_product": "1646112199",
+        "ground_truth_category": "Books",
         "recommended_products": [
           "B08518LVFD",
           "B0BMQN7L6B",
           "B07XFBBLT3",
           "B0B59QBY9G",
-          "B07X2586Y5"
+          "B07X2586Y5",
+          "B0C1V5SRCW",
+          "B0BJ7QMYBF",
+          "B08K4PNJ7C",
+          "B0BZVGQ1M3",
+          "B07CYZGQ12"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": false
       },
       {
         "user": "User_user_014",
         "ground_truth_product": "B08BRJ98H3",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B0BDF98BNH",
           "B010BWYDYA",
           "B00VKIY9RG",
           "B083NYMDDH",
-          "B08Y8FSTMT"
+          "B08Y8FSTMT",
+          "B081DGFQDL",
+          "B018Y23MNM",
+          "B00FB50SBU",
+          "B002VPE1Q6",
+          "B08BH87FPJ"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_018",
         "ground_truth_product": "B0BL3B12HK",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B0B62FJF1J",
           "B08K4PNJ7C",
           "B076K6QXF5",
           "B01EL7VTC0",
-          "B09GFWZGK8"
+          "B09GFWZGK8",
+          "B0170RBJ9Q",
+          "B0105VDCZ8",
+          "B07VD3M6M3",
+          "B08J83TR22",
+          "B07CYZGQ12"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_002",
         "ground_truth_product": "B0093162RM",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B09ZLL36JF",
           "B01N0VNIA9",
           "B01ITOFEX6",
           "B0C3HNDTW1",
-          "B0BPMNH8LD"
+          "B0BPMNH8LD",
+          "B010O0CBHU",
+          "B00LWHU9D8",
+          "B07F2GQGTY",
+          "B07V2RK8ZB",
+          "B083ZJYDRV"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       },
       {
         "user": "User_user_017",
         "ground_truth_product": "B07KKMWWXB",
+        "ground_truth_category": "Electronics",
         "recommended_products": [
           "B077JFK5YH",
           "B07VXXBTX4",
           "B07FP8VLXS",
           "B010BWYDYA",
-          "B0C82BRRX1"
+          "B0C82BRRX1",
+          "B0791T9CV7",
+          "B00L9EPT8O",
+          "B0BPN2DXC1",
+          "B07456BG8N",
+          "B01K8B8YA8"
         ],
-        "hit": false
+        "hit": false,
+        "category_match": true
       }
     ]
   },
   "cross_domain": {
-    "accuracy": 0.9,
-    "bridge_precision": 1.0,
+    "accuracy": 0.8,
+    "bridge_precision": 0.8571,
     "bridge_restraint": 0.6667,
-    "num_passed": 9,
+    "num_passed": 8,
     "num_total": 10,
     "details": [
       {
@@ -616,7 +974,6 @@
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [
           "digital_nomad_cafe_spot_6.5087",
           "co-work_lagos_6.4976",
@@ -628,11 +985,10 @@
         "message": "I want to start working out at home",
         "expected_intent": "fitness_journey",
         "actual_intent": "fitness_journey",
-        "confidence": 0.95,
+        "confidence": 0.9,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [
           "muscle_mansion_place_6.4016",
           "vitality_gym_place_6.4704",
@@ -648,7 +1004,6 @@
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": false,
         "locations": [
           "celebration_hall_center_apapa_6.4538",
           "elite_occasions_express_wuye_9.0066",
@@ -664,7 +1019,6 @@
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [
           "heritage_kitchen_place_6.5701",
           "heritage_kitchen_center_6.5877",
@@ -676,11 +1030,10 @@
         "message": "I need a new phone case",
         "expected_intent": "general_browsing",
         "actual_intent": "general_browsing",
-        "confidence": 0.55,
+        "confidence": 0.45,
         "should_bridge": false,
         "actual_bridged": false,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [],
         "passed": true
       },
@@ -688,11 +1041,10 @@
         "message": "Looking for a USB cable",
         "expected_intent": "general_browsing",
         "actual_intent": "general_browsing",
-        "confidence": 0.5,
+        "confidence": 0.45,
         "should_bridge": false,
         "actual_bridged": false,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [],
         "passed": true
       },
@@ -700,11 +1052,10 @@
         "message": "I want to set up a cozy reading corner at home",
         "expected_intent": "reading_habit",
         "actual_intent": "reading_habit",
-        "confidence": 0.9,
+        "confidence": 0.95,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [
           "brew_&_browse_9.0003",
           "bloom_clinic__maitama_9.0622",
@@ -716,11 +1067,10 @@
         "message": "We just had a baby and need to get everything ready",
         "expected_intent": "baby_family_prep",
         "actual_intent": "baby_family_prep",
-        "confidence": 0.95,
+        "confidence": 0.9,
         "should_bridge": true,
         "actual_bridged": true,
         "bridge_correct": true,
-        "intent_correct": true,
         "locations": [
           "parent_&_child_center_6.4201",
           "parent_&_child_place_9.0461",
@@ -732,11 +1082,10 @@
         "message": "I need a new HDMI cable for my monitor",
         "expected_intent": "general_browsing",
         "actual_intent": "remote_work_setup",
-        "confidence": 0.85,
+        "confidence": 0.75,
         "should_bridge": false,
         "actual_bridged": true,
         "bridge_correct": false,
-        "intent_correct": false,
         "locations": [
           "digital_nomad_cafe_spot_6.5087",
           "co-work_lagos_6.4976",
@@ -747,25 +1096,21 @@
       {
         "message": "Setting up a complete home office since I just went fully remote",
         "expected_intent": "remote_work_setup",
-        "actual_intent": "remote_work_setup",
-        "confidence": 0.95,
+        "actual_intent": "general_browsing",
+        "confidence": 0.45,
         "should_bridge": true,
-        "actual_bridged": true,
-        "bridge_correct": true,
-        "intent_correct": true,
-        "locations": [
-          "digital_nomad_cafe_spot_6.5087",
-          "co-work_lagos_6.4976",
-          "digital_nomad_cafe_spot_9.0349"
-        ],
-        "passed": true
+        "actual_bridged": false,
+        "bridge_correct": false,
+        "locations": [],
+        "passed": false
       }
     ]
   },
-  "timestamp": "2026-05-22T04:17:19.643307",
+  "timestamp": "2026-05-23T05:01:43.970118",
   "config": {
     "api_url": "http://localhost:8000",
     "top_k": 10,
-    "bridge_threshold": 0.6
+    "bridge_threshold": 0.6,
+    "review_sim_enabled": false
   }
 }
