@@ -35,8 +35,26 @@ def understand_user(message: str, persona: Any, chat_history: Any = None, state:
 	return state
 
 
-def build_retrieval_query(chat_history: list[dict[str, Any]] | None, current_message: str) -> str:
-	"""Build a richer retrieval query from the current turn and prior conversation."""
+def build_retrieval_query(chat_history: list[dict[str, Any]] | None, current_message: str, persona: Dict[str, Any] | None = None) -> str:
+	"""Build a richer retrieval query from the current turn and prior conversation.
+
+	When *persona* includes ``recent_product_titles``, the query is anchored on
+	the most recent 1-2 product titles so the vector search returns items that
+	are complementary or similar to what the user actually bought last
+	(Recency-Anchored Retrieval).  This significantly improves exact-match
+	retrieval for generic "what should I buy next" style queries while leaving
+	intent-driven conversational queries unaffected.
+	"""
+	# --- Recency-Anchored Retrieval ---
+	if persona:
+		recent_titles = [t for t in persona.get("recent_product_titles", []) if t]
+		if recent_titles:
+			# Anchor on the last 1-2 titles — the strongest purchase signal
+			anchor_titles = recent_titles[-2:]
+			anchor = ". ".join(anchor_titles)
+			return f"{anchor}. {current_message.strip()}"
+
+	# --- Fallback: concatenate chat history (original behaviour) ---
 	parts: list[str] = []
 	if chat_history:
 		for item in chat_history:

@@ -246,7 +246,7 @@ def run_recommendation_flow(
     history = chat_history or [{"role": "user", "content": message}]
     state = understand_user(message, persona, chat_history=history)
 
-    retrieval_query = build_retrieval_query(history, message)
+    retrieval_query = build_retrieval_query(history, message, persona=persona)
     products = retrieve_products(retrieval_query, top_k=10)
     state["products"] = products
 
