@@ -6,6 +6,7 @@ from typing import Any
 
 import chromadb
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from config import Config
@@ -21,6 +22,14 @@ from agent.graph import (
 )
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 PROMPTS_DIR = Path(__file__).resolve().parent / "prompts"
 CHROMA_DIR = Path(__file__).resolve().parent / "chroma_db"
