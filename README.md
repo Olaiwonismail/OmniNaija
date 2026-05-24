@@ -46,7 +46,8 @@ Our architecture was rigorously evaluated offline using a custom test suite agai
 
 | Metric | Score | Significance |
 |--------|-------|--------------|
-| **Task A: BERTScore F1** | `0.7507` | Demonstrates high semantic fidelity in generated persona reviews. |
+| **Task A: BERTScore F1** | `0.7490` | Demonstrates high semantic fidelity in generated persona reviews. |
+| **Task B: Category-Match@10** | `58.0%` | Agent correctly identifies the exact domain of the user's next purchase out of 6,000 items. |
 | **Task B: Cross-Domain Accuracy** | `90.0%` | Agent correctly aligns Yelp venues with the user's latent Amazon intent 9 out of 10 times. |
 | **Task B: Bridge Precision** | `100.0%` | When the agent decides to bridge domains, the resulting venue is always topically relevant. |
 | **Task B: Bridge Restraint** | `66.7%` | Crucially, the agent successfully identifies weak signals and *refuses* to bridge, avoiding hallucinated connections. |
@@ -93,11 +94,22 @@ docker-compose up --build
 
 ## 🧪 Testing & Evaluation
 
-### Offline Evaluation Suite
-Run the full quantitative evaluation suite (computes BERTScore, ROUGE, Cross-Domain Accuracy):
+### Reproducing the Quantitative Results
+Judges can reproduce the exact metrics from the table above by running the offline evaluation suite. The evaluation script bypasses the HTTP API and runs entirely in-process, meaning you do not need to start the backend server first.
+
+**1. Full Ranking, Cross-Domain & Text Quality Evaluation (Task B + Task A Text)**
+Computes Category-Match, Hit Rate, ROUGE, BERTScore, and Cross-Domain Accuracy on the full 50-case test set:
 ```bash
 python evaluate_v2.py
 ```
+
+**2. Rating Accuracy / RMSE Evaluation (Task A Ratings)**
+Computes the Root Mean Squared Error for simulated review ratings:
+```bash
+python evaluate_v2.py --review-sim
+```
+
+*(Note: To run a faster 10-case verification instead of the full 50 cases, append the `--quick` flag to either command).*
 
 ### Graph Node Tests
 Exercise the LangGraph intent→retrieve→compose flow locally without the frontend:
