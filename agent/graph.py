@@ -35,26 +35,79 @@ def understand_user(message: str, persona: Any, chat_history: Any = None, state:
 	return state
 
 
-def build_retrieval_query(chat_history: list[dict[str, Any]] | None, current_message: str, persona: Dict[str, Any] | None = None) -> str:
+# ---------------------------------------------------------------------------
+# Intent -> product-search keyword expansion
+# ---------------------------------------------------------------------------
+# When the intent classifier has identified a clear need, we use curated
+# search phrases that match actual Amazon product titles in the vector DB.
+# This prevents misleading words in the user message (e.g. "light" meaning
+# "power outage") from pulling irrelevant products (LED book lights).
+INTENT_SEARCH_QUERIES: Dict[str, str] = {
+	"home_power_resilience": (
+		"portable power bank UPS inverter battery backup charger "
+		"solar generator uninterruptible power supply surge protector"
+	),
+	"remote_work_setup": (
+		"laptop stand USB hub wireless keyboard mouse monitor "
+		"webcam noise cancelling headset desk organizer"
+	),
+	"fitness_journey": (
+		"resistance bands dumbbell yoga mat fitness tracker "
+		"protein shaker gym gloves workout equipment"
+	),
+	"cooking_exploration": (
+		"blender air fryer cooking pot spice set knife set "
+		"pressure cooker kitchen utensils baking tools"
+	),
+	"reading_habit": (
+		"books novel kindle e-reader book light reading lamp "
+		"bookmark bookshelf organizer"
+	),
+	"baby_family_prep": (
+		"baby monitor diaper bag stroller car seat baby crib "
+		"nursing pillow baby bottle sterilizer"
+	),
+	"owambe_event_prep": (
+		"party decoration makeup kit gele headtie jewelry set "
+		"shoes handbag aso ebi fabric lace"
+	),
+}
+
+
+def build_retrieval_query(
+	chat_history: list[dict[str, Any]] | None,
+	current_message: str,
+	persona: Dict[str, Any] | None = None,
+	intent: Dict[str, Any] | None = None,
+) -> str:
 	"""Build a richer retrieval query from the current turn and prior conversation.
 
-	When *persona* includes ``recent_product_titles``, the query is anchored on
-	the most recent 1-2 product titles so the vector search returns items that
-	are complementary or similar to what the user actually bought last
-	(Recency-Anchored Retrieval).  This significantly improves exact-match
-	retrieval for generic "what should I buy next" style queries while leaving
-	intent-driven conversational queries unaffected.
+	Priority order:
+	1. **Recency-Anchored Retrieval** — if persona has ``recent_product_titles``
+	   we anchor on the last 1-2 titles (strongest purchase signal).
+	2. **Intent-Aware Expansion** — if a high-confidence intent is available and
+	   maps to curated product keywords, we prepend those keywords so the
+	   vector search lands on relevant products instead of being misled by
+	   ambiguous words in the raw user message.
+	3. **Fallback** — concatenate chat history (original behaviour).
 	"""
-	# --- Recency-Anchored Retrieval ---
+	# --- 1. Recency-Anchored Retrieval ---
 	if persona:
 		recent_titles = [t for t in persona.get("recent_product_titles", []) if t]
 		if recent_titles:
-			# Anchor on the last 1-2 titles — the strongest purchase signal
 			anchor_titles = recent_titles[-2:]
 			anchor = ". ".join(anchor_titles)
 			return f"{anchor}. {current_message.strip()}"
 
-	# --- Fallback: concatenate chat history (original behaviour) ---
+	# --- 2. Intent-Aware Expansion ---
+	if intent:
+		intent_label = intent.get("intent", "")
+		confidence = float(intent.get("confidence", 0))
+		if intent_label in INTENT_SEARCH_QUERIES and confidence >= 0.6:
+			keywords = INTENT_SEARCH_QUERIES[intent_label]
+			return f"{keywords}. {current_message.strip()}"
+
+	# --- 3. Fallback: concatenate chat history ---
 	parts: list[str] = []
 	if chat_history:
 		for item in chat_history:
@@ -156,13 +209,17 @@ def retrieve_locations(bridge_category: str | None = None, top_k: int = 5, persi
 	collection = client.get_collection(name=collection_name)
 
 	if bridge_category:
-		# Map some known bridge categories into friendly search phrases
+		# Map known bridge categories into friendly search phrases
 		mapping = {
 			"cafes_with_power": "cafes with generator and reliable power, good for remote work",
 			"remote_work_setup": "cafes or coworking spaces with power backup and WiFi",
+			"power_backup": "cafes and coworking spaces with backup generator and reliable power supply for charging devices and staying online",
 			"gyms_nearby": "gyms and fitness centers nearby",
 			"gyms_and_fitness": "gyms and fitness centers with generator and WiFi",
 			"events_and_owambe": "event venues and owambe halls with generator and WiFi",
+			"kitchen_tools_and_recipes": "restaurants and food markets with good kitchen and local cuisine",
+			"books_and_reading": "bookshops cafes and libraries with quiet reading spaces",
+			"baby_and_family": "family friendly cafes and parks with children play areas",
 		}
 		query_text = mapping.get(bridge_category, bridge_category.replace("_", " "))
 	else:
