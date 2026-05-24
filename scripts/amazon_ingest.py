@@ -115,11 +115,11 @@ def collect_reviews(file_key, min_reviews, target_products, max_reviews_per_prod
     for row in iter_jsonl(review_path):
         scanned += 1
         if scanned % 25000 == 0:
-            print(f"  [{scanned:,} reviews scanned] → {len(complete)} complete products", end="\r")
+            print(f"  [{scanned:,} reviews scanned] -> {len(complete)} complete products", end="\r")
 
         # Stop early once we have enough
         if len(complete) >= target_products:
-            print(f"\n  Early stop at {scanned:,} reviews — got {len(complete)} products.")
+            print(f"\n  Early stop at {scanned:,} reviews - got {len(complete)} products.")
             break
 
         parent_asin = row.get("parent_asin") or row.get("asin")
@@ -147,7 +147,7 @@ def collect_reviews(file_key, min_reviews, target_products, max_reviews_per_prod
             complete.add(parent_asin)
 
     else:
-        print(f"\n  Reached end of reviews at {scanned:,} rows — got {len(complete)} products.")
+        print(f"\n  Reached end of reviews at {scanned:,} rows - got {len(complete)} products.")
 
     # Only return products that met the threshold
     result = {}
@@ -177,7 +177,7 @@ def collect_meta(file_key, target_asins):
     for row in iter_jsonl(meta_path):
         scanned += 1
         if scanned % 5000 == 0:
-            print(f"  [{scanned:,} meta rows] → {len(meta)} matched", end="\r")
+            print(f"  [{scanned:,} meta rows] -> {len(meta)} matched", end="\r")
 
         parent_asin = row.get("parent_asin")
         if parent_asin in remaining:
@@ -191,6 +191,7 @@ def collect_meta(file_key, target_asins):
 
     else:
         print(f"\n  Meta scan done at {scanned:,} rows. Matched {len(meta)}/{len(target_asins)}.")
+
 
     return meta
 

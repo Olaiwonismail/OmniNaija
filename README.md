@@ -134,6 +134,65 @@ docker-compose up --build
 
 ---
 
+## 🔌 API Endpoints (Task Deliverables)
+
+FastAPI serves the containerized REST API endpoints mapped exactly to the hackathon deliverables:
+
+### 1. Task A: User Modeling (Review & Rating Simulation)
+*   **Endpoint:** `POST /simulate`
+*   **Description:** Takes a user persona description and a product ID as input. Simulates a star rating and written review matching that persona's historical context, biases, and dialect (Nigerian Pidgin/English).
+*   **Request Payload:**
+    ```json
+    {
+      "persona_description": {
+        "name": "Tobi",
+        "occupation": "freelance developer",
+        "location": "Yaba, Lagos",
+        "traits": ["budget-conscious", "values backup power"]
+      },
+      "product_id": "Electronics:B07Y11LT52",
+      "demo_mode": false
+    }
+    ```
+*   **Response Payload:**
+    ```json
+    {
+      "rating": 5,
+      "review": "Omo, this charger na life saver o! With the constant NEPA issues here for Yaba, it keeps my phone and router powered all day..."
+    }
+    ```
+
+### 2. Task B: Personalised Recommendation (Intent Graph & Cross-Domain Bridge)
+*   **Endpoint:** `POST /recommend`
+*   **Description:** Multi-turn conversational endpoint that takes a user persona and message history, retrieves context-relevant Amazon products, and triggers the Cross-Domain Bridge to recommend localized Yelp venues (e.g., generator-backed cafes/gyms) when a high-confidence intent is classified.
+*   **Request Payload:**
+    ```json
+    {
+      "persona_description": "A freelance developer in Lagos seeking laptop gear",
+      "message": "My power is out again. What should I buy next to stay online?",
+      "session_id": "optional-session-123",
+      "demo_mode": false
+    }
+    ```
+*   **Response Payload:**
+    ```json
+    {
+      "session_id": "optional-session-123",
+      "recommendation": "1. Recommended Product: Anker Power Bank... 2. Cross-Domain Spot: We highly recommend checking out Yaba Hub Cafe, which has strong generator backup and WiFi...",
+      "intent": {
+        "intent": "remote_work_setup",
+        "confidence": 0.92,
+        "bridge_category": "cafes_with_power"
+      },
+      "debug": {
+        "bridged": true,
+        "locations": ["yaba_hub_cafe_6.452"]
+      }
+    }
+    ```
+
+---
+
 ## 🧪 Testing & Offline Evaluation
 
 Run the evaluation suite in-process (no server startup required):
