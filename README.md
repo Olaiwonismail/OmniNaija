@@ -57,10 +57,11 @@ Our architecture was rigorously evaluated offline using a custom test suite agai
 ## 🛠 Tech Stack & Architecture
 
 - **Orchestration:** LangGraph (State-machine flow for predictable, debuggable reasoning)
-- **Primary LLM:** Gemini 2.x Flash (Fast, multilingual, excellent Pidgin comprehension)
-- **Fallback LLM:** OpenAI `gpt-4o-mini` (Configurable via environment variables)
+- **Primary LLM:** Gemini (via Google API - Fast, multilingual, excellent Pidgin comprehension)
+- **Fallback LLM:** `llama-3.3-70b-versatile` (via Groq API for high-speed resilience)
 - **Vector Database:** ChromaDB (Local, embedded, zero-config)
-- **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2`
+- **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2` (Local semantic search)
+- **Evaluation Model:** `distilbert-base-uncased` (Used for offline BERTScore metric calculation)
 - **Backend/Frontend:** FastAPI & Streamlit
 - **Datasets:** Subset of Amazon Reviews (2023) + Yelp Nigeria Data (augmented with ~200 specific Lagos/Abuja venues)
 
