@@ -170,7 +170,9 @@ graph TD
 
 3. **Cross-Domain Bridge** — Connects Amazon products to Nigerian venue recommendations (cafes with generators, coworking spaces with WiFi) when intent confidence >= 0.6. Refuses to bridge when signal is weak (66.7% restraint rate).
 
-4. **Nigerian Persona Modeling** — Custom profiles modeling local context: Pidgin vocabulary, power grid reliance, Owambe logistics, budget constraints.
+4. **Endlessly Expandable Architecture** — While currently implemented for local Nigerian venues (Yelp-style), the Intent Graph is domain-agnostic. It can be easily expanded to bridge e-commerce with flight bookings, event ticketing, or food delivery APIs based on user intent.
+
+5. **Nigerian Persona Modeling** — Custom profiles modeling local context: Pidgin vocabulary, power grid reliance, Owambe logistics, budget constraints.
 
 ---
 
