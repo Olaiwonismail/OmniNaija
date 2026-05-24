@@ -17,6 +17,77 @@ Traditional engines are blind to emerging market context (e.g., power outages). 
 
 ---
 
+## 📐 System Architecture & Layout
+
+### Reasoning Flow (Intent Graph)
+
+```mermaid
+graph TD
+    classDef default fill:#1a1c23,stroke:#3b82f6,stroke-width:2px,color:#f3f4f6;
+    classDef data fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#34d399;
+    classDef condition fill:#1e1b4b,stroke:#f59e0b,stroke-width:2px,color:#fbbf24;
+
+    U[User Query / Chat History] --> N1(1. Understand User Node)
+    P[Nigerian Persona JSON] --> N1
+    
+    N1 -->|Intent Classify| IC[Intent Classifier]
+    IC -->|Classified Intent + Conf| STATE{State Update}
+    
+    STATE --> N2(2. Recency-Anchored Product Retrieval Node)
+    DB1[(ChromaDB: amazon_products)] <-->|all-MiniLM-L6-v2 Embeddings| N2
+    
+    N2 -->|Products| STATE
+    
+    STATE --> COND{Confidence >= 0.6?}:::condition
+    
+    COND -->|Yes: Bridge| N4(3. Yelp Venue Retrieval Node)
+    DB2[(ChromaDB: venue_locations)] <-->|Semantic Category Match| N4
+    N4 -->|Venues| STATE
+    
+    COND -->|No: Refuse| N_SKIP[Skip Venue Retrieval / Exhibited Restraint]
+    N_SKIP --> STATE
+    
+    STATE --> N5(4. Compose Response Node)
+    N5 -->|Template Synthesis| LLM{Primary Gemini LLM}
+    LLM -->|Network Failure Fallback| LLM2[Llama 3.3 70B Groq]
+    
+    LLM -->|Final Recommender Text| OUT[User Output UI / API]
+    LLM2 -->|Final Recommender Text| OUT
+```
+
+### Directory Layout
+
+```text
+OmniNaija/
+├── agent/                  # Core AI & Reasoning Orchestration (Intent & Graph Flow)
+│   ├── graph.py            # LangGraph-inspired state-machine retrieval execution
+│   └── intent.py           # Intent extraction & confidence classifier
+├── api/                    # FastAPI Backend API Server (Dockerised)
+│   └── Dockerfile          
+├── ui/                     # Streamlit Frontend Web App (Dockerised)
+│   ├── streamlit_app.py    
+│   └── Dockerfile          
+├── evaluation/             # Offline Quantitative Evaluation Suite & Metric JSONs
+│   ├── evaluate_v2.py      # Main off-line evaluator (BERTScore, hit-rates, text quality)
+│   ├── evaluate_rmse.py    # Standalone Task A simulated rating RMSE evaluator
+│   ├── evaluate.py         # Original benchmark script
+│   └── *.json              # Pre-calculated benchmark evaluation results
+├── scripts/                # Utility, Database Ingestion, and Setup Scripts
+│   ├── bootstrap.py        # 1-click clean PC setup orchestrator (Windows safe)
+│   ├── amazon_ingest.py    # HF dataset reviews-first streaming ingest
+│   ├── build_chroma.py     # Product vector database builders
+│   ├── build_venue_chroma.py# Yelp venue vector database builders
+│   ├── generate_venues.py  # Synthetic Nigerian venues dataset compiler
+│   └── sanity_check.py     # LLM Gateway connection checker
+├── personas/               # Research-anchored Nigerian context profiles (JSON)
+├── prompts/                # Raw plain-text prompt templates
+├── config.py               # Global system configuration and API loaders
+├── llm.py                  # LLM provider runner with thread-safe failure fallbacks
+└── main.py                 # Core API endpoints setup
+```
+
+---
+
 ## 📊 Quantitative Results
 Offline evaluation against held-out datasets yields the following verified metrics:
 
