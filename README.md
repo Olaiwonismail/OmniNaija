@@ -69,27 +69,36 @@ Our architecture was rigorously evaluated offline using a custom test suite agai
 
 ## 🏃‍♂️ Quick Start & Reproducibility
 
-We prioritized a zero-friction experience for judges. The repository includes pre-computed ChromaDB collections and a Dockerized environment.
+We prioritized a zero-friction experience for judges. Since large database directories (`chroma_db/`) and raw/processed datasets (`data/`) are excluded from Git to keep repository sizes small, you will need to initialize them on a clean machine before launching the server. 
+
+We have provided a **1-command bootstrap script** that automates the entire process (synthetic data generation, reviews-first HF streaming, vector database ingestion, and health checks) in one go!
 
 ### Prerequisites
+- Python 3.11+ (with `pip`)
 - Docker & Docker Compose
-- `GEMINI_API_KEY`
+- `GEMINI_API_KEY` (and optionally `GROQ_API_KEY`)
 
 ### 1-Click Launch
+
 ```bash
-# Clone repo
+# 1. Clone the repository
 git clone https://github.com/Olaiwonismail/OmniNaija.git
 cd OmniNaija
 
-# Configure environment
+# 2. Configure environment
 cp .env.example .env
-# --> Add your GEMINI_API_KEY to .env
+# --> Open .env and add your GEMINI_API_KEY (and GROQ_API_KEY if desired)
 
-# Build and start services
+# 3. Bootstrap the database and dataset (Zero-Friction Ingestion)
+pip install -r requirements.txt
+python scripts/bootstrap.py
+
+# 4. Build and start services in Docker
 docker-compose up --build
 ```
 - **Frontend UI:** [http://localhost:8501](http://localhost:8501)
 - **Backend API Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
+
 
 ---
 
