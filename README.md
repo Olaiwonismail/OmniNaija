@@ -120,13 +120,17 @@ Initialize databases, stream processed subsets, and launch the system in a clean
 git clone https://github.com/Olaiwonismail/OmniNaija.git && cd OmniNaija
 
 # 2. Add API keys
-cp .env.example .env  # Add GEMINI_API_KEY to .env
+cp .env.example .env  # fill in env variables
 
-# 3. Bootstrap data & build ChromaDB (takes < 1 min)
+# 3. Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate
+
+# 4. Bootstrap data & build ChromaDB (takes < 1 min)
 pip install -r requirements.txt
 python scripts/bootstrap.py
 
-# 4. Launch UI & API in Docker
+# 5. Launch UI & API in Docker
 docker-compose up --build
 ```
 *   **Frontend App:** [http://localhost:8501](http://localhost:8501)
