@@ -211,6 +211,6 @@ python evaluation/evaluate_v2.py --quick
 ---
 
 ## 📝 Details
-*   **Author:** Olaiwon Ismail (Solo Developer)
+*   **Author:** Olaiwon Ismail 
 *   **Event:** DSN × BCT LLM Agent Challenge Hackathon
 *   **Deep Dive:** See `solution_paper.md` for architectural design and intent mappings.
