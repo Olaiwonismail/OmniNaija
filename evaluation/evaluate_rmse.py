@@ -32,7 +32,10 @@ from evaluate_v2 import (
     to_bare_id,
 )
 
-DEFAULT_OUTPUT_PATH = "rmse_results.json"
+from pathlib import Path
+
+DEFAULT_OUTPUT_PATH = str(Path(__file__).resolve().parent / "rmse_results.json")
+
 
 
 def main():

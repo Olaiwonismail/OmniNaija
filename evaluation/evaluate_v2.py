@@ -43,19 +43,19 @@ from bert_score import score as bert_score
 
 API_BASE_URL = "http://localhost:8000"
 
-AMAZON_DATA_PATH = "data/processed/user_interactions.jsonl"
+ROOT_DIR = Path(__file__).resolve().parent.parent
+AMAZON_DATA_PATH = str(ROOT_DIR / "data/processed/user_interactions.jsonl")
 
 # --- ChromaDB (the retrieval corpus the agent actually recommends from) ---
-CHROMA_PATH = "/workspaces/OmniNaija/chroma_db"
-if not Path(CHROMA_PATH).exists():
-    CHROMA_PATH = str(Path(__file__).resolve().parent / "chroma_db")
+CHROMA_PATH = str(ROOT_DIR / "chroma_db")
 CHROMA_COLLECTION = "amazon_products"
 
 MIN_USER_REVIEWS = 5
 DEFAULT_NUM_TEST_CASES = 50
 TOP_K = 10
 BRIDGE_CONFIDENCE_THRESHOLD = 0.6
-RESULTS_OUTPUT_PATH = "evaluation_results.json"
+RESULTS_OUTPUT_PATH = str(ROOT_DIR / "evaluation/evaluation_results.json")
+
 
 
 # ============================================================

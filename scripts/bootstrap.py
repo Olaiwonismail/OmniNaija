@@ -21,7 +21,7 @@ from pathlib import Path
 
 def run_command(command, description):
     print(f"\n==================================================")
-    print(f"👉 {description}")
+    print(f"-> {description}")
     print(f"Running: {' '.join(command)}")
     print(f"==================================================")
     try:
@@ -29,9 +29,10 @@ def run_command(command, description):
         result = subprocess.run(command, check=True)
         return result.returncode == 0
     except subprocess.CalledProcessError as err:
-        print(f"\n❌ Error during: {description}")
+        print(f"\n[ERROR] Error during: {description}")
         print(err)
         sys.exit(1)
+
 
 def main():
     root_dir = Path(__file__).resolve().parent.parent
@@ -56,7 +57,7 @@ def main():
     )
 
     # Step 3: Stream and ingest Amazon reviews
-    print("\n⚠️  Note: The next step streams data directly from Hugging Face.")
+    print("\n[WARNING] Note: The next step streams data directly from Hugging Face.")
     print("It uses an efficient reviews-first streaming strategy, so only a tiny")
     print("fraction of the dataset is processed. However, a stable internet connection is required.")
     run_command(
@@ -72,7 +73,7 @@ def main():
 
     # Step 5: Build synthetic user interactions for offline evaluation
     run_command(
-        [sys.executable, "build_interactions.py"],
+        [sys.executable, "scripts/build_interactions.py"],
         "Step 5: Generating user_interactions.jsonl for evaluation"
     )
 
@@ -82,12 +83,14 @@ def main():
         "Step 6: Running diagnostic health checks"
     )
 
-    print("\n🎉 BOOTSTRAP COMPLETE! OmniNaija Lite is now fully operational.")
-    print("\n👉 To run the live frontend and API in Docker:")
+    print("\n[SUCCESS] BOOTSTRAP COMPLETE! OmniNaija Lite is now fully operational.")
+    print("\n-> To run the live frontend and API in Docker:")
     print("   docker-compose up --build")
-    print("\n👉 To reproduce the quantitative evaluation metrics locally:")
-    print("   python evaluate_v2.py")
+    print("\n-> To reproduce the quantitative evaluation metrics locally:")
+    print("   python evaluation/evaluate_v2.py")
+
     print("==================================================")
+
 
 if __name__ == "__main__":
     main()
